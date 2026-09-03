@@ -3,15 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Estadísticas | Visor de programas e infraestructura educativa CDMX</title>
-  <link rel="stylesheet" href="style.css?v=20260818-1">
+  <title>Estadísticas | Visor integral de infraestructura educativa CDMX</title>
+  <link rel="stylesheet" href="style.css?v=20260824-1">
 </head>
 <body class="stats-page">
   <main class="stats-container">
     <header class="stats-header">
-      <div><h1>Estadísticas del visor</h1><p>El resultado conserva el cruce de Programas, Mejoras y Mantenimiento seleccionado en el mapa.</p></div>
+      <div><h1>Estadísticas del visor</h1><p>Cruza directamente alcaldía, nivel, mantenimiento, mejoras y observaciones territoriales.</p></div>
       <a href="index.html">Volver al visor</a>
     </header>
+
     <section class="stats-filter-panel">
       <h2>Filtros generales</h2>
       <div class="stats-filter-grid">
@@ -19,23 +20,46 @@
         <div><label for="stNivel">Nivel educativo</label><select id="stNivel"><option value="">Todos</option></select></div>
         <div><label for="stCCT">CCT</label><input id="stCCT" type="search" placeholder="Buscar CCT"></div>
         <div><label for="stNombre">Escuela</label><input id="stNombre" type="search" placeholder="Buscar nombre"></div>
-        <div class="stats-actions"><button id="stLimpiar" class="secondary">Limpiar filtros generales</button></div>
       </div>
     </section>
+
+    <section class="stats-theme-grid">
+      <div class="stats-filter-panel">
+        <div class="stats-panel-head"><h2>Mantenimiento / Atención de Revisión</h2><div class="stats-mini-actions"><button id="stAllNeeds" type="button">Seleccionar todas</button><button id="stClearNeeds" type="button" class="secondary">Quitar todas</button></div></div>
+        <p class="stats-help">Al seleccionar varias variables, el resultado debe cumplir con todas.</p>
+        <div id="stNeeds" class="stats-check-grid"></div>
+      </div>
+      <div class="stats-filter-panel">
+        <div class="stats-panel-head"><h2>Mejoras</h2><div class="stats-mini-actions"><button id="stAllImprovements" type="button">Seleccionar todas</button><button id="stClearImprovements" type="button" class="secondary">Quitar todas</button></div></div>
+        <p class="stats-help">Al seleccionar varias mejoras, se incluyen escuelas que tengan cualquiera de ellas.</p>
+        <div id="stImprovements" class="stats-check-grid"></div>
+      </div>
+    </section>
+
+    <section class="stats-filter-panel">
+      <div class="stats-panel-head"><h2>Observaciones territoriales</h2><button id="stClearRisk" type="button" class="secondary">Quitar selección</button></div>
+      <div class="stats-risk-grid">
+        <label><input type="radio" name="stRisk" value="obs_fractura"><span>Revisión por cercanía a fracturamiento</span></label>
+        <label><input type="radio" name="stRisk" value="obs_subsidencia"><span>Seguimiento por subsidencia alta</span></label>
+        <label><input type="radio" name="stRisk" value="obs_combinada"><span>Observación territorial combinada</span></label>
+      </div>
+      <div class="stats-full-actions"><button id="stLimpiar" class="secondary" type="button">Limpiar todos los filtros</button></div>
+    </section>
+
     <section class="stats-filter-panel"><h2>Cruce activo</h2><p id="statsContext" class="stats-context">Cargando selección…</p><div id="statsTags" class="popup-flags"></div></section>
     <section class="cards">
-      <div class="card"><span>Escuelas del resultado</span><strong id="stTotal">0</strong></div>
+      <div class="card"><span>Inmuebles del resultado</span><strong id="stTotal">0</strong></div>
       <div class="card"><span>Mayor número de atenciones</span><strong id="stMax">0</strong></div>
       <div class="card"><span>Alcaldías representadas</span><strong id="stAux1">0</strong></div>
       <div class="card"><span>Promedio del índice</span><strong id="stAux2">0</strong></div>
     </section>
     <section class="grid-two">
-      <div class="table-panel"><h2>Distribución de atención</h2><table><thead><tr><th>Clasificación</th><th>Escuelas</th><th>Proporción</th></tr></thead><tbody id="tablaDistribucion"></tbody></table></div>
-      <div class="table-panel"><h2>Resultados por nivel educativo</h2><table><thead><tr><th>Nivel</th><th>Escuelas</th><th>Mayor índice</th></tr></thead><tbody id="tablaNivel"></tbody></table></div>
+      <div class="table-panel"><h2>Distribución de atención</h2><table><thead><tr><th>Clasificación</th><th>Inmuebles</th><th>Proporción</th></tr></thead><tbody id="tablaDistribucion"></tbody></table></div>
+      <div class="table-panel"><h2>Resultados por nivel educativo</h2><table><thead><tr><th>Nivel</th><th>Inmuebles</th><th>Mayor índice</th></tr></thead><tbody id="tablaNivel"></tbody></table></div>
     </section>
-    <section class="table-panel"><h2>Resultados por alcaldía</h2><table><thead><tr><th>Alcaldía</th><th>Escuelas</th><th>Mayor índice</th><th>Con reforzamiento</th><th>Proporción</th></tr></thead><tbody id="tablaAlcaldia"></tbody></table></section>
-    <section class="table-panel"><h2>Escuelas del resultado</h2><table><thead><tr><th>#</th><th>Escuela</th><th>CCT</th><th>Alcaldía</th><th>Nivel</th><th>Índice</th><th>Programas / proyectos</th></tr></thead><tbody id="tablaRanking"></tbody></table></section>
+    <section class="table-panel"><h2>Resultados por alcaldía</h2><table><thead><tr><th>Alcaldía</th><th>Inmuebles</th><th>Mayor índice</th><th>Con reforzamiento</th><th>Proporción</th></tr></thead><tbody id="tablaAlcaldia"></tbody></table></section>
+    <section class="table-panel"><h2>Inmuebles del resultado</h2><table><thead><tr><th>#</th><th>Escuela / inmueble</th><th>CCT</th><th>Alcaldía</th><th>Nivel</th><th>Índice</th><th>Mejoras registradas</th></tr></thead><tbody id="tablaRanking"></tbody></table><p class="stats-table-note">La tabla muestra hasta 500 resultados; los indicadores superiores consideran el total filtrado.</p></section>
   </main>
-  <script src="estadisticas.js?v=20260818-1"></script>
+  <script src="estadisticas.js?v=20260824-1"></script>
 </body>
 </html>

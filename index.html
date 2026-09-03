@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Visor integral de infraestructura educativa</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="style.css?v=20260818-1">
+  <link rel="stylesheet" href="style.css?v=20260824-1">
 </head>
 <body>
 <header class="topbar">
-  <div class="brand-block"><span class="eyebrow">Sistema de información geográfica</span><h1>Visor integral de infraestructura educativa</h1><p>Consulta y cruza programas, proyectos, mejoras, mantenimiento y observaciones territoriales de los planteles de la Ciudad de México.</p></div>
+  <div class="brand-block"><span class="eyebrow">Sistema de información geográfica</span><h1>Visor integral de infraestructura educativa</h1><p>Consulta y cruza mejoras, mantenimiento y observaciones territoriales de los planteles de la Ciudad de México.</p></div>
   <nav><a id="statsLink" href="estadisticas.html">Estadísticas generales</a></nav>
 </header>
 <main class="layout" id="layout">
@@ -32,7 +32,7 @@
     </section>
 
     <section class="panel">
-      <h2>Mantenimiento / Atención de Revisión</h2><p class="hint">Las variables seleccionadas se cruzan con los proyectos y mejoras activos.</p>
+      <h2>Mantenimiento / Atención de Revisión</h2><p class="hint">Las variables seleccionadas se cruzan con las mejoras y observaciones territoriales activas.</p>
       <div class="section-actions"><button type="button" id="selectAllMaintenance" class="compact-action">Seleccionar todas</button><button type="button" id="clearMaintenance" class="compact-action secondary-action">Quitar todas</button></div>
       <div id="maintenanceFilters" class="checklist"></div>
     </section>
@@ -40,7 +40,7 @@
     <section class="panel collapsible-panel">
       <button id="toggleMejoras" class="collapse-title" aria-expanded="false"><span>Mejoras</span><span id="mejorasArrow">›</span></button>
       <div id="mejorasBody" class="collapsible-body hidden">
-        <p class="hint">Puedes elegir una o varias mejoras. Dentro del apartado se muestran escuelas que cumplen cualquiera; al combinarlo con Programas o Mantenimiento se aplica un cruce.</p>
+        <p class="hint">Puedes elegir una o varias mejoras. Dentro del apartado se muestran escuelas que cumplen cualquiera; al combinarlo con Mantenimiento u Observaciones territoriales se aplica un cruce.</p>
         <div class="section-actions"><button type="button" id="selectAllMejoras" class="compact-action">Seleccionar todas</button><button type="button" id="clearMejoras" class="compact-action secondary-action">Quitar todas</button></div>
         <div id="improvementFilters" class="theme-checklist">
           <label class="inline-check"><input type="checkbox" value="fam_regular"><span>FAM Regular 2025</span></label>
@@ -54,19 +54,6 @@
         </div>
       </div>
     </section>
-
-
-    <section class="panel collapsible-panel">
-      <button id="toggleProgramas" class="collapse-title" aria-expanded="false"><span>Programas</span><span id="programasArrow">›</span></button>
-      <div id="programasBody" class="collapsible-body hidden">
-        <p class="hint">Selecciona uno o más proyectos. La selección es combinable con Mejoras y con las variables de Mantenimiento.</p>
-        <label for="programSearch">Buscar proyecto</label><input id="programSearch" type="search" placeholder="Filtrar la lista de proyectos">
-        <div class="section-actions"><button type="button" id="selectAllProgramas" class="compact-action">Seleccionar todos</button><button type="button" id="clearProgramas" class="compact-action secondary-action">Quitar todos</button></div>
-        <div class="selection-counter"><strong id="programSelectionCount">0</strong> proyectos seleccionados</div>
-        <div id="programFilters" class="program-checklist" aria-live="polite"></div>
-      </div>
-    </section>
-
     <section class="panel collapsible-panel">
       <button id="toggleRiesgos" class="collapse-title" aria-expanded="false"><span>Observaciones territoriales</span><span id="riesgosArrow">›</span></button>
       <div id="riesgosBody" class="collapsible-body hidden">
@@ -76,8 +63,14 @@
         <label class="inline-check"><input type="radio" name="riskMode" value="obs_combinada"><span>Observación territorial combinada</span></label>
         <button type="button" id="clearRiesgos" class="submenu-clear">Quitar selección</button>
         <hr class="soft-rule">
-        <label class="inline-check"><input type="checkbox" id="toggleSubsidencias"><span>Mostrar subsidencias</span></label>
-        <label class="inline-check"><input type="checkbox" id="toggleFracturamiento"><span>Mostrar fracturamiento</span></label>
+        <div class="technical-layer-block">
+          <label class="inline-check"><input type="checkbox" id="toggleSubsidencias"><span>Mostrar subsidencias</span></label>
+          <details class="technical-note"><summary>Nota técnica sobre subsidencia</summary><p>Es el descenso gradual del terreno por compactación del subsuelo. La capa representa polígonos clasificados de muy baja a muy alta según la deformación acumulada; sirve como referencia territorial y no sustituye una evaluación estructural.</p></details>
+        </div>
+        <div class="technical-layer-block">
+          <label class="inline-check"><input type="checkbox" id="toggleFracturamiento"><span>Mostrar fracturamiento</span></label>
+          <details class="technical-note"><summary>Nota técnica sobre fracturamiento</summary><p>Representa trazos superficiales de fracturas cartografiadas. El visor marca para revisión los planteles ubicados hasta 250 metros de un trazo; la proximidad es indicativa y requiere verificación técnica en campo.</p></details>
+        </div>
       </div>
     </section>
 
@@ -103,6 +96,6 @@
   </section>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="script.js?v=20260818-1"></script>
+<script src="script.js?v=20260824-1"></script>
 </body>
 </html>
