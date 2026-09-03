@@ -155,27 +155,23 @@ button:hover{transform:translateY(-1px)}
 .theme-checklist{display:grid;gap:2px}
 .theme-checklist .inline-check{padding:6px 7px;margin:0;border-radius:7px}
 .theme-checklist .inline-check:hover{background:#f1f5f9}
+.selection-counter{padding:7px 9px;margin:7px 0;color:#52677a;background:#f8fafc;border:1px solid #e2e8f0;border-radius:7px;font-size:11px}
+.selection-counter strong{color:var(--primary);font-size:14px}
+.program-checklist{max-height:430px;overflow:auto;border:1px solid var(--border);border-radius:9px;background:#fbfcfd}
+.program-group{border-bottom:1px solid #e5ebf1}
+.program-group:last-child{border-bottom:0}
+.program-group summary{display:flex;justify-content:space-between;gap:8px;padding:10px;cursor:pointer;color:#173b58;font-size:12px;font-weight:800;background:#f3f7fa}
+.program-group summary small{flex:0 0 auto;color:#64748b;font-weight:600}
+.program-group>div{padding:4px 7px}
+.program-option{align-items:flex-start;margin:0;padding:7px 5px;border-bottom:1px solid #eef2f6;font-weight:500;line-height:1.3}
+.program-option:last-child{border-bottom:0}
+.program-option span{min-width:0}
+.program-option em{display:block;margin-top:2px;color:#718096;font-size:10px;font-style:normal}
+.hidden-by-search{display:none!important}
 .cross-summary{margin:0 0 10px;padding:8px 9px;border-left:3px solid #1f4e79;background:#f2f7fb;border-radius:6px;color:#405467;font-size:11px;line-height:1.4}
 .map-status{position:absolute;left:50%;top:18px;z-index:1000;transform:translateX(-50%);padding:10px 14px;border:1px solid #cbd7e3;border-radius:9px;background:rgba(255,255,255,.96);box-shadow:var(--shadow);color:#17324d;font-size:12px;font-weight:700}
 .map-status.error{border-color:#fecaca;background:#fff7f7;color:#991b1b}
+.program-parent{margin-bottom:4px;color:#64748b;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 .info-card dd{overflow-wrap:anywhere}
 .legend-body-truncated{max-height:250px;overflow:auto}
-@media(max-width:600px){.section-actions{grid-template-columns:1fr}}
-
-/* Notas técnicas, registros CCT y cruces estadísticos */
-.technical-layer-block{margin:10px 0;padding:9px 10px;border:1px solid #dbe4ec;border-radius:9px;background:#f8fafc}
-.technical-layer-block .inline-check{margin:0}
-.technical-note{margin-top:7px;color:#52677a;font-size:11px;line-height:1.45}
-.technical-note summary{cursor:pointer;color:#174a72;font-weight:750}
-.technical-note p{margin:7px 0 0}
-.school-records{margin-top:14px}.records-scroll{overflow:auto;border:1px solid var(--border);border-radius:8px}.school-records table{min-width:470px;font-size:11px}.school-records th,.school-records td{padding:6px}
-.stats-theme-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.stats-theme-grid .stats-filter-panel{margin:0 0 16px}
-.stats-filter-panel h2{margin:0 0 10px;font-size:16px;color:#17324d}.stats-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.stats-panel-head h2{margin:0}
-.stats-mini-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.stats-mini-actions button,.stats-panel-head>button{padding:7px 9px;font-size:11px}
-.stats-help,.stats-table-note{margin:8px 0 10px;color:var(--muted);font-size:11px;line-height:1.4}
-.stats-check-grid{display:grid;grid-template-columns:repeat(2,minmax(150px,1fr));gap:3px 9px;max-height:290px;overflow:auto;padding:4px}
-.stats-check-grid label,.stats-risk-grid label{display:flex;align-items:flex-start;gap:7px;margin:0;padding:6px;border-radius:7px;font-weight:500;line-height:1.3}
-.stats-check-grid label:hover,.stats-risk-grid label:hover{background:#f1f5f9}.stats-check-grid input,.stats-risk-grid input{width:auto;margin-top:2px}
-.stats-risk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.stats-full-actions{display:flex;justify-content:flex-end;margin-top:12px}.stats-full-actions button{min-width:210px}
-@media(max-width:900px){.stats-theme-grid{grid-template-columns:1fr}.stats-risk-grid{grid-template-columns:1fr}.stats-panel-head{align-items:stretch;flex-direction:column}.stats-mini-actions{justify-content:flex-start}}
-@media(max-width:600px){.stats-check-grid{grid-template-columns:1fr}.stats-mini-actions button{flex:1}.stats-full-actions button{width:100%}}
+@media(max-width:600px){.section-actions{grid-template-columns:1fr}.program-checklist{max-height:310px}}
