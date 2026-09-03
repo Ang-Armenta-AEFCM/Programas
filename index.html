@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visor integral de infraestructura educativa</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css?v=20260824-2">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand-block"><span class="eyebrow">Sistema de información geográfica</span><h1>Visor integral de infraestructura educativa</h1><p>Consulta y cruza mejoras, mantenimiento y observaciones territoriales de los planteles de la Ciudad de México.</p></div>
+  <nav><a id="statsLink" href="estadisticas.html">Estadísticas generales</a></nav>
+</header>
+<main class="layout" id="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-head"><div><span class="panel-kicker">Herramientas</span><strong>Panel de consulta</strong></div><button id="toggleSidebar" class="icon-button" title="Ocultar menú">‹</button></div>
+
+    <section class="panel">
+      <h2>Visualización</h2>
+      <p class="hint">Elige la unidad con la que quieres ver y contar la información.</p>
+      <div class="view-mode-switch" role="radiogroup" aria-label="Unidad de visualización">
+        <label><input type="radio" name="viewMode" value="inmueble" checked><span>Por inmueble</span></label>
+        <label><input type="radio" name="viewMode" value="cct"><span>Por CCT</span></label>
+      </div>
+      <label class="inline-check"><input type="checkbox" id="toggleSchools" checked><span>Mostrar escuelas</span></label>
+      <button id="modeMaintenance" class="mode-button active" type="button">Vista general de mantenimiento</button>
+    </section>
+
+    <section class="panel">
+      <h2>Filtros generales</h2>
+      <label for="filtroAlcaldia">Alcaldía</label><select id="filtroAlcaldia"><option value="">Todas</option></select>
+      <label for="filtroNivel">Nivel educativo</label><select id="filtroNivel"><option value="">Todos</option></select>
+      <label for="buscarCCT">Buscar por CCT</label><input id="buscarCCT" list="listaCCT" type="search" placeholder="Escribe o selecciona CCT"><datalist id="listaCCT"></datalist>
+      <label for="buscarNombre">Buscar por escuela</label><input id="buscarNombre" list="listaNombres" type="search" placeholder="Nombre del inmueble"><datalist id="listaNombres"></datalist>
+      <div class="buttons single-action"><button id="btnLimpiar" class="secondary">Limpiar filtros</button></div>
+    </section>
+
+    <section class="panel">
+      <h2>Mantenimiento / Atención de Revisión</h2><p class="hint">Las variables seleccionadas se cruzan con las mejoras y observaciones territoriales activas.</p>
+      <div class="section-actions"><button type="button" id="selectAllMaintenance" class="compact-action">Seleccionar todas</button><button type="button" id="clearMaintenance" class="compact-action secondary-action">Quitar todas</button></div>
+      <div id="maintenanceFilters" class="checklist"></div>
+    </section>
+
+    <section class="panel collapsible-panel">
+      <button id="toggleMejoras" class="collapse-title" aria-expanded="false"><span>Mejoras</span><span id="mejorasArrow">›</span></button>
+      <div id="mejorasBody" class="collapsible-body hidden">
+        <p class="hint">Puedes elegir una o varias mejoras. Dentro del apartado se muestran escuelas que cumplen cualquiera; al combinarlo con Mantenimiento u Observaciones territoriales se aplica un cruce.</p>
+        <div class="section-actions"><button type="button" id="selectAllMejoras" class="compact-action">Seleccionar todas</button><button type="button" id="clearMejoras" class="compact-action secondary-action">Quitar todas</button></div>
+        <div id="improvementFilters" class="theme-checklist">
+          <label class="inline-check"><input type="checkbox" value="fam_regular"><span>FAM Regular 2025</span></label>
+          <label class="inline-check"><input type="checkbox" value="programa_123_2025"><span>1, 2, 3 por mi Escuela 2025</span></label>
+          <label class="inline-check"><input type="checkbox" value="fam_potenciado"><span>FAM Potenciado 2025</span></label>
+          <label class="inline-check"><input type="checkbox" value="fam_potenciado_basico_2026"><span>FAM Potenciado + FAM Básico 2026</span></label>
+          <label class="inline-check"><input type="checkbox" value="fam_reforzamiento"><span>FAM Reforzamiento estructural</span></label>
+          <label class="inline-check"><input type="checkbox" value="programa_123_2026"><span>1, 2, 3 por mi Escuela 2026</span></label>
+          <label class="inline-check"><input type="checkbox" value="alcaldia_apoyo"><span>Intervención de Alcaldía</span></label>
+          <label class="inline-check"><input type="checkbox" value="ambas"><span>Con mantenimiento y reforzamiento</span></label>
+        </div>
+      </div>
+    </section>
+    <section class="panel collapsible-panel">
+      <button id="toggleRiesgos" class="collapse-title" aria-expanded="false"><span>Observaciones territoriales</span><span id="riesgosArrow">›</span></button>
+      <div id="riesgosBody" class="collapsible-body hidden">
+        <p class="hint">Estas opciones identifican escuelas que ameritan revisión por su cercanía a fracturamientos o por ubicarse en zonas de subsidencia alta.</p>
+        <label class="inline-check"><input type="radio" name="riskMode" value="obs_fractura"><span>Revisión por cercanía a fracturamiento</span></label>
+        <label class="inline-check"><input type="radio" name="riskMode" value="obs_subsidencia"><span>Seguimiento por subsidencia alta</span></label>
+        <label class="inline-check"><input type="radio" name="riskMode" value="obs_combinada"><span>Observación territorial combinada</span></label>
+        <button type="button" id="clearRiesgos" class="submenu-clear">Quitar selección</button>
+        <hr class="soft-rule">
+        <div class="technical-layer-block">
+          <label class="inline-check"><input type="checkbox" id="toggleSubsidencias"><span>Mostrar subsidencias</span></label>
+          <details class="technical-note"><summary>Nota técnica sobre subsidencia</summary><p>Es el descenso gradual del terreno por compactación del subsuelo. La capa representa polígonos clasificados de muy baja a muy alta según la deformación acumulada; sirve como referencia territorial y no sustituye una evaluación estructural.</p></details>
+        </div>
+        <div class="technical-layer-block">
+          <label class="inline-check"><input type="checkbox" id="toggleFracturamiento"><span>Mostrar fracturamiento</span></label>
+          <details class="technical-note"><summary>Nota técnica sobre fracturamiento</summary><p>Representa trazos superficiales de fracturas cartografiadas. El visor marca para revisión los planteles ubicados hasta 250 metros de un trazo; la proximidad es indicativa y requiere verificación técnica en campo.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel compact">
+      <h2 id="summaryTitle">Resumen visible</h2>
+      <p id="activeCrossSummary" class="cross-summary">Sin cruces temáticos activos.</p>
+      <div class="kpis dynamic-kpis">
+        <div><strong id="kpi1">0</strong><span id="kpiLabel1">Inmuebles</span></div>
+        <div><strong id="kpi2">0</strong><span id="kpiLabel2">Mayor número de necesidades</span></div>
+        <div><strong id="kpi3">0</strong><span id="kpiLabel3">Con observación</span></div>
+        <div><strong id="kpi4">—</strong><span id="kpiLabel4">Tema</span></div>
+      </div>
+    </section>
+  </aside>
+
+  <button id="showSidebar" class="show-sidebar hidden" title="Mostrar menú">Menú</button>
+  <section class="maparea">
+    <div id="map"></div>
+    <div id="mapStatus" class="map-status">Cargando información del visor…</div>
+    <div id="legend" class="legend"><div class="legend-head"><strong id="legendTitle">Atención de Revisión Diagnóstico</strong><button id="toggleLegend">−</button></div><div id="legendBody"></div></div>
+    <div id="subsidenciaLegend" class="legend extra-legend hidden"><div class="legend-head"><strong>Subsidencia acumulada</strong><button id="toggleSubLegend">−</button></div><div id="subLegendBody"><div><span class="swatch square s-muy-bajo"></span>0 a 7 cm Muy bajo</div><div><span class="swatch square s-bajo"></span>8 a 15 cm Bajo</div><div><span class="swatch square s-medio"></span>16 a 23 cm Medio</div><div><span class="swatch square s-alto"></span>24 a 31 cm Alto</div><div><span class="swatch square s-muy-alto"></span>32 a 40 cm Muy alto</div></div></div>
+    <aside id="detailPanel" class="detail-panel"><button id="closeDetail" class="close">×</button><h2 id="detailTitle">Seleccione una escuela</h2><div id="detailContent" class="detail-content"><p>Haga clic en un punto del mapa para consultar la información.</p></div></aside>
+  </section>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js?v=20260824-2"></script>
+</body>
+</html>

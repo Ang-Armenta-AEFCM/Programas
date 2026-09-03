@@ -1,0 +1,1882 @@
+[
+  {
+    "numero": "1",
+    "codigo": "GM361",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN JUAN DE ARAGON",
+    "direccion": "CALLE 483 Y PLAZA 31 NO.  200, UNIDAD HABITACIONAL SAN JUAN DE ARAGON, ALCALDÍA GUSTAVO A. MADERO, C.P. 07920, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1379E",
+    "escuela": "ESCUELA PRIMARIA LUIS MARTÍNEZ  MURILLO"
+  },
+  {
+    "numero": "2",
+    "codigo": "MH113",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "ANAHUAC",
+    "direccion": "CALLE LAGO LADOGA NO.  300, COLONIA ANAHUAC, ALCALDÍA MIGUEL HIDALGO, C.P. 11320, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1696S",
+    "escuela": "ESCUELA PRIMARIA MODELO"
+  },
+  {
+    "numero": "3",
+    "codigo": "IP103",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "ERMITA ZARAGOZA",
+    "direccion": "CALLE CHITO VILLAGRAN, SEGUNDA SECCION NO.  36, UNIDAD HABITACIONAL ERMITA ZARAGOZA, ALCALDÍA IZTAPALAPA, C.P. 09180, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR3126P",
+    "escuela": "ESCUELA PRIMARIA EL SEGURO DEL MAESTRO"
+  },
+  {
+    "numero": "4",
+    "codigo": "TP150",
+    "alcaldia": "TLALPAN",
+    "colonia": "TEPEXIMILPA SERVIMET",
+    "direccion": "CALLE LOMA BONITA  S/N, COLONIA TEPEXIMILPA SERVIMET, ALCALDÍA TLALPAN, C.P. 14427, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2624F",
+    "escuela": "ESCUELA PRIMARIA PROFR. SOSTENES NICOLAS CHAPA NIETO"
+  },
+  {
+    "numero": "5",
+    "codigo": "CT204",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "CONDESA",
+    "direccion": "CALLE JUAN ESCUTIA  NO.  112, COLONIA CONDESA, ALCALDÍA CUAUHTÉMOC, C.P. 06140, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0748K",
+    "escuela": "JARDÍN DE NIÑOS  UNIDAD ARTISTICA Y CULTURAL DEL BOSQUE"
+  },
+  {
+    "numero": "6",
+    "codigo": "MH031",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "DANIEL GARZA",
+    "direccion": "CALLE GENERAL JOSE MORAN NO.  36, AMPLIACION DANIEL GARZA, ALCALDÍA MIGUEL HIDALGO, C.P. 11840, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0035M",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 34"
+  },
+  {
+    "numero": "7",
+    "codigo": "AO113",
+    "alcaldia": "ALVARO OBREGÓN",
+    "colonia": "CAÑADA",
+    "direccion": "CALLE URBINA   S/N, COLONIA CAÑADA, ALCALDÍA ALVARO OBREGÓN, C.P. 01200, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0841Q",
+    "escuela": "JARDÍN DE NIÑOS  DR. ARNOLD GESELL"
+  },
+  {
+    "numero": "8",
+    "codigo": "AO100",
+    "alcaldia": "ALVARO OBREGÓN",
+    "colonia": "ESTADO DE HIDALGO",
+    "direccion": "CALLE EL CHICO  NO.  51, COLONIA ESTADO DE HIDALGO, ALCALDÍA ALVARO OBREGÓN, C.P. 01120, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0735G",
+    "escuela": "JARDÍN DE NIÑOS  ALFREDO B. NOBEL"
+  },
+  {
+    "numero": "9",
+    "codigo": "AZ008",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "TEZOZOMOC",
+    "direccion": "CALLE TLAHUICAS  S/N, COLONIA TEZOZOMOC, ALCALDÍA AZCAPOTZALCO, C.P. 02450, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0776G",
+    "escuela": "JARDÍN DE NIÑOS  AMANECER"
+  },
+  {
+    "numero": "10",
+    "codigo": "AZ080",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "DEL GAS",
+    "direccion": "CALLE CIPRES  NO.  4110, COLONIA DEL GAS, ALCALDÍA AZCAPOTZALCO, C.P. 02950, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0217W",
+    "escuela": "JARDÍN DE NIÑOS  LIC. ALVARO GALVEZ Y FUENTES"
+  },
+  {
+    "numero": "11",
+    "codigo": "GM157",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "EL ARBOLILLO II",
+    "direccion": "CALLE CHALMITA TENAYUCA  S/N, UNIDAD HABITACIONAL EL ARBOLILLO II, ALCALDÍA GUSTAVO A. MADERO, C.P. 07240, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1270Y",
+    "escuela": "JARDÍN DE NIÑOS  LUIS GONZÁLEZ OBREGON"
+  },
+  {
+    "numero": "12",
+    "codigo": "GM004",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "TEPEYAC INSURGENTES (XOCOMETLA)",
+    "direccion": "CALLE HABANA Y MONTIEL  S/N, COLONIA TEPEYAC INSURGENTES (XOCOMETLA), ALCALDÍA GUSTAVO A. MADERO, C.P. 07020, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0195A",
+    "escuela": "JARDÍN DE NIÑOS  18 DE MARZO"
+  },
+  {
+    "numero": "13",
+    "codigo": "CT111",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "NONOALCO TLATELOLCO",
+    "direccion": "CALLE MANUEL GONZALEZ  NO.  396, UNIDAD HABITACIONAL NONOALCO TLATELOLCO, ALCALDÍA CUAUHTÉMOC, C.P. 06900, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1134K",
+    "escuela": "ESCUELA PRIMARIA I.S.S.S.T.E."
+  },
+  {
+    "numero": "14",
+    "codigo": "VC048",
+    "alcaldia": "VENUSTIANO CARRANZA",
+    "colonia": "AMPLIACION 20 DE NOVIEMBRE",
+    "direccion": "CALLE ANILLO DE CIRCUNVALACIÓN  NO.  87, COLONIA AMPLIACION 20 DE NOVIEMBRE , ALCALDÍA VENUSTIANO CARRANZA, C.P. 15260, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DIX0017P",
+    "escuela": "ESCUELA PRIMARIA FRANCISCO I. MADERO \"INTERNADO 17\""
+  },
+  {
+    "numero": "15",
+    "codigo": "GM062",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "LUIS DONALDO COLOSIO MURRIETA",
+    "direccion": "CALLE ARROYO ARMELLA  S/N, COLONIA LUIS DONALDO COLOSIO MURRIETA, ALCALDÍA GUSTAVO A. MADERO, C.P. 07050, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1365L",
+    "escuela": "JARDÍN DE NIÑOS  DEMETRIO SODI PALLARES"
+  },
+  {
+    "numero": "16",
+    "codigo": "IP398",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SAN MIGUEL TEOTONGO TORRES MERCED",
+    "direccion": "CALLE TOMACOCO Y AVENIDA DE LAS TORRES Y LAS AMERICAS  S/N, COLONIA SAN MIGUEL TEOTONGO TORRES MERCED, ALCALDÍA IZTAPALAPA, C.P. 09630, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0267N",
+    "escuela": "ESCUELA SECUNDARIA TEODORO FLORES"
+  },
+  {
+    "numero": "17",
+    "codigo": "IP231",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LAS PEÑAS",
+    "direccion": "CALLE PLATON SANCHEZ Y CLAVEL  S/N, COLONIA LAS PEÑAS, ALCALDÍA IZTAPALAPA, C.P. 09750, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0287A",
+    "escuela": "ESCUELA SECUNDARIA JULIO VERNE"
+  },
+  {
+    "numero": "18",
+    "codigo": "IP429",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SAN FRANCISCO APOLOCALCO",
+    "direccion": "CALLE APOLOCALCO Y YACAHUITZOTL  S/N, COLONIA SAN FRANCISCO APOLOCALCO, ALCALDÍA IZTAPALAPA, C.P. 09900, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5067D",
+    "escuela": "ESCUELA PRIMARIA XIUHZITZQUILI"
+  },
+  {
+    "numero": "19",
+    "codigo": "VC108",
+    "alcaldia": "VENUSTIANO CARRANZA",
+    "colonia": "JARDIN BALBUENA",
+    "direccion": "CALLE RT 32 DE GENEARO GARCIA   S/N, COLONIA JARDIN BALBUENA, ALCALDÍA VENUSTIANO CARRANZA, C.P. 15900, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1034L",
+    "escuela": "ESCUELA PRIMARIA REPÚBLICA DE LIBERIA"
+  },
+  {
+    "numero": "20",
+    "codigo": "IP423",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "JUAN ESCUTIA",
+    "direccion": "CALLE QUINTA DE JUAN ENRIQUEZ NO.  33, COLONIA JUAN ESCUTIA, ALCALDÍA IZTAPALAPA, C.P. 09100, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1010B",
+    "escuela": "ESCUELA PRIMARIA VOCEADORES DE MÉXICO"
+  },
+  {
+    "numero": "21",
+    "codigo": "IP118",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SAN ANDRES TETEPILCO",
+    "direccion": "CALLE GRAN BRETAÑA  NO.  147, COLONIA SAN ANDRES TETEPILCO, ALCALDÍA IZTAPALAPA, C.P. 09440, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0025I",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  25"
+  },
+  {
+    "numero": "22",
+    "codigo": "IP058",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "ERMITA ZARAGOZA",
+    "direccion": "CALLE CHILPANCINGO SUR Y NORTE  S/N, UNIDAD HABITACIONAL ERMITA ZARAGOZA, ALCALDÍA IZTAPALAPA, C.P. 09180, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0214I",
+    "escuela": "ESCUELA SECUNDARIA CARLOS MARX"
+  },
+  {
+    "numero": "23",
+    "codigo": "CT211",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "UH NONOALCO TLATELOLCO",
+    "direccion": "CALLE RICARDO FLORES MAGON  NO.  276, UNIDAD HABITACIONAL UH NONOALCO TLATELOLCO , ALCALDÍA CUAUHTÉMOC, C.P. 06900, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0068D",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 33"
+  },
+  {
+    "numero": "24",
+    "codigo": "AO137",
+    "alcaldia": "ALVARO OBREGÓN",
+    "colonia": "HERON PROAL",
+    "direccion": "CALLE CENTENARIO Y CALLE 1  S/N, COLONIA HERON PROAL, ALCALDÍA ALVARO OBREGÓN, C.P. 01640, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0673K",
+    "escuela": "JARDÍN DE NIÑOS  JOSÉ JOAQUIN FERNANDEZ DE LIZARDI"
+  },
+  {
+    "numero": "25",
+    "codigo": "MH063",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "LEGARIA",
+    "direccion": "CALLE LAGO ONTARIO Y LAGO WINNIPEG  S/N, COLONIA LEGARIA, ALCALDÍA MIGUEL HIDALGO, C.P. 11410, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1720B",
+    "escuela": "ESCUELA PRIMARIA ESTADO DE GUERRERO"
+  },
+  {
+    "numero": "26",
+    "codigo": "TP120",
+    "alcaldia": "TLALPAN",
+    "colonia": "SAN MIGUEL XICALCO",
+    "direccion": "CALLE EMILIANO ZAPATA NO.  69, COLONIA SAN MIGUEL XICALCO, ALCALDÍA TLALPAN, C.P. 14490, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0024G",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 69"
+  },
+  {
+    "numero": "27",
+    "codigo": "GM135",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "LA PRADERA",
+    "direccion": "CALLE VOLCAN IZTACCIHUATL Y LOS PINOS NO.  90, COLONIA LA PRADERA, ALCALDÍA GUSTAVO A. MADERO, C.P. 07500, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2566F",
+    "escuela": "ESCUELA PRIMARIA JUAN JACOBO ROUSSEAU"
+  },
+  {
+    "numero": "28",
+    "codigo": "AO060",
+    "alcaldia": "ALVARO OBREGÓN",
+    "colonia": "PILOTO ADOLFO LOPEZ MATEOS",
+    "direccion": "CALLE PUERTO KINO MANZANA A LOTE 3 Y 4  S/N, COLONIA PILOTO ADOLFO LOPEZ MATEOS, ALCALDÍA ALVARO OBREGÓN, C.P. 01290, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0236K",
+    "escuela": "JARDÍN DE NIÑOS  PAULO FREIRE"
+  },
+  {
+    "numero": "29",
+    "codigo": "GM309",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN PEDRO EL CHICO",
+    "direccion": "CALLE NORTE 84 A NO.  6618, COLONIA SAN PEDRO EL CHICO, ALCALDÍA GUSTAVO A. MADERO, C.P. 07480, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1474I",
+    "escuela": "ESCUELA PRIMARIA ENRIQUE GONZÁLEZ MARTINEZ"
+  },
+  {
+    "numero": "30",
+    "codigo": "AO181",
+    "alcaldia": "ALVARO OBREGÓN",
+    "colonia": "AXOTLA",
+    "direccion": "CALLE PORVENIR  NO.  29, PUEBLO AXOTLA, ALCALDÍA ALVARO OBREGÓN, C.P. 01030, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0521F",
+    "escuela": "JARDÍN DE NIÑOS  SILVESTRE REVUELTAS"
+  },
+  {
+    "numero": "31",
+    "codigo": "AO177",
+    "alcaldia": "ALVARO OBREGÓN",
+    "colonia": "COLINAS DEL SUR",
+    "direccion": "CALLE CORCELES Y CORRIDO  S/N, COLONIA COLINAS DEL SUR, ALCALDÍA ALVARO OBREGÓN, C.P. 01430, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0243D",
+    "escuela": "ESCUELA SECUNDARIA SECUNDARIA FEDERAL"
+  },
+  {
+    "numero": "32",
+    "codigo": "TP129",
+    "alcaldia": "TLALPAN",
+    "colonia": "SANTA URSULA XITLA",
+    "direccion": "CALLE SANTA URSULA NO.  22, COLONIA SANTA URSULA XITLA, ALCALDÍA TLALPAN, C.P. 14420, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2816V",
+    "escuela": "ESCUELA PRIMARIA ESTADO DE QUERETARO"
+  },
+  {
+    "numero": "33",
+    "codigo": "TP055",
+    "alcaldia": "TLALPAN",
+    "colonia": "CRUZ DEL FAROL",
+    "direccion": "CALLE SAUS TOSTADO   S/N, COLONIA CRUZ DEL FAROL, ALCALDÍA TLALPAN, C.P. 14248, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5100V",
+    "escuela": "ESCUELA PRIMARIA JOSÉ MARIA CHAVEZ ANDRADE"
+  },
+  {
+    "numero": "34",
+    "codigo": "GM382",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "NUEVA TENOCHTITLAN",
+    "direccion": "CALLE INGENIERO EDUARDO MOLINA Y ORIENTE 95  S/N, COLONIA NUEVA TENOCHTITLAN, ALCALDÍA GUSTAVO A. MADERO, C.P. 07890, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2203X",
+    "escuela": "ESCUELA PRIMARIA PROFR. BENJAMIN GURROLA CARRERA"
+  },
+  {
+    "numero": "35",
+    "codigo": "CY085",
+    "alcaldia": "COYOACÁN",
+    "colonia": "(SANTA CATARINA) VIVEROS DE COYOACAN",
+    "direccion": "CALLE CALLEJON TORRESCO No 7 , BARRIO (SANTA CATARINA) VIVEROS DE COYOACAN, ALCALDÍA COYOACÁN, C.P. 04010, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0087S",
+    "escuela": "CENTRO DE ATENCIÓN MÚLTIPLE No. 92"
+  },
+  {
+    "numero": "36",
+    "codigo": "MH018",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "UN HOGAR PARA NOSOTROS",
+    "direccion": "CALLE MÉXICO. TACUBA NO.  75, COLONIA UN HOGAR PARA NOSOTROS, ALCALDÍA MIGUEL HIDALGO, C.P. 11330, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1839Z",
+    "escuela": "ESCUELA PRIMARIA LUIS HIDALGO MONROY (ANEXA A LA EBNM)"
+  },
+  {
+    "numero": "37",
+    "codigo": "CY056",
+    "alcaldia": "COYOACÁN",
+    "colonia": "ADOLFO RUIZ CORTINES",
+    "direccion": "CALLE TECACALO Y PEHUAME  S/N, COLONIA ADOLFO RUIZ CORTINES, ALCALDÍA COYOACÁN, C.P. 04630, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1958M",
+    "escuela": "ESCUELA PRIMARIA LIBERAL"
+  },
+  {
+    "numero": "38",
+    "codigo": "IC021",
+    "alcaldia": "IZTACALCO",
+    "colonia": "GRANJAS MEXICO",
+    "direccion": "CALLE AZAFRAN ENTRE BREA Y CHICLE NO.  152, COLONIA GRANJAS MÉXICO., ALCALDÍA IZTACALCO, C.P. 08400, CIUDAD DE MÉXICO.",
+    "nivel": "INICIAL",
+    "cct": "09DDI0022N",
+    "escuela": "ESCUELA DE EDUCACIÓN INICIAL CAI SEP NO 22 ANTON MAKARENKO"
+  },
+  {
+    "numero": "39",
+    "codigo": "AZ003",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "EUZKADI",
+    "direccion": "CALLE  JARDIN Y BOULEVARD DE FERROCARRIL  S/N, COLONIA EUZKADI, ALCALDÍA AZCAPOTZALCO, C.P. 02660, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0242E",
+    "escuela": "ESCUELA SECUNDARIA MARGARITA DE GORTARI CARVAJAL DE SALINAS"
+  },
+  {
+    "numero": "40",
+    "codigo": "CJ044",
+    "alcaldia": "CUAJIMALPA DE MORELOS",
+    "colonia": "GRANJAS NAVIDAD",
+    "direccion": "CALLE HERMANDAD Y EBANO   S/N, COLONIA GRANJAS NAVIDAD, ALCALDÍA CUAJIMALPA DE MORELOS, C.P. 05210, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0048T",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  48"
+  },
+  {
+    "numero": "41",
+    "codigo": "GM370",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN JUAN DE ARAGON",
+    "direccion": "CALLE 585 NO.  28, UNIDAD HABITACIONAL SAN JUAN DE ARAGON, ALCALDÍA GUSTAVO A. MADERO, C.P. 07920, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1542P",
+    "escuela": "ESCUELA PRIMARIA MOCTEZUMA ILHUICAMINA"
+  },
+  {
+    "numero": "42",
+    "codigo": "CJ018",
+    "alcaldia": "CUAJIMALPA DE MORELOS",
+    "colonia": "CUAJIMALPA",
+    "direccion": "CALLE ZARCO  NO.  1, COLONIA CUAJIMALPA, ALCALDÍA CUAJIMALPA DE MORELOS, C.P. 05000, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1827U",
+    "escuela": "ESCUELA PRIMARIA JOSÉ LUIS VIEYRA GONZÁLEZ"
+  },
+  {
+    "numero": "43",
+    "codigo": "CJ029",
+    "alcaldia": "CUAJIMALPA DE MORELOS",
+    "colonia": "ZENTLAPATL",
+    "direccion": "CALLE PUERTO MÉXICO. NO.  134, COLONIA ZENTLAPATL, ALCALDÍA CUAJIMALPA DE MORELOS, C.P. 05010, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5039H",
+    "escuela": "ESCUELA PRIMARIA QUETZALCOATL"
+  },
+  {
+    "numero": "44",
+    "codigo": "TH067",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "GUADALUPE TLALTENCO",
+    "direccion": "CALLE OJO DE AGUA Y ALVARO OBREGON  S/N, COLONIA GUADALUPE TLALTENCO, ALCALDÍA TLÁHUAC, C.P. 13000, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0154K",
+    "escuela": "ESCUELA SECUNDARIA REPÚBLICA DE CUBA"
+  },
+  {
+    "numero": "45",
+    "codigo": "AZ153",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "PORVENIR",
+    "direccion": "CALLE FERROCARRIL INDUSTRIAL (ACTUALMENTE ANTONIO VALERIANO) Y PROLONGACION 30  S/N, AMPLIACION  PORVENIR, ALCALDÍA AZCAPOTZALCO, C.P. 02940, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0115I",
+    "escuela": "ESCUELA SECUNDARIA IVÁN PETROVICH PAVLOV"
+  },
+  {
+    "numero": "46",
+    "codigo": "MH007",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "UN HOGAR PARA NOSOTROS",
+    "direccion": "CALLE MÉXICO. TACUBA NO.  215, COLONIA UN HOGAR PARA NOSOTROS, ALCALDÍA MIGUEL HIDALGO, C.P. 11330, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0015J",
+    "escuela": "ESCUELA SECUNDARIA ALBERT EINSTEIN"
+  },
+  {
+    "numero": "47",
+    "codigo": "AO162",
+    "alcaldia": "ALVARO OBREGÓN",
+    "colonia": "EL POCITO",
+    "direccion": "CALLE CAPULA   S/N, COLONIA EL POCITO, ALCALDÍA ALVARO OBREGÓN, C.P. 01280, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1868U",
+    "escuela": "ESCUELA PRIMARIA PROFR. ERASTO VALLE ALCARAZ"
+  },
+  {
+    "numero": "48",
+    "codigo": "CT166",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "NONOALCO TLATELOLCO",
+    "direccion": "CALLE LERDO  S/N, COLONIA  NONOALCO TLATELOLCO, ALCALDÍA CUAUHTÉMOC, C.P. 06900, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0016I",
+    "escuela": "ESCUELA SECUNDARIA PEDRO DÍAZ"
+  },
+  {
+    "numero": "49",
+    "codigo": "GM236",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "CUAUTEPEC EL ALTO",
+    "direccion": "CALLE PLAZA HIDALGO  S/N, COLONIA CUAUTEPEC EL ALTO, ALCALDÍA GUSTAVO A. MADERO, C.P. 07100, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0452Z",
+    "escuela": "JARDÍN DE NIÑOS  REPÚBLICA MEXICANA"
+  },
+  {
+    "numero": "50",
+    "codigo": "GM219",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "EL COYOL",
+    "direccion": "CALLE 298 A ENTRE 309 Y 311  S/N, UNIDAD HABITACIONAL EL COYOL, ALCALDÍA GUSTAVO A. MADERO, C.P. 07420, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0451A",
+    "escuela": "JARDÍN DE NIÑOS  PROFRA. RAMONA MARTÍNEZ  ARCOS"
+  },
+  {
+    "numero": "51",
+    "codigo": "GM273",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "CAMPESTRE ARAGON",
+    "direccion": "CALLE PARQUE CENTRAL  S/N, COLONIA CAMPESTRE ARAGON, ALCALDÍA GUSTAVO A. MADERO, C.P. 07530, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0460I",
+    "escuela": "JARDÍN DE NIÑOS  WOLFGANG AMADEUS MOZART"
+  },
+  {
+    "numero": "52",
+    "codigo": "TP075",
+    "alcaldia": "TLALPAN",
+    "colonia": "BELVEDERE",
+    "direccion": "CALLE BEKAL Y VENUNCIA  S/N, COLONIA BELVEDERE, ALCALDÍA TLALPAN, C.P. 14720, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1220Q",
+    "escuela": "JARDÍN DE NIÑOS  NEZCALTILOYAN"
+  },
+  {
+    "numero": "53",
+    "codigo": "AZ071",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "PASTEROS",
+    "direccion": "CALLE JACARANDAS Y DURAZNOS  S/N, COLONIA PASTEROS, ALCALDÍA AZCAPOTZALCO, C.P. 02150, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0310B",
+    "escuela": "JARDÍN DE NIÑOS  JOSEFINA CASTAÑEDA Y DEL POZO"
+  },
+  {
+    "numero": "54",
+    "codigo": "AZ109",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "SAN PABLO XALPA",
+    "direccion": "CALLE SAN PABLO XALPA  NO.  434, UNIDAD HABITACINAL SAN PABLO XALPA, ALCALDÍA AZCAPOTZALCO, C.P. 02110, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1101C",
+    "escuela": "JARDÍN DE NIÑOS  PROFRA. EMMA GODOY"
+  },
+  {
+    "numero": "55",
+    "codigo": "BJ041",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "DEL VALLE",
+    "direccion": "CALLE MIER Y PESADO  NO.  245, COLONIA DEL VALLE, ALCALDÍA BENITO JUÁREZ, C.P. 03100, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0186T",
+    "escuela": "JARDÍN DE NIÑOS  GUADALUPE VICTORIA"
+  },
+  {
+    "numero": "56",
+    "codigo": "BJ073",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "INDEPENDENCIA",
+    "direccion": "CALLE SERAFIN OLARTE  NO.  196, COLONIA INDEPENDENCIA, ALCALDÍA BENITO JUÁREZ, C.P. 03630, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0432M",
+    "escuela": "JARDÍN DE NIÑOS  MARIANO MATAMOROS"
+  },
+  {
+    "numero": "57",
+    "codigo": "BJ114",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "PERIODISTAS",
+    "direccion": "CALLE BOLIVAR  NO.  1102, COLONIA PERIODISTAS, ALCALDÍA BENITO JUÁREZ, C.P. 03620, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0474L",
+    "escuela": "JARDÍN DE NIÑOS  LAS ROSAS"
+  },
+  {
+    "numero": "58",
+    "codigo": "CY018",
+    "alcaldia": "COYOACÁN",
+    "colonia": "AVANTE",
+    "direccion": "CALLE  DEL PARQUE (Y RETORNO 37)  S/N, COLONIA AVANTE, ALCALDÍA COYOACÁN, C.P. 04460, CIUDAD DE MÉXICO.",
+    "nivel": "INICIAL",
+    "cct": "09DDI0029G",
+    "escuela": "ESCUELA DE EDUCACIÓN INICIAL CAI SEP NO 29 JUSTO SIERRA"
+  },
+  {
+    "numero": "59",
+    "codigo": "CY132",
+    "alcaldia": "COYOACÁN",
+    "colonia": "CAMPESTRE CHURUBUSCO",
+    "direccion": "CALLE CERRO GORDO  NO.  125, COLONIA CAMPESTRE CHURUBUSCO, ALCALDÍA COYOACÁN, C.P. 04220, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0496X",
+    "escuela": "JARDÍN DE NIÑOS  FRANCISCO MARQUEZ"
+  },
+  {
+    "numero": "60",
+    "codigo": "CY115",
+    "alcaldia": "COYOACÁN",
+    "colonia": "SAN FRANCISCO CULHUACAN",
+    "direccion": "CALLE EJIDO SAN PEDRO XALPA Y TOMATLAN  S/N, COLONIA SAN FRANCISCO CULHUACAN, ALCALDÍA COYOACÁN, C.P. 04420, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0849I",
+    "escuela": "JARDÍN DE NIÑOS  COLHUACAN"
+  },
+  {
+    "numero": "61",
+    "codigo": "CY069",
+    "alcaldia": "COYOACÁN",
+    "colonia": "PEDREGAL DE CARRASCO",
+    "direccion": "CALLE  PANAMERICANA QUINTA SECCION  S/N, COLONIA PEDREGAL DE CARRASCO, ALCALDÍA COYOACÁN, C.P. 04700, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0419S",
+    "escuela": "JARDÍN DE NIÑOS  PILTZINTECUTLI"
+  },
+  {
+    "numero": "62",
+    "codigo": "CT180",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "EX-HIPODROMO DE PERALVILLO",
+    "direccion": "CALLE  FRANCOIS GOUNOD   S/N, COLONIA EX-HIPODROMO DE PERALVILLO, ALCALDÍA CUAUHTÉMOC, C.P. 06250, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0035N",
+    "escuela": "JARDÍN DE NIÑOS  REP. DE COLOMBIA"
+  },
+  {
+    "numero": "63",
+    "codigo": "CT148",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "ROMA NORTE",
+    "direccion": "CALLE COLIMA  NO.  229, COLONIA ROMA NORTE, ALCALDÍA CUAUHTÉMOC, C.P. 06700, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0716S",
+    "escuela": "JARDÍN DE NIÑOS  MA. GUADALUPE DE ALBA"
+  },
+  {
+    "numero": "64",
+    "codigo": "GM128",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "LOMA DE LA PALMA",
+    "direccion": "CALLE FRANCISCO VILLA ESQUINA ESTADO DE MÉXICO.  S/N, COLONIA LOMA DE LA PALMA, ALCALDÍA GUSTAVO A. MADERO, C.P. 07160, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1256E",
+    "escuela": "JARDÍN DE NIÑOS  JORGE LUIS BORGES"
+  },
+  {
+    "numero": "65",
+    "codigo": "GM159",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "LINDAVISTA VALLEJO",
+    "direccion": "CALLE PONIENTE 150 MANZANA 1  S/N, UNIDAD HABITACIONAL LINDAVISTA VALLEJO, ALCALDÍA GUSTAVO A. MADERO, C.P. 07720, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0340W",
+    "escuela": "JARDÍN DE NIÑOS  LUXEMBURGO"
+  },
+  {
+    "numero": "66",
+    "codigo": "GM144",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "NUEVA VALLEJO",
+    "direccion": "CALLE NORTE 13 A NO.  5331, COLONIA NUEVA VALLEJO, ALCALDÍA GUSTAVO A. MADERO, C.P. 07750, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0179J",
+    "escuela": "JARDÍN DE NIÑOS  LEONA VICARIO"
+  },
+  {
+    "numero": "67",
+    "codigo": "MG016",
+    "alcaldia": "LA MAGDALENA CONTRERAS",
+    "colonia": "LA CONCEPCION",
+    "direccion": "CALLE CAMINO REAL DE CONTRERAS  S/N, COLONIA LA CONCEPCION, ALCALDÍA LA MAGDALENA CONTRERAS, C.P. 10830, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0459T",
+    "escuela": "JARDÍN DE NIÑOS  C.A.S.I. MORELOS"
+  },
+  {
+    "numero": "68",
+    "codigo": "MH114",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "ESCANDON",
+    "direccion": "CALLE SALVADOR ALVARADO NO.  71, COLONIA ESCANDON, ALCALDÍA MIGUEL HIDALGO, C.P. 11800, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0476J",
+    "escuela": "JARDÍN DE NIÑOS  MTRO. TEODOMIRO MANZANO"
+  },
+  {
+    "numero": "69",
+    "codigo": "MH103",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "REFORMA SOCIAL",
+    "direccion": "CALLE 1 NO.  3, COLONIA REFORMA SOCIAL, ALCALDÍA MIGUEL HIDALGO, C.P. 11650, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0122I",
+    "escuela": "JARDÍN DE NIÑOS  MA. TERESA VAZQUEZ"
+  },
+  {
+    "numero": "70",
+    "codigo": "MA028",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN LORENZO TLACOYUCAN",
+    "direccion": "CALLE VICENTE GUERRERO  S/N, COLONIA SAN LORENZO TLACOYUCAN, ALCALDÍA MILPA ALTA, C.P. 12500, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0292C",
+    "escuela": "JARDÍN DE NIÑOS  REFUGIO PACHECO DE LÓPEZ PORTILLO"
+  },
+  {
+    "numero": "71",
+    "codigo": "TH010",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SAN FRANCISCO TLALTENCO",
+    "direccion": "CALLE QUINTANA ROO Y GUERRERO  S/N, COLONIA SAN FRANCISCO TLALTENCO, ALCALDÍA TLÁHUAC, C.P. 13400, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0485R",
+    "escuela": "JARDÍN DE NIÑOS  CHALCHIUHTLICUE"
+  },
+  {
+    "numero": "72",
+    "codigo": "TH008",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "GRANJAS CABRERA",
+    "direccion": "CALLE JOSE LUGO GUERRERO Y LA TURBA  S/N, COLONIA GRANJAS CABRERA, ALCALDÍA TLÁHUAC, C.P. 13230, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0612X",
+    "escuela": "JARDÍN DE NIÑOS  BRIGIDA GARCÍA DE JUÁREZ"
+  },
+  {
+    "numero": "73",
+    "codigo": "XC023",
+    "alcaldia": "XOCHIMILCO",
+    "colonia": "SANTIAGO TEPALCATLAPAN",
+    "direccion": "CALLE DEL TRABAJO Y CUAUHTEMOC  S/N, COLONIA SANTIAGO TEPALCATLAPAN, ALCALDÍA XOCHIMILCO, C.P. 16200, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2026J",
+    "escuela": "ESCUELA PRIMARIA CRISTÓBAL COLÓN"
+  },
+  {
+    "numero": "74",
+    "codigo": "TP078",
+    "alcaldia": "TLALPAN",
+    "colonia": "MIGUEL HIDALGO PRIMERA SECCION",
+    "direccion": "CALLE UNIDAD HABITACIONAL FUENTES BROTANTES, ATRAS DEL BLOQUE I  S/N, COLONIA MIGUEL HIDALGO PRIMERA SECCION, ALCALDÍA TLALPAN, C.P. 14410, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5018V",
+    "escuela": "ESCUELA PRIMARIA PATRIA Y LIBERTAD"
+  },
+  {
+    "numero": "75",
+    "codigo": "AZ100",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "LA PRECIOSA",
+    "direccion": "CALLE CIPACTLI Y HUITZILIHUITL   S/N, COLONIA LA PRECIOSA, ALCALDÍA AZCAPOTZALCO, C.P. 02460, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2129F",
+    "escuela": "ESCUELA PRIMARIA PABLO NERUDA"
+  },
+  {
+    "numero": "76",
+    "codigo": "CT021",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "SANTA MARIA LA RIBERA",
+    "direccion": "CALLE CEDRO  NO.  348, COLONIA SANTA MARIA LA RIBERA, ALCALDÍA CUAUHTÉMOC, C.P. 06400, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2501W",
+    "escuela": "ESCUELA PRIMARIA AUGUSTO CESAR SANDINO"
+  },
+  {
+    "numero": "77",
+    "codigo": "CY140",
+    "alcaldia": "COYOACÁN",
+    "colonia": "SAN FRANCISCO CULHUACAN",
+    "direccion": "CALLE EJIDO DE SANTA URSULA  NO.  105, COLONIA SAN FRANCISCO CULHUACAN, ALCALDÍA COYOACÁN, C.P. 04420, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2871O",
+    "escuela": "ESCUELA PRIMARIA ING. JOSÉ LÓPEZ PORTILLO Y WEBER"
+  },
+  {
+    "numero": "78",
+    "codigo": "TP044",
+    "alcaldia": "TLALPAN",
+    "colonia": "MIGUEL HIDALGO FUENTES",
+    "direccion": "CALLE SAN JUAN DEL RIO NO.  22, COLONIA MIGUEL HIDALGO FUENTES, ALCALDÍA TLALPAN, C.P. 14410, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5017W",
+    "escuela": "ESCUELA PRIMARIA GENERAL DONATO GUERRA"
+  },
+  {
+    "numero": "79",
+    "codigo": "CY167",
+    "alcaldia": "COYOACÁN",
+    "colonia": "AJUSCO",
+    "direccion": "CALLE REY TOPILTZIN   S/N, COLONIA AJUSCO, ALCALDÍA COYOACÁN, C.P. 04300, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2974K",
+    "escuela": "ESCUELA PRIMARIA PROFR. VICTORIANO GUZMÁN"
+  },
+  {
+    "numero": "80",
+    "codigo": "GM272",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN JUAN DE ARAGON",
+    "direccion": "CALLE 563 PLAZA 10  S/N, UNIDAD HABITACIONAL SAN JUAN DE ARAGON, ALCALDÍA GUSTAVO A. MADERO, C.P. 07969, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1445N",
+    "escuela": "ESCUELA PRIMARIA WINSTON CHURCHILL"
+  },
+  {
+    "numero": "81",
+    "codigo": "IC020",
+    "alcaldia": "IZTACALCO",
+    "colonia": "INFONAVIT IZTACALCO",
+    "direccion": "CALLE VEREDAS NO.  20, UNIDAD HABITACIONAL INFONAVIT IZTACALCO, ALCALDÍA IZTACALCO, C.P. 08900, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2899U",
+    "escuela": "ESCUELA PRIMARIA CARTA DE LOS DERECHOS Y DEBERES ECONOMICOS DE LOS ESTADOS"
+  },
+  {
+    "numero": "82",
+    "codigo": "IC076",
+    "alcaldia": "IZTACALCO",
+    "colonia": "INPI PICOS",
+    "direccion": "CALLE CIRCUITO INTERIOR RIO CHURUBUSCO  S/N, COLONIA INPI PICOS, ALCALDÍA IZTACALCO, C.P. 08760, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0855J",
+    "escuela": "ESCUELA PRIMARIA LIC. ALVARO GALVEZ Y FUENTES"
+  },
+  {
+    "numero": "83",
+    "codigo": "CT124",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "GUERRERO",
+    "direccion": "CALLE SOL  NO.  116, COLONIA GUERRERO, ALCALDÍA CUAUHTÉMOC, C.P. 06300, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5088Q",
+    "escuela": "ESCUELA PRIMARIA JOSÉ GOROSTIZA"
+  },
+  {
+    "numero": "84",
+    "codigo": "CY003",
+    "alcaldia": "COYOACÁN",
+    "colonia": "COPILCO EL BAJO",
+    "direccion": "CALLE VICTORIA  NO.  17, COLONIA COPILCO EL BAJO, ALCALDÍA COYOACÁN, C.P. 04340, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1941M",
+    "escuela": "ESCUELA PRIMARIA 21 DE AGOSTO DE 1944"
+  },
+  {
+    "numero": "85",
+    "codigo": "CT112",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "ROMA NORTE",
+    "direccion": "CALLE DURANGO  NO.  100, COLONIA ROMA NORTE, ALCALDÍA CUAUHTÉMOC, C.P. 06700, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR3132Z",
+    "escuela": "ESCUELA PRIMARIA IGNACIO L. VALLARTA"
+  },
+  {
+    "numero": "86",
+    "codigo": "TH091",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SELENE",
+    "direccion": "CALLE MAR DE LOS VAPORES Y CRATER KEPLER  S/N, AMPLIACION SELENE, ALCALDÍA TLÁHUAC, C.P. 13420, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1057F",
+    "escuela": "JARDÍN DE NIÑOS  YOACALLI"
+  },
+  {
+    "numero": "87",
+    "codigo": "TH060",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "MIGUEL HIDALGO",
+    "direccion": "CALLE DON GIOVANNI Y NICOLAS CHAMPION  S/N, COLONIA MIGUEL HIDALGO, ALCALDÍA TLÁHUAC, C.P. 13200, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2576M",
+    "escuela": "ESCUELA PRIMARIA PROFR. URBANO LAVIN ROMÁN"
+  },
+  {
+    "numero": "88",
+    "codigo": "MH098",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "POPOTLA",
+    "direccion": "CALLE MAR ARAFURA NO.  6, COLONIA POPOTLA, ALCALDÍA MIGUEL HIDALGO, C.P. 11400, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1701N",
+    "escuela": "ESCUELA PRIMARIA LEOPOLDO E. CAMARENA"
+  },
+  {
+    "numero": "89",
+    "codigo": "VC022",
+    "alcaldia": "VENUSTIANO CARRANZA",
+    "colonia": "JARDIN BALBUENA",
+    "direccion": "CALLE EJE 3 SUR  MORELOS  NO.  639, COLONIA JARDIN BALBUENA , ALCALDÍA VENUSTIANO CARRANZA, C.P. 15900, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0075Y",
+    "escuela": "ESCUELA SECUNDARIA DIONISIA ZAMORA PALLARES"
+  },
+  {
+    "numero": "90",
+    "codigo": "TP136",
+    "alcaldia": "TLALPAN",
+    "colonia": "HEROES DE PADIERNA",
+    "direccion": "CALLE HUEHUETAN Y TIZIMIN NO.  230, COLONIA HEROES DE PADIERNA, ALCALDÍA TLALPAN, C.P. 14200, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1863Z",
+    "escuela": "ESCUELA PRIMARIA JACINTO CANEK"
+  },
+  {
+    "numero": "91",
+    "codigo": "TP020",
+    "alcaldia": "TLALPAN",
+    "colonia": "POPULAR SANTA TERESA",
+    "direccion": "CALLE YOBAIN MANZANA 26  S/N, COLONIA POPULAR SANTA TERESA, ALCALDÍA TLALPAN, C.P. 14160, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0011C",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 64"
+  },
+  {
+    "numero": "92",
+    "codigo": "GM296",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "ESTANZUELA",
+    "direccion": "CALLE GENERAL MARIANO SALAS Y CANTERA  S/N, COLONIA ESTANZUELA, ALCALDÍA GUSTAVO A. MADERO, C.P. 07060, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0081Y",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 18"
+  },
+  {
+    "numero": "93",
+    "codigo": "TP132",
+    "alcaldia": "TLALPAN",
+    "colonia": "VILLA LAZARO CARDENAS",
+    "direccion": "CALLE CLUB UNIVERSIDAD NACIONAL NO.  300, COLONIA VILLA LAZARO CARDENAS, ALCALDÍA TLALPAN, C.P. 14370, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2234Q",
+    "escuela": "ESCUELA PRIMARIA GRAL. LAZARO CARDENAS DEL RIO"
+  },
+  {
+    "numero": "94",
+    "codigo": "CY099",
+    "alcaldia": "COYOACÁN",
+    "colonia": "DEL CARMEN",
+    "direccion": "CALLE GENERAL ANAYA  NO.  287, COLONIA DEL CARMEN, ALCALDÍA COYOACÁN, C.P. 04100, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0108O",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 90"
+  },
+  {
+    "numero": "95",
+    "codigo": "AZ093",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "PETROLERA",
+    "direccion": "CALLE  FAJA DE ORO   S/N, COLONIA PETROLERA, ALCALDÍA AZCAPOTZALCO, C.P. 02480, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1647J",
+    "escuela": "ESCUELA PRIMARIA MI PATRIA ES PRIMERO"
+  },
+  {
+    "numero": "96",
+    "codigo": "GM205",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "CONSTITUCION DE LA REPUBLICA",
+    "direccion": "CALLE FELIX ROMERO NO.  60, COLONIA CONSTITUCION DE LA REPUBLICA, ALCALDÍA GUSTAVO A. MADERO, C.P. 07469, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1540R",
+    "escuela": "ESCUELA PRIMARIA PROFR. MOISES SAENZ"
+  },
+  {
+    "numero": "97",
+    "codigo": "GM320",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN JUAN DE ARAGON SEXTA SECCION",
+    "direccion": "CALLE 414 A Y CALLE 1537 Y 1543  S/N, COLONIA SAN JUAN DE ARAGON SEXTA SECCION, ALCALDÍA GUSTAVO A. MADERO, C.P. 07920, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0071U",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  71"
+  },
+  {
+    "numero": "98",
+    "codigo": "MH041",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "NEXTITLA (POPOTLA)",
+    "direccion": "CALLE FERROCARRIL CUERNAVACA Y MAR MEDITERRANEO NO.  242, COLONIA NEXTITLA (POPOTLA), ALCALDÍA MIGUEL HIDALGO, C.P. 11400, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0263R",
+    "escuela": "ESCUELA SECUNDARIA DEPORTE PARA TODOS"
+  },
+  {
+    "numero": "99",
+    "codigo": "AZ181",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "FRANCISCO I. MADERO",
+    "direccion": "CALLE VICTOR HERNANDEZ COVARRUBIAS  S/N, UNIDAD HABITACINAL  FRANCISCO I. MADERO, ALCALDÍA AZCAPOTZALCO, C.P. 02420, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0219U",
+    "escuela": "JARDÍN DE NIÑOS  TEMACHTIANI"
+  },
+  {
+    "numero": "100",
+    "codigo": "CT023",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "ROMA SUR",
+    "direccion": "CALLE JALAPA  NO.  272, COLONIA ROMA SUR, ALCALDÍA CUAUHTÉMOC, C.P. 06760, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0729W",
+    "escuela": "JARDÍN DE NIÑOS  BENITO JUÁREZ"
+  },
+  {
+    "numero": "101",
+    "codigo": "GM034",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "CONSTITUCION DE LA REPUBLICA",
+    "direccion": "CALLE FERROCARRIL HIDALGO EJE 1 ORIENTE NO.  1129, COLONIA CONSTITUCION DE LA REPUBLICA, ALCALDÍA GUSTAVO A. MADERO, C.P. 07469, CIUDAD DE MÉXICO.",
+    "nivel": "INICIAL",
+    "cct": "09DDI0019Z",
+    "escuela": "ESCUELA DE EDUCACIÓN INICIAL CAI SEP NO 19 ANA SULLIVAN MACY"
+  },
+  {
+    "numero": "102",
+    "codigo": "XC045",
+    "alcaldia": "XOCHIMILCO",
+    "colonia": "SANTA CRUZ XOCHITEPEC",
+    "direccion": "CALLE SANTIAGO  S/N, COLONIA SANTA CRUZ XOCHITEPEC, ALCALDÍA XOCHIMILCO, C.P. 16100, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0638E",
+    "escuela": "JARDÍN DE NIÑOS  JOSÉ MARTI"
+  },
+  {
+    "numero": "103",
+    "codigo": "IC153",
+    "alcaldia": "IZTACALCO",
+    "colonia": "INPI PICOS",
+    "direccion": "CALLE CIRCUITO INTERIR RIO CHURUBUSCO  S/N, COLONIA INPI PICOS, ALCALDÍA IZTACALCO, C.P. 08760, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0148Z",
+    "escuela": "ESCUELA SECUNDARIA LAO-TSE"
+  },
+  {
+    "numero": "104",
+    "codigo": "CT065",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "CENTRO",
+    "direccion": "CALLE MIXCALCO  NO.  6, COLONIA CENTRO, ALCALDÍA CUAUHTÉMOC, C.P. 06020, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0072Q",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM ESCUELA NACIONAL PARA CIEGOS \"LIC IGNACIO TRIGUEROS\""
+  },
+  {
+    "numero": "105",
+    "codigo": "MA016",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN PABLO OZTOTEPEC",
+    "direccion": "CALLE GUERRERO  S/N, COLONIA SAN PABLO OZTOTEPEC, ALCALDÍA MILPA ALTA, C.P. 12400, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0018Z",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  18"
+  },
+  {
+    "numero": "106",
+    "codigo": "IC022",
+    "alcaldia": "IZTACALCO",
+    "colonia": "GRANJAS MEXICO",
+    "direccion": "CALLE AÑIL, ANEXO A LA CONADE Y RIO CHURUBUSCO  S/N, COLONIA GRANJAS MÉXICO., ALCALDÍA IZTACALCO, C.P. 08400, CIUDAD DE MÉXICO.",
+    "nivel": "INICIAL",
+    "cct": "09DDI0024L",
+    "escuela": "ESCUELA DE EDUCACIÓN INICIAL CAI SEP NO 24 CARMEN SERDAN"
+  },
+  {
+    "numero": "107",
+    "codigo": "AZ014",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "SANTA CATARINA",
+    "direccion": "CALLE  CECATI  NO.  11, COLONIA SANTA CATARINA, ALCALDÍA AZCAPOTZALCO, C.P. 02250, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0061L",
+    "escuela": "JARDÍN DE NIÑOS  AQUILES ELOURDUY"
+  },
+  {
+    "numero": "108",
+    "codigo": "MH065",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "PENSIL NORTE",
+    "direccion": "CALLE LAGO WINNIPEG NO.  7, COLONIA PENSIL NORTE, ALCALDÍA MIGUEL HIDALGO, C.P. 11430, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2355B",
+    "escuela": "ESCUELA PRIMARIA ESTADO DE QUINTANA ROO"
+  },
+  {
+    "numero": "109",
+    "codigo": "CY182",
+    "alcaldia": "COYOACÁN",
+    "colonia": "SANTA URSULA COAPA",
+    "direccion": "CALLE ESFUERZO  NO.  36, COLONIA SANTA URSULA COAPA, ALCALDÍA COYOACÁN, C.P. 04650, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0663D",
+    "escuela": "JARDÍN DE NIÑOS  SUIZA"
+  },
+  {
+    "numero": "110",
+    "codigo": "CT036",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "NONOALCO TLATELOLCO",
+    "direccion": "CALLE MANUEL GONZALEZ NO.  86, UNIDAD HABITACIONAL  NONOALCO TLATELOLCO, ALCALDÍA CUAUHTÉMOC, C.P. 06900, CIUDAD DE MÉXICO.",
+    "nivel": "INICIAL",
+    "cct": "09DDI0007V",
+    "escuela": "ESCUELA DE EDUCACIÓN INICIAL CAI SEP NO 07 AGUSTINA RAMIREZ RODRIGUEZ"
+  },
+  {
+    "numero": "111",
+    "codigo": "CY085",
+    "alcaldia": "COYOACÁN",
+    "colonia": "(SANTA CATARINA) VIVEROS DE COYOACAN",
+    "direccion": "CALLE MELCHOR OCAMPO  NO.  20, BARRIO (SANTA CATARINA) VIVEROS DE COYOACAN, ALCALDÍA COYOACÁN, C.P. 04010, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1951T",
+    "escuela": "ESCUELA PRIMARIA REPÚBLICA DE GUATEMALA"
+  },
+  {
+    "numero": "112",
+    "codigo": "BJ113",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "INDEPENDENCIA",
+    "direccion": "CALLE MITLA Y SERAFIN OLARTE   S/N, COLONIA INDEPENDENCIA, ALCALDÍA BENITO JUÁREZ, C.P. 03630, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0107P",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 88"
+  },
+  {
+    "numero": "113",
+    "codigo": "CT168",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "direccion": "ARCOS DE BELÉN NO. 82, COLONIA DOCTORES, ALCALDÍA CUAUHTÉMOC, C.P. 06720, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2352E",
+    "escuela": "ESCUELA PRIMARIA PENSIONES"
+  },
+  {
+    "numero": "114",
+    "codigo": "BJ008",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "MIXCOAC",
+    "direccion": "CALLE LEONARDO DA VINCI  NO.  170, COLONIA MIXCOAC, ALCALDÍA BENITO JUÁREZ, C.P. 03910, CIUDAD DE MÉXICO.",
+    "nivel": "INICIAL",
+    "cct": "09DDI0027I",
+    "escuela": "ESCUELA DE EDUCACIÓN INICIAL CAI SEP NO 27 GABINO BARREDA"
+  },
+  {
+    "numero": "115",
+    "codigo": "GM072",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "GERTRUDIS SANCHEZ PRIMERA SECCION",
+    "direccion": "CALLE NORTE 84 A  S/N, COLONIA GERTRUDIS SANCHEZ PRIMERA SECCION, ALCALDÍA GUSTAVO A. MADERO, C.P. 07839, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0170S",
+    "escuela": "JARDÍN DE NIÑOS  EDUCADORAS MEXICANAS"
+  },
+  {
+    "numero": "116",
+    "codigo": "IC081",
+    "alcaldia": "IZTACALCO",
+    "colonia": "VIADUCTO PIEDAD",
+    "direccion": "CALLE EJE1 OTE, AV. ANDRES MOLINA ENRIQUEZ  S/N, COLONIA VIADUCTO PIEDAD, ALCALDÍA IZTACALCO, C.P. 08200, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0671M",
+    "escuela": "JARDÍN DE NIÑOS  LUZ MARIA SERRADELL"
+  },
+  {
+    "numero": "117",
+    "codigo": "TH066",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "QUIAHUATLA DEL PUEBLO SAN PEDRO TLAHUAC",
+    "direccion": "CALLE CL. FELIPE JARDINES NO.  MZ-45 LT-25, COLONIA QUIAHUATLA DEL PUEBLO SAN PEDRO TLAHUAC, ALCALDÍA TLÁHUAC, C.P. 13090, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1115F",
+    "escuela": "JARDÍN DE NIÑOS  REPÚBLICA DE BRASIL"
+  },
+  {
+    "numero": "118",
+    "codigo": "AO043",
+    "alcaldia": "ALVARO OBREGÓN",
+    "colonia": "BELLA VISTA",
+    "direccion": "CALLE CANARIO Y DIVISION DEL NORTE  S/N, COLONIA BELLA VISTA, ALCALDÍA ALVARO OBREGÓN, C.P. 01790, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0021U",
+    "escuela": "ESCUELA SECUNDARIA JOVITA A. ELGUERO"
+  },
+  {
+    "numero": "119",
+    "codigo": "XC003",
+    "alcaldia": "XOCHIMILCO",
+    "colonia": "GUADALUPE",
+    "direccion": "CALLE PINO  S/N, COLONIA GUADALUPE, ALCALDÍA XOCHIMILCO, C.P. 16800, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0224P",
+    "escuela": "ESCUELA SECUNDARIA HUETZALIN"
+  },
+  {
+    "numero": "120",
+    "codigo": "XC067",
+    "alcaldia": "XOCHIMILCO",
+    "colonia": "SANTA MARIA NATIVITAS",
+    "direccion": "CALLE ESCUDO NACIONAL  S/N, COLONIA SANTA MARIA NATIVITAS, ALCALDÍA XOCHIMILCO, C.P. 16797, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DTV0121Z",
+    "escuela": "ESCUELA TELESECUNDARIA  NO. 121"
+  },
+  {
+    "numero": "121",
+    "codigo": "XC107",
+    "alcaldia": "XOCHIMILCO",
+    "colonia": "HUICHAPAN",
+    "direccion": "CALLE MÉXICO. NO.  6131, COLONIA HUICHAPAN, ALCALDÍA XOCHIMILCO, C.P. 16030, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2045Y",
+    "escuela": "ESCUELA PRIMARIA REY TIZOC"
+  },
+  {
+    "numero": "122",
+    "codigo": "AZ143",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "DEL GAS",
+    "direccion": "CALLE SABINO Y CALLE 4  S/N, COLONIA DEL GAS, ALCALDÍA AZCAPOTZALCO, C.P. 02970, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0038M",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  38"
+  },
+  {
+    "numero": "123",
+    "codigo": "AZ125",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "LA PRECIOSA",
+    "direccion": "CALLE CIPACTLI  NO.  80, COLONIA LA PRECIOSA, ALCALDÍA AZCAPOTZALCO, C.P. 02460, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1033W",
+    "escuela": "JARDÍN DE NIÑOS  TOLTECAYOTL"
+  },
+  {
+    "numero": "124",
+    "codigo": "AZ011",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "SAN MARTIN XOCHINAHUAC",
+    "direccion": "CALLE  5 NORTE Y AVENIDA DE LAS CULTURAS  S/N, COLONIA SAN MARTIN XOCHINAHUAC, ALCALDÍA AZCAPOTZALCO, C.P. 02120, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1328H",
+    "escuela": "JARDÍN DE NIÑOS  ANGEL MARIA GARIBAY KINTANA"
+  },
+  {
+    "numero": "125",
+    "codigo": "BJ001",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "MIXCOAC",
+    "direccion": "CALLE BENVENUTO CELLINI  NO.  21, COLONIA MIXCOAC, ALCALDÍA BENITO JUÁREZ, C.P. 03910, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1844K",
+    "escuela": "ESCUELA PRIMARIA AMADO NERVO"
+  },
+  {
+    "numero": "126",
+    "codigo": "CT090",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "SANTA MARIA LA RIBERA",
+    "direccion": "CALLE SANTA MARIA LA RIBERA  NO.  64, COLONIA SANTA MARIA LA RIBERA, ALCALDÍA CUAUHTÉMOC, C.P. 06400, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0831J",
+    "escuela": "JARDÍN DE NIÑOS  FEDERICO FROEBEL"
+  },
+  {
+    "numero": "127",
+    "codigo": "TH003",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "MIGUEL HIDALGO",
+    "direccion": "CALLE GREGORIO ALLEGRI  S/N, COLONIA MIGUEL HIDALGO, ALCALDÍA TLÁHUAC, C.P. 13200, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0659R",
+    "escuela": "JARDÍN DE NIÑOS  ANA MARIA GALLAGA"
+  },
+  {
+    "numero": "128",
+    "codigo": "VC036",
+    "alcaldia": "VENUSTIANO CARRANZA",
+    "colonia": "ROMERO RUBIO",
+    "direccion": "CALLE ARGELIA NO.  36, COLONIA ROMERO RUBIO, ALCALDÍA VENUSTIANO CARRANZA, C.P. 15400, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0527Z",
+    "escuela": "JARDÍN DE NIÑOS  ESTADO DE AGUASCALIENTES"
+  },
+  {
+    "numero": "129",
+    "codigo": "GM040",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "GENERAL FELIPE BERRIOZABAL",
+    "direccion": "CALLE APANGO  S/N, COLONIA GENERAL FELIPE BERRIOZABAL, ALCALDÍA GUSTAVO A. MADERO, C.P. 07180, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0022I",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 68"
+  },
+  {
+    "numero": "130",
+    "codigo": "MA032",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN LORENZO TLACOYUCAN",
+    "direccion": "CALLE INSURGENTES  S/N, COLONIA SAN LORENZO TLACOYUCAN, ALCALDÍA MILPA ALTA, C.P. 12500, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DTV0138Z",
+    "escuela": "ESCUELA TELESECUNDARIA  NO. 138"
+  },
+  {
+    "numero": "131",
+    "codigo": "IP215",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LOS REYES CULHUACAN",
+    "direccion": "CALLE  TULYEHUALCO (TLAHUAC) Y CUITLAHUAC  S/N, COLONIA LOS REYES CULHUACAN, ALCALDÍA IZTAPALAPA, C.P. 09840, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0084F",
+    "escuela": "ESCUELA SECUNDARIA JOSÉ MARTI"
+  },
+  {
+    "numero": "132",
+    "codigo": "IP121",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "MAGDALENA ATLAZOLPA",
+    "direccion": "CALLE FRANCISCO DEL PASO Y TRONCOSO Y CALLE DEL ROSAL   S/N, COLONIA MAGDALENA ATLAZOLPA, ALCALDÍA IZTAPALAPA, C.P. 09410, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0044X",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  44"
+  },
+  {
+    "numero": "133",
+    "codigo": "BJ060",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "MIRAVALLE",
+    "direccion": "CALLE DE LOS MONTES  NO.  14, COLONIA MIRAVALLE, ALCALDÍA BENITO JUÁREZ, C.P. 03580, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0361I",
+    "escuela": "JARDÍN DE NIÑOS  LIC. ALEJANDRO QUIJANO"
+  },
+  {
+    "numero": "134",
+    "codigo": "MH093",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "ANAHUAC",
+    "direccion": "CALLE COLEGIO SALESIANO NO.  69, COLONIA ANAHUAC, ALCALDÍA MIGUEL HIDALGO, C.P. 11320, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0307O",
+    "escuela": "JARDÍN DE NIÑOS  JULIAN CARRILLO"
+  },
+  {
+    "numero": "135",
+    "codigo": "XC022",
+    "alcaldia": "XOCHIMILCO",
+    "colonia": "HUICHAPAN",
+    "direccion": "CALLE 18 DE MARZO NO.  15, COLONIA HUICHAPAN, ALCALDÍA XOCHIMILCO, C.P. 16300, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0635H",
+    "escuela": "JARDÍN DE NIÑOS  COSTA DE MARFIL"
+  },
+  {
+    "numero": "136",
+    "codigo": "VC133",
+    "alcaldia": "VENUSTIANO CARRANZA",
+    "colonia": "PUEBLA",
+    "direccion": "CALLE 65 Y 6  S/N, COLONIA PUEBLA, ALCALDÍA VENUSTIANO CARRANZA, C.P. 15020, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0252L",
+    "escuela": "ESCUELA SECUNDARIA AGUSTÍN CUE CÁNOVAS"
+  },
+  {
+    "numero": "137",
+    "codigo": "VC142",
+    "alcaldia": "VENUSTIANO CARRANZA",
+    "colonia": "MAGDALENA MIXHUCA",
+    "direccion": "CALLE RIO FRIO  S/N, COLONIA MAGDALENA MIXHUCA, ALCALDÍA VENUSTIANO CARRANZA, C.P. 15850, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0073P",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 83"
+  },
+  {
+    "numero": "138",
+    "codigo": "AZ095",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "SANTO DOMINGO",
+    "direccion": "CALLE SEGUNDA DE AQUILES SERDAN   S/N, COLONIA SANTO DOMINGO, ALCALDÍA AZCAPOTZALCO, C.P. 02160, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2778I",
+    "escuela": "ESCUELA PRIMARIA MTRA. ROSARIO CASTELLANOS FIGUEROA"
+  },
+  {
+    "numero": "139",
+    "codigo": "AO131",
+    "alcaldia": "ALVARO OBREGÓN",
+    "colonia": "SANTA LUCIA",
+    "direccion": "CALLE RAYON  NO.  3, PUEBLO SANTA LUCIA, ALCALDÍA ALVARO OBREGÓN, C.P. 01500, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1870I",
+    "escuela": "ESCUELA PRIMARIA HERMANOS GALEANA"
+  },
+  {
+    "numero": "140",
+    "codigo": "CT233",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "SANTA MARIA LA RIBERA",
+    "direccion": "CALLE NARANJO Y RAMON LOPEZ VELARDE NO. 27 NO.  61, COLONIA SANTA MARIA LA RIBERA, ALCALDÍA CUAUHTÉMOC, C.P. 06400, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0046C",
+    "escuela": "ESCUELA SECUNDARIA JOSÉ VASCONCELOS"
+  },
+  {
+    "numero": "141",
+    "codigo": "GM125",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN PEDRO ZACATENCO",
+    "direccion": "CALLE SAO PAULO NO.  34, COLONIA SAN PEDRO ZACATENCO, ALCALDÍA GUSTAVO A. MADERO, C.P. 07360, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1347M",
+    "escuela": "ESCUELA PRIMARIA JESUS CARLOS ROMERO VILLA"
+  },
+  {
+    "numero": "142",
+    "codigo": "IP132",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SANTA MARIA TOMATLAN",
+    "direccion": "CALLE  EMILIANO ZAPATA Y TLAHUAC  S/N, COLONIA SANTA MARIA TOMATLAN, ALCALDÍA IZTAPALAPA, C.P. 09870, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0226N",
+    "escuela": "ESCUELA SECUNDARIA ESTADO DE VERACRUZ"
+  },
+  {
+    "numero": "143",
+    "codigo": "CT197",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "CENTRO",
+    "direccion": "CALLE BOLIVAR  NO.  162, COLONIA CENTRO, ALCALDÍA CUAUHTÉMOC, C.P. 06080, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0917F",
+    "escuela": "ESCUELA PRIMARIA SIMON BOLIVAR"
+  },
+  {
+    "numero": "144",
+    "codigo": "AZ112",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "CUITLAHUAC",
+    "direccion": "CALLE RABAUL Y MANZANA 3   S/N, UNIDAD HABITACINAL  CUITLAHUAC, ALCALDÍA AZCAPOTZALCO, C.P. 02500, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1630J",
+    "escuela": "ESCUELA PRIMARIA REPÚBLICA DE COREA"
+  },
+  {
+    "numero": "145",
+    "codigo": "CT100",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "CENTRO",
+    "direccion": "CALLE ALHONDIGA Y SOLEDAD   S/N, COLONIA CENTRO, ALCALDÍA CUAUHTÉMOC, C.P. 06060, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2477M",
+    "escuela": "ESCUELA PRIMARIA GABINO BARREDA"
+  },
+  {
+    "numero": "146",
+    "codigo": "MH051 BIS",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "DANIEL GARZA",
+    "direccion": "CALLE CONSTITUYENTES Y ELECTRIFICACION  S/N, COLONIA DANIEL GARZA, ALCALDÍA MIGUEL HIDALGO, C.P. 11830, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1774F",
+    "escuela": "ESCUELA PRIMARIA EL PIPILA"
+  },
+  {
+    "numero": "147",
+    "codigo": "CT218",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "SAN RAFAEL",
+    "direccion": "CALLE CL. VALENTIN GOMEZ FARIAS NO.  48, COLONIA SAN RAFAEL, ALCALDÍA CUAUHTÉMOC, C.P. 06470, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR3176X",
+    "escuela": "ESCUELA PRIMARIA FLORENCIO M. DEL CASTILLO"
+  },
+  {
+    "numero": "148",
+    "codigo": "GM179",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "TICOMAN",
+    "direccion": "CALLE 27 DE SEPTIEMBRE MANZANA 26 B  S/N, COLONIA TICOMAN, ALCALDÍA GUSTAVO A. MADERO, C.P. 07330, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0343T",
+    "escuela": "JARDÍN DE NIÑOS  MIGUEL RAMOS ARIZPE"
+  },
+  {
+    "numero": "149",
+    "codigo": "MH110",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "PENSIL",
+    "direccion": "CALLE LAGO CONSTANZA NO.  43, COLONIA PENSIL, ALCALDÍA MIGUEL HIDALGO, C.P. 11450, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0792Y",
+    "escuela": "JARDÍN DE NIÑOS  MÉXICO"
+  },
+  {
+    "numero": "150",
+    "codigo": "TP071",
+    "alcaldia": "TLALPAN",
+    "colonia": "EX HACIENDA COAPA",
+    "direccion": "CALLE TENORIOS NO.  222, COLONIA EX HACIENDA COAPA, ALCALDÍA TLALPAN, C.P. 14300, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0295Z",
+    "escuela": "JARDÍN DE NIÑOS  MIGUEL ANGEL BUONARROTI"
+  },
+  {
+    "numero": "151",
+    "codigo": "GM074",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "ZONA ESCOLAR",
+    "direccion": "CALLE GABRIEL GUERRA  S/N, COLONIA ZONA ESCOLAR, ALCALDÍA GUSTAVO A. MADERO, C.P. 07330, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0871K",
+    "escuela": "JARDÍN DE NIÑOS  EL ARBOLILLO"
+  },
+  {
+    "numero": "152",
+    "codigo": "IP094",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SANTA MARTHA ACATITLA",
+    "direccion": "CALLE FRANCISCO I. MADERO NO.  3, COLONIA SANTA MARTHA ACATITLA, ALCALDÍA IZTAPALAPA, C.P. 09510, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2088W",
+    "escuela": "ESCUELA PRIMARIA DR. MANUEL GAMIO"
+  },
+  {
+    "numero": "153",
+    "codigo": "CT073",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "CENTRO",
+    "direccion": "CALLE REPUBLICA DE GUATEMALA NO.  64, COLONIA CENTRO, ALCALDÍA CUAUHTÉMOC, C.P. 06020, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0063L",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO. 63"
+  },
+  {
+    "numero": "154",
+    "codigo": "AO167",
+    "alcaldia": "ALVARO OBREGÓN",
+    "colonia": "SAN ANGEL",
+    "direccion": "CALLE JOSE DE TERESA  NO.  107, COLONIA SAN ANGEL, ALCALDÍA ALVARO OBREGÓN, C.P. 01000, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0681T",
+    "escuela": "JARDÍN DE NIÑOS  PROFRA. ELSA CASTRO ULLOA"
+  },
+  {
+    "numero": "155",
+    "codigo": "CY186",
+    "alcaldia": "COYOACÁN",
+    "colonia": "SAN LUCAS",
+    "direccion": "CALLE ANTIGUA TAXQUEÑA  NO.  139, COLONIA SAN LUCAS, ALCALDÍA COYOACÁN, C.P. 04330, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0820D",
+    "escuela": "JARDÍN DE NIÑOS  TOMAS MIER GARCÍA"
+  },
+  {
+    "numero": "156",
+    "codigo": "GM203",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "25 DE JULIO",
+    "direccion": "CALLE JUAREZ Y CUAUHTEMOC  S/N, COLONIA 25 DE JULIO, ALCALDÍA GUSTAVO A. MADERO, C.P. 07520, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0202U",
+    "escuela": "JARDÍN DE NIÑOS  PROFR. LUIS DE LA BRENA"
+  },
+  {
+    "numero": "157",
+    "codigo": "TH085",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SANTA CECILIA",
+    "direccion": "CALLE RAMON CARDONA NO.  8, COLONIA SANTA CECILIA, ALCALDÍA TLÁHUAC, C.P. 13010, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0654W",
+    "escuela": "JARDÍN DE NIÑOS  TUTUL-XIU"
+  },
+  {
+    "numero": "158",
+    "codigo": "MH026",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "GRANADA",
+    "direccion": "CALLE LAGO BANGUEOLO PLANTA BAJA NO.  24, COLONIA GRANADA, ALCALDÍA MIGUEL HIDALGO, C.P. 11520, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0092D",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 1"
+  },
+  {
+    "numero": "159",
+    "codigo": "AZ081",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "EL RECREO",
+    "direccion": "CALLE CAMINO DEL RECREO  NO.  40, COLONIA EL RECREO, ALCALDÍA AZCAPOTZALCO, C.P. 02070, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1599Q",
+    "escuela": "ESCUELA PRIMARIA LIC. AQUILES ELORDUY"
+  },
+  {
+    "numero": "160",
+    "codigo": "GM108",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "GERTRUDIS SANCHEZ PRIMERA SECCION",
+    "direccion": "CALLE NORTE 84 A Y ORIENTE 115  S/N, COLONIA GERTRUDIS SANCHEZ PRIMERA SECCION, ALCALDÍA GUSTAVO A. MADERO, C.P. 07830, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1434H",
+    "escuela": "ESCUELA PRIMARIA GRAL. GERTRUDIS G. SANCHEZ"
+  },
+  {
+    "numero": "161",
+    "codigo": "IP467",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SAN LORENZO XICOTENCATL",
+    "direccion": "CALLE  IGNACIO ZARAGOZA NO.  2300, COLONIA SAN LORENZO XICOTENCATL, ALCALDÍA IZTAPALAPA, C.P. 09130, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2805P",
+    "escuela": "ESCUELA PRIMARIA ISIDRO FABELA"
+  },
+  {
+    "numero": "162",
+    "codigo": "IP122",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SANTA CRUZ MEYEHUALCO",
+    "direccion": "CALLE  31, 6 Y 29  S/N, COLONIA SANTA CRUZ MEYEHUALCO, ALCALDÍA IZTAPALAPA, C.P. 09290, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0053E",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  53"
+  },
+  {
+    "numero": "163",
+    "codigo": "CT130",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "CENTRO",
+    "direccion": "CALLE  DEL HORMIGUERO  NO.  5, COLONIA CENTRO, ALCALDÍA CUAUHTÉMOC, C.P. 06090, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0711X",
+    "escuela": "JARDÍN DE NIÑOS  JUAN JACOBO ROUSSEAU"
+  },
+  {
+    "numero": "164",
+    "codigo": "XC075",
+    "alcaldia": "XOCHIMILCO",
+    "colonia": "SANTA MARIA TEPEPAN",
+    "direccion": "CALLE CAMINO REAL AL AJUSCO (RICARTE)  S/N, COLONIA SANTA MARIA TEPEPAN, ALCALDÍA XOCHIMILCO, C.P. 16020, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0161U",
+    "escuela": "ESCUELA SECUNDARIA TOMÁS ALVA EDISON"
+  },
+  {
+    "numero": "165",
+    "codigo": "XC055",
+    "alcaldia": "XOCHIMILCO",
+    "colonia": "SAN LORENZO LA CEBADA",
+    "direccion": "CALLE MUYUGUARDA  S/N, COLONIA SAN LORENZO LA CEBADA, ALCALDÍA XOCHIMILCO, C.P. 16035, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5121H",
+    "escuela": "ESCUELA PRIMARIA OCTAVIO PAZ"
+  },
+  {
+    "numero": "166",
+    "codigo": "XC098",
+    "alcaldia": "XOCHIMILCO",
+    "colonia": "TEPEPAN",
+    "direccion": "CALLE DE LAS TORRES  S/N, AMPLIACION TEPEPAN, ALCALDÍA XOCHIMILCO, C.P. 16030, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2787Q",
+    "escuela": "ESCUELA PRIMARIA MARIANO GALVAN RIVERA"
+  },
+  {
+    "numero": "167",
+    "codigo": "GM189",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN PEDRO ZACATENCO",
+    "direccion": "CALLE CIENFUEGOS NO.  1071, COLONIA SAN PEDRO ZACATENCO, ALCALDÍA GUSTAVO A. MADERO, C.P. 07360, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0371P",
+    "escuela": "JARDÍN DE NIÑOS  NONANTZIN"
+  },
+  {
+    "numero": "168",
+    "codigo": "IC089",
+    "alcaldia": "IZTACALCO",
+    "colonia": "CUCHILLA AGRICOLA ORIENTAL",
+    "direccion": "CALLE RIO CHURUBUSCO Y SUR 8  S/N, COLONIA CUCHILLA AGRICOLA ORIENTAL, ALCALDÍA IZTACALCO, C.P. 08420, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1241C",
+    "escuela": "JARDÍN DE NIÑOS  MARIA LAVALLE URBINA"
+  },
+  {
+    "numero": "169",
+    "codigo": "MH119",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "PERIODISTA",
+    "direccion": "CALLE MIGUEL LANZ DURET NO.  24, COLONIA PERIODISTA, ALCALDÍA MIGUEL HIDALGO, C.P. 11220, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0275M",
+    "escuela": "JARDÍN DE NIÑOS  PLUTARCO ELIAS CALLES"
+  },
+  {
+    "numero": "170",
+    "codigo": "TH039",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "DEL MAR",
+    "direccion": "CALLE GITANA ENTRE LAGO CUITZEO Y TURBA  S/N, COLONIA DEL MAR, ALCALDÍA TLÁHUAC, C.P. 13270, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1056G",
+    "escuela": "JARDÍN DE NIÑOS  LIC. JESUS REYES HEROLES"
+  },
+  {
+    "numero": "171",
+    "codigo": "AZ161",
+    "alcaldia": "AZCAPOTZALCO",
+    "colonia": "OBRERA POPULAR",
+    "direccion": "CALLE  BIOLOGO MAXIMINO MARTINEZ Y NORTE 57  S/N, COLONIA OBRERA POPULAR, ALCALDÍA AZCAPOTZALCO, C.P. 02840, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0124Q",
+    "escuela": "ESCUELA SECUNDARIA MÉXICO"
+  },
+  {
+    "numero": "172",
+    "codigo": "BJ040",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "DEL VALLE",
+    "direccion": "CALLE ADOLFO PRIETO  NO.  1128, COLONIA DEL VALLE, ALCALDÍA BENITO JUÁREZ, C.P. 03100, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DIX0001O",
+    "escuela": "ESCUELA PRIMARIA GERTRUDIS BOCANEGRA DE LAZO DE LA VEGA \"INTERNADO 1\""
+  },
+  {
+    "numero": "173",
+    "codigo": "CY050",
+    "alcaldia": "COYOACÁN",
+    "colonia": "EL CARMEN",
+    "direccion": "CALLE VIENA  NO.  121, COLONIA EL CARMEN, ALCALDÍA COYOACÁN, C.P. 04100, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0034N",
+    "escuela": "INSTITUTO NACIONAL PARA LA REHABILITACIÓN DE NIÑOS CIEGOS Y DÉBILES VISUALES"
+  },
+  {
+    "numero": "174",
+    "codigo": "IP379",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SANTA CRUZ MEYEHUALCO",
+    "direccion": "CALLE 31 NO.  25, UNIDAD HABITACIONAL SANTA CRUZ MEYEHUALCO, ALCALDÍA IZTAPALAPA, C.P. 09290, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2904P",
+    "escuela": "ESCUELA PRIMARIA REPÚBLICA POPULAR DE POLONIA"
+  },
+  {
+    "numero": "175",
+    "codigo": "IP115",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SOLIDARIDAD SANTA MARTHA",
+    "direccion": "CALLE OYAMELES Y FRANCISCO CESAR MORALES   S/N, UNIDAD HABITACIONAL SOLIDARIDAD SANTA MARTHA, ALCALDÍA IZTAPALAPA, C.P. 09510, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0111E",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  111"
+  },
+  {
+    "numero": "176",
+    "codigo": "TH065",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SANTA CATARINA YECAHUIZOTL",
+    "direccion": "CALLE ALDAMA Y CONCEPCION  S/N, COLONIA SANTA CATARINA YECAHUIZOTL, ALCALDÍA TLÁHUAC, C.P. 13100, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2574O",
+    "escuela": "ESCUELA PRIMARIA RAFAEL RAMIREZ CASTAÑEDA"
+  },
+  {
+    "numero": "177",
+    "codigo": "GM097",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SANTA ISABEL TOLA",
+    "direccion": "AVENIDA ACUEDUCTO  S/N, COLONIA SANTA ISABEL TOLA, ALCALDÍA GUSTAVO A. MADERO, C.P. 07010, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0215Y",
+    "escuela": "JARDÍN DE NIÑOS  FRANCISCO GONZÁLEZ BOCANEGRA"
+  },
+  {
+    "numero": "178",
+    "codigo": "MH107",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "ANAHUAC",
+    "direccion": "CALLE LAGO CHAPALA NO.  33, COLONIA ANAHUAC, ALCALDÍA MIGUEL HIDALGO, C.P. 11320, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0148Q",
+    "escuela": "JARDÍN DE NIÑOS  MARIA LUISA DE LA TORRE"
+  },
+  {
+    "numero": "179",
+    "codigo": "CT138",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "PERALVILLO",
+    "direccion": "CALLE  DE GUADALUPE  NO.  166, COLONIA PERALVILLO, ALCALDÍA CUAUHTÉMOC, C.P. 06220, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2400Y",
+    "escuela": "ESCUELA PRIMARIA LISANDRO CALDERON"
+  },
+  {
+    "numero": "180",
+    "codigo": "GM263",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "GUADALUPE PROLETARIA",
+    "direccion": "CALLE 8 Y RIO TLALNEPANTLA  S/N, COLONIA GUADALUPE PROLETARIA, ALCALDÍA GUSTAVO A. MADERO, C.P. 07670, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0216X",
+    "escuela": "JARDÍN DE NIÑOS  TONANITLA"
+  },
+  {
+    "numero": "181",
+    "codigo": "GM408",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "GUADALUPE PROLETARIA",
+    "direccion": "CALLE 8 Y AVENIDA SANTIAGO  S/N, COLONIA GUADALUPE PROLETARIA, ALCALDÍA GUSTAVO A. MADERO, C.P. 07670, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0240G",
+    "escuela": "ESCUELA SECUNDARIA REPÚBLICA DE SUDÁFRICA"
+  },
+  {
+    "numero": "182",
+    "codigo": "TH078",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SANTIAGO SUR (LA CONCHITA ZAPOTITLAN)",
+    "direccion": "CALLE ADOLFO UNDA Y DOMINGO ALVARADO (ANTES VICENTE GUERRERO Y JOSEFA ORTIZ DE DOMINGUEZ)  S/N, COLONIA SANTIAGO SUR (LA CONCHITA ZAPOTITLAN), ALCALDÍA TLÁHUAC, C.P. 13300, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0403R",
+    "escuela": "JARDÍN DE NIÑOS  TEZCATLIPOCA"
+  },
+  {
+    "numero": "183",
+    "codigo": "BJ028",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "SAN SIMON TICUMAC",
+    "direccion": "CALLE ELEUTERIO MENDEZ NO.  53, COLONIA SAN SIMON TICUMAC, ALCALDÍA BENITO JUÁREZ, C.P. 03300, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0080J",
+    "escuela": "ESCUELA SECUNDARIA DR. MARTÍN LUTHER KING"
+  },
+  {
+    "numero": "184",
+    "codigo": "BJ090",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "MIXCOAC",
+    "direccion": "CALLE LOS ECHAVE  NO.  37, COLONIA MIXCOAC, ALCALDÍA BENITO JUÁREZ, C.P. 03910, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0085V",
+    "escuela": "JARDÍN DE NIÑOS  REFORMA"
+  },
+  {
+    "numero": "185",
+    "codigo": "IP125",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SAN MIGUEL TEOTONGO",
+    "direccion": "CALLE ELOY CABAZOS Y BUGANBILIA (VICENTE GUERRERO)  S/N, COLONIA SAN MIGUEL TEOTONGO, ALCALDÍA IZTAPALAPA, C.P. 09630, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0087V",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  87"
+  },
+  {
+    "numero": "186",
+    "codigo": "GM313",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "NVA VALLEJO",
+    "direccion": "CALLE NORTE 17 A NO.  5280, COLONIA NVA VALLEJO , ALCALDÍA GUSTAVO A. MADERO, C.P. 07750, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0031T",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  31"
+  },
+  {
+    "numero": "187",
+    "codigo": "CT015",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "SANTA MARIA LA RIBERA",
+    "direccion": "CALLE FRESNO  NO.  45, COLONIA SANTA MARIA LA RIBERA, ALCALDÍA CUAUHTÉMOC, C.P. 06400, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0002F",
+    "escuela": "ESCUELA SECUNDARIA ANA MARÍA BERLANGA"
+  },
+  {
+    "numero": "188",
+    "codigo": "MH008",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "LOMAS ALTAS",
+    "direccion": "CALLE CONSTITUYENTES NO.  940, COLONIA LOMAS ALTAS, ALCALDÍA MIGUEL HIDALGO, C.P. 11950, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1093A",
+    "escuela": "ESCUELA PRIMARIA ALBERTO M. ALVARADO"
+  }
+]
