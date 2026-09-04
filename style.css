@@ -150,6 +150,10 @@ input:focus, select:focus { outline: none; border-color: var(--primary); box-sha
 .territory-checklist { max-height: 285px; overflow: auto; border-top: 1px solid var(--border); }
 .territory-option { margin: 0; padding: 7px 4px; border-bottom: 1px solid var(--border); font-weight: 550; }
 .territory-option:last-child { border-bottom: 0; }
+.territory-single-group { padding: 10px; border-top: 1px solid var(--border); }
+.territory-single-group:first-child { border-top: 0; }
+.territory-single-group label { margin: 0 0 6px; }
+.territory-single { width: 100%; }
 .hidden-by-search { display: none !important; }
 
 .cross-summary { margin: 0 0 10px; padding: 9px; color: var(--text); background: var(--panel-soft); border-left: 3px solid var(--primary); border-radius: 6px; font-size: 13px; line-height: 1.4; }

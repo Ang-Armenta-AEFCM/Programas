@@ -292,14 +292,27 @@ function buildTerritoryMenus() {
     });
   });
 
-  q('territoryFilters').innerHTML = Object.entries(TERRITORIES).map(([type, definition], index) => {
+  q('territoryFilters').innerHTML = Object.entries(TERRITORIES).map(([type, definition]) => {
     const options = [...territoryFeatureMaps[type].entries()].map(([id, feature]) => ({
       id,
       label: feature.properties.__filterLabel,
       count: counts[type].get(id) || 0
     })).sort((a, b) => a.label.localeCompare(b.label, 'es'));
+
+    if (type !== 'alcaldia') {
+      return `
+        <div class="territory-single-group">
+          <label for="territorySelect-${type}">${escapeHtml(definition.label)}</label>
+          <select id="territorySelect-${type}" class="territory-single" data-type="${type}">
+            <option value="">${type === 'ageb' ? 'Todas las AGEB' : type === 'cp' ? 'Todos los códigos postales' : 'Todas las colonias'}</option>
+            ${options.map(option => `
+              <option value="${escapeAttr(option.id)}">${escapeHtml(option.label)} — ${option.count.toLocaleString('es-MX')} planteles</option>`).join('')}
+          </select>
+        </div>`;
+    }
+
     return `
-      <details class="territory-group" data-type="${type}" ${index === 0 ? 'open' : ''}>
+      <details class="territory-group" data-type="${type}" open>
         <summary><span>${escapeHtml(definition.label)}</span><small><strong id="territoryCount-${type}">0</strong> seleccionados</small></summary>
         <div class="territory-group-body">
           <input class="territory-search" data-type="${type}" type="search" placeholder="Buscar ${escapeAttr(definition.label.toLowerCase())}">
@@ -320,6 +333,7 @@ function buildTerritoryMenus() {
     applyFilters(true);
   }));
   document.querySelectorAll('.territory-search').forEach(input => input.addEventListener('input', event => filterTerritoryMenu(event.target.dataset.type, event.target.value)));
+  document.querySelectorAll('.territory-single').forEach(select => select.addEventListener('change', () => applyFilters(true)));
   document.querySelectorAll('.territory-clear').forEach(button => button.addEventListener('click', () => {
     document.querySelectorAll(`.territory-check[data-type="${button.dataset.type}"]`).forEach(input => input.checked = false);
     updateTerritoryCounts();
@@ -400,11 +414,17 @@ function applyFilters(zoomTerritories) {
 }
 
 function selectedTerritories() {
-  const result = {};
-  Object.keys(TERRITORIES).forEach(type => {
-    result[type] = [...document.querySelectorAll(`.territory-check[data-type="${type}"]:checked`)].map(input => input.value);
-  });
-  return result;
+  const alcaldias = [...document.querySelectorAll('.territory-check[data-type="alcaldia"]:checked')].map(input => input.value);
+  const singleSelection = type => {
+    const value = q(`territorySelect-${type}`)?.value || '';
+    return value ? [value] : [];
+  };
+  return {
+    alcaldia: alcaldias,
+    ageb: singleSelection('ageb'),
+    cp: singleSelection('cp'),
+    colonia: singleSelection('colonia')
+  };
 }
 
 function matchesTerritories(school, selections) {
@@ -690,10 +710,8 @@ function filterTerritoryMenu(type, value) {
 }
 
 function updateTerritoryCounts() {
-  Object.keys(TERRITORIES).forEach(type => {
-    const count = document.querySelectorAll(`.territory-check[data-type="${type}"]:checked`).length;
-    q(`territoryCount-${type}`).textContent = count.toLocaleString('es-MX');
-  });
+  const count = document.querySelectorAll('.territory-check[data-type="alcaldia"]:checked').length;
+  q('territoryCount-alcaldia').textContent = count.toLocaleString('es-MX');
 }
 
 function zoomToSelectedTerritories() {
@@ -728,8 +746,9 @@ function clearAllFilters() {
   q('buscarNombre').value = '';
   q('programSearch').value = '';
   document.querySelectorAll('#programFilters input,#improvementFilters input,.territory-check').forEach(input => input.checked = false);
+  document.querySelectorAll('.territory-single').forEach(select => select.value = '');
   document.querySelectorAll('.territory-search').forEach(input => input.value = '');
-  Object.keys(TERRITORIES).forEach(type => filterTerritoryMenu(type, ''));
+  filterTerritoryMenu('alcaldia', '');
   filterProgramMenu();
   updateTerritoryCounts();
   q('detailPanel').classList.remove('open');
@@ -754,7 +773,12 @@ function restoreState() {
   q('filtroNivel').value = state.nivel || '';
   restoreChecks('#programFilters input', state.projects || []);
   restoreChecks('#improvementFilters input', state.improvements || []);
-  Object.entries(state.territories || {}).forEach(([type, values]) => restoreChecks(`.territory-check[data-type="${type}"]`, values || []));
+  restoreChecks('.territory-check[data-type="alcaldia"]', state.territories?.alcaldia || []);
+  ['ageb', 'cp', 'colonia'].forEach(type => {
+    const select = q(`territorySelect-${type}`);
+    const saved = state.territories?.[type];
+    if (select) select.value = Array.isArray(saved) ? (saved[0] || '') : (saved || '');
+  });
   schoolsVisible = state.schools !== false;
   q('toggleSchools').checked = schoolsVisible;
   updateTerritoryCounts();
