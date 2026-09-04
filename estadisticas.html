@@ -3,39 +3,60 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Estadísticas | Visor de programas e infraestructura educativa CDMX</title>
-  <link rel="stylesheet" href="style.css?v=20260818-1">
+  <title>Estadísticas | Visor de programas de la Ciudad de México</title>
+  <link rel="stylesheet" href="style.css?v=20260904-1">
 </head>
 <body class="stats-page">
   <main class="stats-container">
     <header class="stats-header">
-      <div><h1>Estadísticas del visor</h1><p>El resultado conserva el cruce de Programas, Mejoras y Mantenimiento seleccionado en el mapa.</p></div>
+      <div><h1>Estadísticas del visor</h1><p>El resultado conserva los filtros de Programas, Mejoras y territorio seleccionados en el mapa.</p></div>
       <a href="index.html">Volver al visor</a>
     </header>
+
     <section class="stats-filter-panel">
       <h2>Filtros generales</h2>
       <div class="stats-filter-grid">
-        <div><label for="stAlcaldia">Alcaldía</label><select id="stAlcaldia"><option value="">Todas</option></select></div>
         <div><label for="stNivel">Nivel educativo</label><select id="stNivel"><option value="">Todos</option></select></div>
         <div><label for="stCCT">CCT</label><input id="stCCT" type="search" placeholder="Buscar CCT"></div>
         <div><label for="stNombre">Escuela</label><input id="stNombre" type="search" placeholder="Buscar nombre"></div>
-        <div class="stats-actions"><button id="stLimpiar" class="secondary">Limpiar filtros generales</button></div>
+        <div class="stats-actions"><button id="stLimpiar" class="secondary" type="button">Limpiar estos filtros</button></div>
       </div>
     </section>
-    <section class="stats-filter-panel"><h2>Cruce activo</h2><p id="statsContext" class="stats-context">Cargando selección…</p><div id="statsTags" class="popup-flags"></div></section>
+
+    <section class="stats-filter-panel">
+      <h2>Cruce activo</h2>
+      <p id="statsContext" class="stats-context">Cargando selección…</p>
+      <div id="statsTags" class="popup-flags"></div>
+    </section>
+
     <section class="cards">
-      <div class="card"><span>Escuelas del resultado</span><strong id="stTotal">0</strong></div>
-      <div class="card"><span>Mayor número de atenciones</span><strong id="stMax">0</strong></div>
-      <div class="card"><span>Alcaldías representadas</span><strong id="stAux1">0</strong></div>
-      <div class="card"><span>Promedio del índice</span><strong id="stAux2">0</strong></div>
+      <div class="card"><span>Planteles del resultado</span><strong id="stTotal">0</strong></div>
+      <div class="card"><span>Con programas</span><strong id="stPrograms">0</strong></div>
+      <div class="card"><span>Con mejoras</span><strong id="stImprovements">0</strong></div>
+      <div class="card"><span>Alcaldías representadas</span><strong id="stAlcaldias">0</strong></div>
     </section>
+
     <section class="grid-two">
-      <div class="table-panel"><h2>Distribución de atención</h2><table><thead><tr><th>Clasificación</th><th>Escuelas</th><th>Proporción</th></tr></thead><tbody id="tablaDistribucion"></tbody></table></div>
-      <div class="table-panel"><h2>Resultados por nivel educativo</h2><table><thead><tr><th>Nivel</th><th>Escuelas</th><th>Mayor índice</th></tr></thead><tbody id="tablaNivel"></tbody></table></div>
+      <div class="table-panel">
+        <h2>Cobertura del resultado</h2>
+        <table><thead><tr><th>Condición</th><th>Planteles</th><th>Proporción</th></tr></thead><tbody id="tablaCobertura"></tbody></table>
+      </div>
+      <div class="table-panel">
+        <h2>Resultados por nivel educativo</h2>
+        <table><thead><tr><th>Nivel</th><th>Planteles</th><th>Con programas</th><th>Con mejoras</th></tr></thead><tbody id="tablaNivel"></tbody></table>
+      </div>
     </section>
-    <section class="table-panel"><h2>Resultados por alcaldía</h2><table><thead><tr><th>Alcaldía</th><th>Escuelas</th><th>Mayor índice</th><th>Con reforzamiento</th><th>Proporción</th></tr></thead><tbody id="tablaAlcaldia"></tbody></table></section>
-    <section class="table-panel"><h2>Escuelas del resultado</h2><table><thead><tr><th>#</th><th>Escuela</th><th>CCT</th><th>Alcaldía</th><th>Nivel</th><th>Índice</th><th>Programas / proyectos</th></tr></thead><tbody id="tablaRanking"></tbody></table></section>
+
+    <section class="table-panel">
+      <h2>Resultados por alcaldía</h2>
+      <table><thead><tr><th>Alcaldía</th><th>Planteles</th><th>Con programas</th><th>Con mejoras</th><th>Proporción</th></tr></thead><tbody id="tablaAlcaldia"></tbody></table>
+    </section>
+
+    <section class="table-panel">
+      <h2>Planteles del resultado</h2>
+      <table><thead><tr><th>#</th><th>Escuela</th><th>CCT</th><th>Alcaldía</th><th>Nivel</th><th>Programas / proyectos</th><th>Mejoras</th></tr></thead><tbody id="tablaRanking"></tbody></table>
+    </section>
   </main>
-  <script src="estadisticas.js?v=20260818-1"></script>
+  <script src="estadisticas.js?v=20260904-1"></script>
 </body>
 </html>
