@@ -3,6 +3,7 @@ const DATA = {
   programs: 'data/programas_integradores.json',
   improvements: 'data/mejoras_infraestructura.json',
   indicators: 'data/indicadores_educativos.json',
+  imv: 'data/indice_marginalidad_violencia.geojson',
   alcaldia: 'data/alcaldias.json',
   ageb: 'data/ageb.geojson',
   cp: 'data/codigos_postales.geojson',
@@ -32,6 +33,13 @@ const INDICATOR_LABELS = {
   no_promovidos_primaria: 'No promovidos de primaria',
   no_promovidos_secundaria: 'No promovidos de secundaria'
 };
+const IMV_COLORS = {
+  'Muy baja': '#1a9850',
+  'Baja': '#91cf60',
+  'Media': '#fee08b',
+  'Alta': '#fc8d59',
+  'Muy alta': '#d73027'
+};
 
 let allSchools = [];
 let filteredSchools = [];
@@ -39,6 +47,8 @@ let programRows = [];
 let programCatalog = [];
 let improvementsRows = [];
 let indicatorsByCCT = {};
+let imvGeo = null;
+let imvLayer = null;
 let territoryGeo = {};
 let territoryFeatureMaps = {};
 let territorySelectionLayers = {};
@@ -68,6 +78,7 @@ async function init() {
     programRows = loaded.programs;
     improvementsRows = loaded.improvements;
     indicatorsByCCT = loaded.indicators;
+    imvGeo = loaded.imv;
     territoryGeo = {alcaldia: loaded.alcaldia, ageb: loaded.ageb, cp: loaded.cp, colonia: loaded.colonia};
 
     allSchools = (loaded.schools.features || []).map(normalizeFeature).filter(Boolean);
@@ -80,10 +91,12 @@ async function init() {
     buildProgramMenu();
     buildImprovementMenu();
     prepareTerritories();
+    prepareImvLayer();
     buildTerritoryMenus();
     populateGeneralFilters();
     drawBaseAlcaldias();
     restoreState();
+    syncImvLayer();
     initialized = true;
     applyFilters(false);
     setStatus('');
@@ -250,6 +263,7 @@ function buildImprovementMenu() {
 function prepareTerritories() {
   territoryFeatureMaps = {};
   Object.keys(TERRITORIES).forEach(type => {
+    const referenceLayer = type === 'cp' || type === 'colonia';
     const mapById = new Map();
     (territoryGeo[type].features || []).forEach(feature => {
       const id = territoryFeatureId(type, feature);
@@ -262,8 +276,15 @@ function prepareTerritories() {
     territoryFeatureMaps[type] = mapById;
     territorySelectionLayers[type] = L.geoJSON([], {
       interactive: false,
-      style: {color: TERRITORIES[type].color, weight: 3, opacity: 0.95, fillColor: TERRITORIES[type].color, fillOpacity: 0.10}
-    }).addTo(map);
+      style: {
+        color: TERRITORIES[type].color,
+        weight: referenceLayer ? 1 : 3,
+        opacity: referenceLayer ? 0.72 : 0.95,
+        fillColor: TERRITORIES[type].color,
+        fillOpacity: referenceLayer ? 0.025 : 0.10
+      }
+    });
+    if (!referenceLayer) territorySelectionLayers[type].addTo(map);
   });
 }
 
@@ -299,12 +320,22 @@ function buildTerritoryMenus() {
       count: counts[type].get(id) || 0
     })).sort((a, b) => a.label.localeCompare(b.label, 'es'));
 
-    if (type !== 'alcaldia') {
+    if (type === 'cp' || type === 'colonia') {
+      return `
+        <div class="territory-layer-group">
+          <label class="inline-check territory-layer-option" for="territoryLayer-${type}">
+            <input id="territoryLayer-${type}" class="territory-layer-toggle" data-type="${type}" type="checkbox">
+            <span>Mostrar capa de ${type === 'cp' ? 'códigos postales' : 'colonias'} <em>Solo visualización; no filtra planteles</em></span>
+          </label>
+        </div>`;
+    }
+
+    if (type === 'ageb') {
       return `
         <div class="territory-single-group">
           <label for="territorySelect-${type}">${escapeHtml(definition.label)}</label>
           <select id="territorySelect-${type}" class="territory-single" data-type="${type}">
-            <option value="">${type === 'ageb' ? 'Todas las AGEB' : type === 'cp' ? 'Todos los códigos postales' : 'Todas las colonias'}</option>
+            <option value="">Todas las AGEB</option>
             ${options.map(option => `
               <option value="${escapeAttr(option.id)}">${escapeHtml(option.label)} — ${option.count.toLocaleString('es-MX')} planteles</option>`).join('')}
           </select>
@@ -334,6 +365,10 @@ function buildTerritoryMenus() {
   }));
   document.querySelectorAll('.territory-search').forEach(input => input.addEventListener('input', event => filterTerritoryMenu(event.target.dataset.type, event.target.value)));
   document.querySelectorAll('.territory-single').forEach(select => select.addEventListener('change', () => applyFilters(true)));
+  document.querySelectorAll('.territory-layer-toggle').forEach(input => input.addEventListener('change', () => {
+    renderTerritoryLayers(selectedTerritories());
+    saveState();
+  }));
   document.querySelectorAll('.territory-clear').forEach(button => button.addEventListener('click', () => {
     document.querySelectorAll(`.territory-check[data-type="${button.dataset.type}"]`).forEach(input => input.checked = false);
     updateTerritoryCounts();
@@ -363,6 +398,10 @@ function bindUI() {
     schoolsVisible = event.target.checked;
     saveState();
     updateVisibility();
+  };
+  q('toggleIMV').onchange = () => {
+    syncImvLayer();
+    saveState();
   };
   q('programSearch').addEventListener('input', filterProgramMenu);
   q('toggleTerritorios').onclick = () => toggleMenu('territoriosBody', 'territoriosArrow', 'toggleTerritorios');
@@ -422,8 +461,8 @@ function selectedTerritories() {
   return {
     alcaldia: alcaldias,
     ageb: singleSelection('ageb'),
-    cp: singleSelection('cp'),
-    colonia: singleSelection('colonia')
+    cp: [],
+    colonia: []
   };
 }
 
@@ -446,7 +485,18 @@ function updateCrossSummary(projects, improvements, territories) {
 function renderTerritoryLayers(selections) {
   Object.keys(TERRITORIES).forEach(type => {
     const layer = territorySelectionLayers[type];
+    if (type === 'cp' || type === 'colonia') {
+      const visible = q(`territoryLayer-${type}`)?.checked;
+      if (visible) {
+        if (!layer.getLayers().length) layer.addData([...territoryFeatureMaps[type].values()]);
+        if (!map.hasLayer(layer)) layer.addTo(map);
+      } else if (map.hasLayer(layer)) {
+        map.removeLayer(layer);
+      }
+      return;
+    }
     layer.clearLayers();
+    if (!map.hasLayer(layer)) layer.addTo(map);
     const features = selections[type].map(id => territoryFeatureMaps[type].get(id)).filter(Boolean);
     if (features.length) layer.addData(features);
     layer.bringToFront();
@@ -459,6 +509,46 @@ function drawBaseAlcaldias() {
     style: {color: '#164e63', weight: 2.4, opacity: 0.82, fillColor: '#0e7490', fillOpacity: 0.018}
   }).addTo(map);
   map.fitBounds(baseAlcaldiaLayer.getBounds(), {padding: [12, 12]});
+}
+
+function prepareImvLayer() {
+  if (!map.getPane('imvPane')) {
+    map.createPane('imvPane');
+    map.getPane('imvPane').style.zIndex = 350;
+  }
+  imvLayer = L.geoJSON(imvGeo, {
+    pane: 'imvPane',
+    style: feature => {
+      const category = clean(feature.properties?.C_US_cat);
+      return {
+        color: '#475569',
+        weight: 0.65,
+        opacity: 0.72,
+        fillColor: IMV_COLORS[category] || '#9ca3af',
+        fillOpacity: category ? 0.58 : 0.20
+      };
+    },
+    onEachFeature: (feature, layer) => {
+      const category = clean(feature.properties?.C_US_cat) || 'Sin información';
+      const value = Number(feature.properties?.C_US) || 0;
+      layer.bindPopup(`
+        <div class="imv-popup">
+          <strong>Índice de Marginalidad y Violencia</strong>
+          <dl>
+            <dt>Clasificación</dt><dd>${escapeHtml(category)}</dd>
+            <dt>Nivel</dt><dd>${value ? `${value} de 5` : 'Sin información'}</dd>
+          </dl>
+        </div>`);
+    }
+  });
+}
+
+function syncImvLayer() {
+  if (!imvLayer) return;
+  const visible = Boolean(q('toggleIMV')?.checked);
+  if (visible && !map.hasLayer(imvLayer)) imvLayer.addTo(map);
+  if (!visible && map.hasLayer(imvLayer)) map.removeLayer(imvLayer);
+  renderLegend();
 }
 
 function updateMap() {
@@ -689,7 +779,11 @@ function renderLegend() {
     rows = improvements.map(id => [IMPROVEMENTS[id]?.color || '#334155', IMPROVEMENTS[id]?.label || id]);
   }
   q('legendTitle').textContent = title;
-  q('legendBody').innerHTML = rows.map(([color, label]) => `<div><span class="swatch" style="background:${color}"></span>${escapeHtml(label)}</div>`).join('');
+  const schoolLegend = rows.map(([color, label]) => `<div><span class="swatch" style="background:${color}"></span>${escapeHtml(label)}</div>`).join('');
+  const imvLegend = q('toggleIMV')?.checked ? `
+    <div class="legend-subtitle">Índice de Marginalidad y Violencia</div>
+    ${Object.entries(IMV_COLORS).map(([label, color]) => `<div><span class="swatch" style="background:${color}"></span>${escapeHtml(label)}</div>`).join('')}` : '';
+  q('legendBody').innerHTML = schoolLegend + imvLegend;
 }
 
 function filterProgramMenu() {
@@ -716,7 +810,7 @@ function updateTerritoryCounts() {
 
 function zoomToSelectedTerritories() {
   let bounds = null;
-  Object.values(territorySelectionLayers).forEach(layer => {
+  ['alcaldia', 'ageb'].map(type => territorySelectionLayers[type]).forEach(layer => {
     const layerBounds = layer.getBounds();
     if (!layerBounds.isValid()) return;
     bounds = bounds ? bounds.extend(layerBounds) : layerBounds;
@@ -763,6 +857,11 @@ function saveState() {
     projects: checkedValues('#programFilters input'),
     improvements: checkedValues('#improvementFilters input'),
     territories: selectedTerritories(),
+    territoryLayers: {
+      cp: Boolean(q('territoryLayer-cp')?.checked),
+      colonia: Boolean(q('territoryLayer-colonia')?.checked),
+      imv: Boolean(q('toggleIMV')?.checked)
+    },
     schools: schoolsVisible
   }));
 }
@@ -774,11 +873,16 @@ function restoreState() {
   restoreChecks('#programFilters input', state.projects || []);
   restoreChecks('#improvementFilters input', state.improvements || []);
   restoreChecks('.territory-check[data-type="alcaldia"]', state.territories?.alcaldia || []);
-  ['ageb', 'cp', 'colonia'].forEach(type => {
+  ['ageb'].forEach(type => {
     const select = q(`territorySelect-${type}`);
     const saved = state.territories?.[type];
     if (select) select.value = Array.isArray(saved) ? (saved[0] || '') : (saved || '');
   });
+  ['cp', 'colonia'].forEach(type => {
+    const toggle = q(`territoryLayer-${type}`);
+    if (toggle) toggle.checked = Boolean(state.territoryLayers?.[type]);
+  });
+  q('toggleIMV').checked = Boolean(state.territoryLayers?.imv);
   schoolsVisible = state.schools !== false;
   q('toggleSchools').checked = schoolsVisible;
   updateTerritoryCounts();
