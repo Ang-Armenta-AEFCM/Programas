@@ -1,0 +1,292 @@
+[
+  {
+    "codigo": "IP144",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LEYES DE REFORMA",
+    "direccion": "CALLE LEYES DE REFORMA Y GUERRA DE REFORMA  S/N, COLONIA LEYES DE REFORMA, ALCALDÍA IZTAPALAPA, C.P. 09310, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0163S",
+    "escuela": "ESCUELA SECUNDARIA FRANCISCO JAVIER MINA",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP231",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LAS PEÑAS",
+    "direccion": "CALLE PLATON SANCHEZ Y CLAVEL  S/N, COLONIA LAS PEÑAS, ALCALDÍA IZTAPALAPA, C.P. 09750, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0287A",
+    "escuela": "ESCUELA SECUNDARIA JULIO VERNE",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "TP051",
+    "alcaldia": "TLALPAN",
+    "colonia": "TLALPAN",
+    "direccion": "CALLE MAGISTERIO NACIONAL NO.  118, COLONIA TLALPAN, ALCALDÍA TLALPAN, C.P. 14000, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2016C",
+    "escuela": "ESCUELA PRIMARIA IGNACIO RODRÍGUEZ GALVAN",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP048",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "CHINAMPAC DE JUAREZ",
+    "direccion": "CALLE RADIODIFUSION Y TELECOMUNICACIONES  S/N, COLONIA CHINAMPAC DE JUAREZ, ALCALDÍA IZTAPALAPA, C.P. 09208, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0047R",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CAM 38 ALEXANDER GRAHAM BELL",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP037",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "TENORIOS",
+    "direccion": "CALLE PINO Y COLORINES  S/N, COLONIA TENORIOS, ALCALDÍA IZTAPALAPA, C.P. 09680, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5124E",
+    "escuela": "ESCUELA PRIMARIA BEATRIZ DE LA FUENTE",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "CY125",
+    "alcaldia": "COYOACÁN",
+    "colonia": "LOS CIPRESES",
+    "direccion": "CALLE SARGENTO SEGUNDO GUSTAVO SALAZAR BEJARANO Y PEDRO SAINZ DE BARANDA  S/N, COLONIA LOS CIPRESES, ALCALDÍA COYOACÁN, C.P. 04830, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0043Y",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  43",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "CT069",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "GUERRERO",
+    "direccion": "CALLE EJE CENTRAL LAZARO CARDENAS NO.  10, COLONIA GUERRERO, ALCALDÍA CUAUHTÉMOC, C.P. 06300, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0002Y",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  2",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "CT120",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "CENTRO",
+    "direccion": "CALLE SEGUNDO DE MESONES  NO.  1, COLONIA CENTRO, ALCALDÍA CUAUHTÉMOC, C.P. 06090, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2491F",
+    "escuela": "ESCUELA PRIMARIA JOAQUIN GARCÍA ICAZBALCETA",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "CY007",
+    "alcaldia": "COYOACÁN",
+    "colonia": "LOS GIRASOLES",
+    "direccion": "CALLE RANCHO SAN LORENZO Y MIRADORES  S/N, COLONIA LOS GIRASOLES, ALCALDÍA COYOACÁN, C.P. 04920, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0342U",
+    "escuela": "JARDÍN DE NIÑOS  AMELIA ARELLANO",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "CY053",
+    "alcaldia": "COYOACÁN",
+    "colonia": "CTM SAN FRANCISCO CULHUACAN",
+    "direccion": "CALLE  DE LA VIRGEN NO.  3000, UNIDAD HABITACIONAL  CTM SAN FRANCISCO CULHUACAN, ALCALDÍA COYOACÁN, C.P. 04480, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5098X",
+    "escuela": "ESCUELA PRIMARIA JOSÉ SANTOS VALDEZ",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP012",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SAN MIGUEL IXTLAHUACAN",
+    "direccion": "CALLE FRANCISCO VILLA NO.  1, COLONIA SAN MIGUEL IXTLAHUACAN, ALCALDÍA IZTAPALAPA, C.P. 09690, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR3138U",
+    "escuela": "ESCUELA PRIMARIA ALBERTO EINSTEIN",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP026",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "JOSE LOPEZ PORTILLO",
+    "direccion": "CALLE 8  S/N, COLONIA JOSE LOPEZ PORTILLO, ALCALDÍA IZTAPALAPA, C.P. 09920, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0255I",
+    "escuela": "ESCUELA SECUNDARIA ANTONIO SEMIONOVICH MAKARENKO",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP049",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "MIXCOATL",
+    "direccion": "CALLE BENITO JUAREZ  S/N, COLONIA MIXCOATL, ALCALDÍA IZTAPALAPA, C.P. 09750, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0043V",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CAM NO. 51",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP085",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LA ASUNCION",
+    "direccion": "CALLE PALACIO  S/N, BARRIO LA ASUNCION, ALCALDÍA IZTAPALAPA, C.P. 09000, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0119E",
+    "escuela": "ESCUELA SECUNDARIA CUITLAHUAC",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP107",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SAN LUCAS",
+    "direccion": "CALLE DE COMONFORT  S/N, BARRIO SAN LUCAS, ALCALDÍA IZTAPALAPA, C.P. 09000, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0022T",
+    "escuela": "ESCUELA SECUNDARIA ENRIQUE O. ARAGON",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP114",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "PARAJES BUENAVISTA",
+    "direccion": "CALLE  SANTA LUCIA   S/N, COLONIA PARAJES BUENAVISTA, ALCALDÍA IZTAPALAPA, C.P. 09700, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0110F",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  110",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP127",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "PROGRESISTA I",
+    "direccion": "CALLE ALBARRADA   S/N, COLONIA PROGRESISTA I, ALCALDÍA IZTAPALAPA, C.P. 09240, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0091H",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  91",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP153",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SAN LORENZO TEZONCO",
+    "direccion": "CALLE CANDELABRO (MATIAS ROMERO Y SAN LORENZO) NO.  1, COLONIA SAN LORENZO TEZONCO, ALCALDÍA IZTAPALAPA, C.P. 09900, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0051V",
+    "escuela": "ESCUELA PRIMARIA GENARO GARCÍA",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP164",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LOMAS DE ZARAGOZA",
+    "direccion": "CALLE EMILIANO ZAPATA (VALLE DE BRAVO)  S/N, COLONIA LOMAS DE ZARAGOZA, ALCALDÍA IZTAPALAPA, C.P. 09620, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0457V",
+    "escuela": "JARDÍN DE NIÑOS  GUILLERMO PRIETO",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP170",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "GUADALUPE DEL MORAL",
+    "direccion": "CALLE HERMENEGILDO GALEANA   S/N, COLONIA GUADALUPE DEL MORAL, ALCALDÍA IZTAPALAPA, C.P. 09300, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0225O",
+    "escuela": "ESCUELA SECUNDARIA HERMENEGILDO GALEANA",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP205",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "CONSEJO AGRARISTA MEXICANO",
+    "direccion": "CALLE GREGORIO SOSA  NO.  19, COLONIA CONSEJO AGRARISTA MEXICANO, ALCALDÍA IZTAPALAPA, C.P. 09760, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0056Q",
+    "escuela": "ESCUELA PRIMARIA JESÚS NARVAEZ GALDEANO",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP213",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "CONSEJO AGRARISTA MEXICANO",
+    "direccion": "CALLE JESUS GARIBAY Y PALMITAS   S/N, COLONIA CONSEJO AGRARISTA MEXICANO, ALCALDÍA IZTAPALAPA, C.P. 09760, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0275W",
+    "escuela": "ESCUELA SECUNDARIA JOSÉ MARÍA VELASCO",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP233",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "NUEVA ROSITA",
+    "direccion": "CALLE 5 Y BIOGRAFOS NO.  119, COLONIA NUEVA ROSITA, ALCALDÍA IZTAPALAPA, C.P. 09420, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0389O",
+    "escuela": "JARDÍN DE NIÑOS  JUVENTINO ROSAS",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP311",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SAN PEDRO SIDERAL",
+    "direccion": "CALLE S/N  S/N, COLONIA SAN PEDRO SIDERAL, ALCALDÍA IZTAPALAPA, C.P. 09320, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0784P",
+    "escuela": "JARDIN DE NIÑOS PROFESORA DOLORES PASOS",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP392",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "JUAN ESCUTIA",
+    "direccion": "CALLE FLORENCIO ANTILLON Y PABLO GARCIA  S/N, COLONIA JUAN ESCUTIA, ALCALDÍA IZTAPALAPA, C.P. 09100, CIUDAD DE MÉXICO.",
+    "nivel": "SECUNDARIA",
+    "cct": "09DTV0120Z",
+    "escuela": "ESCUELA TELESECUNDARIA  NO. 120",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP402",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SAN JOSE BUENAVISTA",
+    "direccion": "CALLE JOSE MARIA MORELOS Y VILLA GENERAL MITRE  S/N, COLONIA SAN JOSE BUENAVISTA, ALCALDÍA IZTAPALAPA, C.P. 09706, CIUDAD DE MÉXICO.",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1227J",
+    "escuela": "JARDÍN DE NIÑOS  TICALLI",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "IP477",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "EL MANTO",
+    "direccion": "CALLE CIRCONIO NO.  39, COLONIA EL MANTO, ALCALDÍA IZTAPALAPA, C.P. 09830, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2839F",
+    "escuela": "ESCUELA PRIMARIA MTRA. GUILLERMINA GONZÁLEZ GALICIA",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "TP086",
+    "alcaldia": "TLALPAN",
+    "colonia": "PEDREGAL DE SAN NICOLAS 4A SECCCION",
+    "direccion": "CALLE KANTUNIL  S/N, COLONIA PEDREGAL DE SAN NICOLAS 4A SECCCION , ALCALDÍA TLALPAN, C.P. 14100, CIUDAD DE MÉXICO.",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2676L",
+    "escuela": "ESCUELA PRIMARIA PROFR. VICTOR MANUEL MANZANO DELGADO",
+    "intervencion": "30 SOBSE"
+  },
+  {
+    "codigo": "XC016",
+    "alcaldia": "XOCHIMILCO",
+    "colonia": "18 SAN JOSE",
+    "direccion": "CALLE MUYUGUARDA  S/N, BARRIO 18 SAN JOSE, ALCALDÍA XOCHIMILCO, C.P. 16034, CIUDAD DE MÉXICO.",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0050E",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 41",
+    "intervencion": "30 SOBSE"
+  }
+]

@@ -1,0 +1,712 @@
+[
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "SANTA CRUZ QUETZALCOATL",
+    "escuela": "CAM 11",
+    "cct": "09DML0130Q",
+    "nivel": "ESPECIAL",
+    "domicilio": "BENITO JUÁREZ Y CHIMALPOPOCA",
+    "colonia": "MIXCOATL",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "LOS CULHUACANES",
+    "escuela": "CAM 71 JUAN HUARTE DE SAN JUAN",
+    "cct": "09DML0128B",
+    "nivel": "ESPECIAL",
+    "domicilio": "CAMINO AL CERRO DE LA ESTRELLA S/N EDIF. 5",
+    "colonia": "EL SANTUARIO",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "SANTA CRUZ QUETZALCOATL",
+    "escuela": "CAM NO. 51",
+    "cct": "09DML0043V",
+    "nivel": "ESPECIAL",
+    "domicilio": "AV. BENITO JUÁREZ S/N",
+    "colonia": "MIXCOATL",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "AZTAHUACAN",
+    "escuela": "ALFONSO L. HERRERA",
+    "cct": "09DJN1360Q",
+    "nivel": "PREESCOLAR",
+    "domicilio": "IGNACIO ZARAGOZA S/N",
+    "colonia": "SANTA MARIA AZTAHUACAN",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACATITLA",
+    "escuela": "ARTEMIO DE VALLE ARIZPE",
+    "cct": "09DJN0363G",
+    "nivel": "PREESCOLAR",
+    "domicilio": "FRANCISCO SARABIA S/N",
+    "colonia": "SANTA MARTHA ACATITLA",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "REFORMA",
+    "escuela": "CARLOS CHAVEZ",
+    "cct": "09DJN0550A",
+    "nivel": "PREESCOLAR",
+    "domicilio": "CIRCUITO RIO MIXTECO S/N",
+    "colonia": "REAL DEL MORAL",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACATITLA",
+    "escuela": "CELESTIN FREINET",
+    "cct": "09DJN0107Q",
+    "nivel": "PREESCOLAR",
+    "domicilio": "BATALLA DE CALVILLO S/N",
+    "colonia": "ALVARO OBREGON FRACCIONAMIENTO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACAHUALTEPEC TEOTONGO",
+    "escuela": "CONTLE PAXQUI",
+    "cct": "09DJN1265M",
+    "nivel": "PREESCOLAR",
+    "domicilio": "PINO S/N.",
+    "colonia": "CAMPESTRE EL POTRERO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "AZTAHUACAN",
+    "escuela": "CUBA",
+    "cct": "09DJN0382V",
+    "nivel": "PREESCOLAR",
+    "domicilio": "CALLE 39 NO. 135",
+    "colonia": "UNIDAD SANTA CRUZ MEYEHUALCO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ANGELES AGRARISTA",
+    "escuela": "ESTRELLA",
+    "cct": "09DJN0514W",
+    "nivel": "PREESCOLAR",
+    "domicilio": "CERRO DE LA ESTRELLA S/N",
+    "colonia": "PARAJE SAN JUAN",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "SANTA CRUZ QUETZALCOATL",
+    "escuela": "IMMANTI",
+    "cct": "09DJN1372V",
+    "nivel": "PREESCOLAR",
+    "domicilio": "CAMINO VIEJO A ZAPOTITLA S/N, ESQ. MISAEL NUÑEZ",
+    "colonia": "DEGOLLADO",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "REFORMA",
+    "escuela": "MACUIZOCHITL",
+    "cct": "09DJN0381W",
+    "nivel": "PREESCOLAR",
+    "domicilio": "BATALLA DE LOMA ALTA ESQ. GUERRA DE REFORMA S/N",
+    "colonia": "LEYES DE REFORMA",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "LOS CULHUACANES",
+    "escuela": "MOCTEZUMA ILHUICAMINA",
+    "cct": "09DJN0688M",
+    "nivel": "PREESCOLAR",
+    "domicilio": "VICENTE GUERRERO NO. 45",
+    "colonia": "SAN SIMON CULHUACAN",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "SANTA CATARINA",
+    "escuela": "NAHIBI",
+    "cct": "09DJN1176T",
+    "nivel": "PREESCOLAR",
+    "domicilio": "TEJOCOTES Y ESPIRITU SANTO S/N",
+    "colonia": "XALPA",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "SANTA CRUZ QUETZALCOATL",
+    "escuela": "VEKANI",
+    "cct": "09DJN0041Y",
+    "nivel": "PREESCOLAR",
+    "domicilio": "AGUSTIN MELGAR Y HONORATO LEAL S/N",
+    "colonia": "LAS PEÑAS",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "SANTA CATARINA",
+    "escuela": "VICENTE T. MENDOZA",
+    "cct": "09DJN1110K",
+    "nivel": "PREESCOLAR",
+    "domicilio": "REFORMA SOCIAL Y REFORMA LIBERAL S/N",
+    "colonia": "REFORMA POLITICA",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACAHUALTEPEC TEOTONGO",
+    "escuela": "ALBERTO EINSTEIN",
+    "cct": "09DPR3138U",
+    "nivel": "PRIMARIA",
+    "domicilio": "FRANCISCO VILLA NO. 1",
+    "colonia": "IXTLAHUACAN",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACULCO",
+    "escuela": "ALBERTO MASFERRER",
+    "cct": "09DPR1148N",
+    "nivel": "PRIMARIA",
+    "domicilio": "SUR 103-A NO. 604 Y AGUSTIN YAÑEZ",
+    "colonia": "SECTOR POPULAR",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "AZTAHUACAN",
+    "escuela": "ALBINO GARCÍA",
+    "cct": "09DPR1146P",
+    "nivel": "PRIMARIA",
+    "domicilio": "CALLE 25 Y AV. 2",
+    "colonia": "UNIDAD SANTA CRUZ MEYEHUALCO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "SANTA CATARINA",
+    "escuela": "ANDRÉS MOLINA ENRIQUEZ",
+    "cct": "09DPR2845Q",
+    "nivel": "PRIMARIA",
+    "domicilio": "CDA. DE PINO NO. 50\"A\"",
+    "colonia": "CITLALI",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "SANTA CATARINA",
+    "escuela": "ANIBAL PONCE",
+    "cct": "09DPR2531Q",
+    "nivel": "PRIMARIA",
+    "domicilio": "AV. DE LAS MINAS NO. 105",
+    "colonia": "XALPA",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ATLALILCO AXOMULCO",
+    "escuela": "AÑO DE JUÁREZ",
+    "cct": "09DPR2278N",
+    "nivel": "PRIMARIA",
+    "domicilio": "LIBERTAD NO. 23",
+    "colonia": "SAN LUCAS",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACATITLA",
+    "escuela": "AÑO INTERNACIONAL DEL NIÑO",
+    "cct": "09DPR3000I",
+    "nivel": "PRIMARIA",
+    "domicilio": "RETORNO DE CUARACUARO NO. 42",
+    "colonia": "UNIDAD HABITACIONAL ERMITA ZARAGOZA",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACATITLA",
+    "escuela": "CONSTITUYENTE CELESTINO PÉREZ Y PÉREZ",
+    "cct": "09DPR3239S",
+    "nivel": "PRIMARIA",
+    "domicilio": "AV. SENTIMIENTO A LA NACION S/N.",
+    "colonia": "UNIDAD HABITACIONAL ERMITA ZARAGOZA",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "AZTAHUACAN",
+    "escuela": "CUAUHTEMOC",
+    "cct": "09DPR1332K",
+    "nivel": "PRIMARIA",
+    "domicilio": "AVENIDA MÉXICO 22",
+    "colonia": "SANTA MARIA AZTAHUACAN",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "CABEZA DE JUAREZ",
+    "escuela": "EJERCITO CONSTITUCIONALISTA",
+    "cct": "09DPR2755Y",
+    "nivel": "PRIMARIA",
+    "domicilio": "AREA DE SERVICIO SUPER MANZANA 3",
+    "colonia": "UNIDAD HABITACIONAL EJERCITO CONSTITUCIONALISTA",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACATITLA",
+    "escuela": "EJERCITO DE ORIENTE",
+    "cct": "09DPR1175K",
+    "nivel": "PRIMARIA",
+    "domicilio": "JOAQUIN IBARGUEN NO. 4",
+    "colonia": "UNIDAD HABITACIONAL EJERCITO DE ORIENTE PEÑON",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACULCO",
+    "escuela": "ENRIQUE GARCÍA GALLEGOS",
+    "cct": "09DPR3238T",
+    "nivel": "PRIMARIA",
+    "domicilio": "LATERAL RIO CHURUBUSCO NO. 2",
+    "colonia": "SAN JOSE ACULCO",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ATLALILCO AXOMULCO",
+    "escuela": "ENRIQUE LAUBSCHER",
+    "cct": "09DPR1316T",
+    "nivel": "PRIMARIA",
+    "domicilio": "MANUEL GONZÁLEZ NO. 134",
+    "colonia": "SAN LUCAS",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ATLALILCO AXOMULCO",
+    "escuela": "ERNESTO P. URUCHURTU",
+    "cct": "09DPR1315U",
+    "nivel": "PRIMARIA",
+    "domicilio": "PROLONG. ALLENDE NO. 9",
+    "colonia": "SAN IGNACIO",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ATLALILCO AXOMULCO",
+    "escuela": "ESTHER R. MACEDA",
+    "cct": "09DPR1306M",
+    "nivel": "PRIMARIA",
+    "domicilio": "ALLENDE NO. 86",
+    "colonia": "SAN PEDRO",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACAHUALTEPEC TEOTONGO",
+    "escuela": "FABIAN GARCÍA RAMÍREZ",
+    "cct": "09DPR2840V",
+    "nivel": "PRIMARIA",
+    "domicilio": "FERMIN ESPINOZA NO. 60",
+    "colonia": "SAN MIGUEL TEOTONGO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ANGELES AGRARISTA",
+    "escuela": "FRANCISCO VILLA",
+    "cct": "09DPR2093H",
+    "nivel": "PRIMARIA",
+    "domicilio": "CIUDAD JUÁREZ NO. 50",
+    "colonia": "FRANCISCO VILLA",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ATLALILCO AXOMULCO",
+    "escuela": "GRAL. LÁZARO CARDENAS",
+    "cct": "09DIX0028V",
+    "nivel": "PRIMARIA",
+    "domicilio": "PACHICALCO S/N",
+    "colonia": "SAN IGNACIO",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACAHUALTEPEC TEOTONGO",
+    "escuela": "HERMANOS FLORES MAGON",
+    "cct": "09DPR4197Q",
+    "nivel": "PRIMARIA",
+    "domicilio": "BENITO JUÁREZ NO. 1",
+    "colonia": "IXTLAHUACAN",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACULCO",
+    "escuela": "HIMNO NACIONAL MEXICANO",
+    "cct": "09DPR2455A",
+    "nivel": "PRIMARIA",
+    "domicilio": "FISCALES S/N.",
+    "colonia": "EL SIFON",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "LOS CULHUACANES",
+    "escuela": "HOLANDA",
+    "cct": "09DPR1286P",
+    "nivel": "PRIMARIA",
+    "domicilio": "CULTIVOS NO. 111",
+    "colonia": "PROGRESO DEL SUR",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACATITLA",
+    "escuela": "ISAAC NEWTON",
+    "cct": "09DPR2804Q",
+    "nivel": "PRIMARIA",
+    "domicilio": "BATALLA DE CALVILLO S/N",
+    "colonia": "ALVARO OBREGON FRACCIONAMIENTO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACULCO",
+    "escuela": "JORGE ALACIO PÉREZ",
+    "cct": "09DPR1276I",
+    "nivel": "PRIMARIA",
+    "domicilio": "LABORISTAS NO. 146",
+    "colonia": "SAN ANDRES TETEPILCO",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "CABEZA DE JUAREZ",
+    "escuela": "JOSÉ DOLORES MEDINA DELGADO",
+    "cct": "09DPR2728A",
+    "nivel": "PRIMARIA",
+    "domicilio": "CORAZON DEL BARRIO SUPER MANZANA 1",
+    "colonia": "UNIDAD HABITACIONAL EJERCITO CONSTITUCIONALISTA",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ANGELES AGRARISTA",
+    "escuela": "JOSÉ VASCONCELOS",
+    "cct": "09DPR0871A",
+    "nivel": "PRIMARIA",
+    "domicilio": "LIRIO NO. 14",
+    "colonia": "LOS ANGELES APANOAYA",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ESTRELLA HUIZACHEPETL",
+    "escuela": "JUAN ESCUTIA",
+    "cct": "09DPR1268Z",
+    "nivel": "PRIMARIA",
+    "domicilio": "AV. JACARANDAS NO. 2",
+    "colonia": "EL VERGEL",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "AZTAHUACAN",
+    "escuela": "LIC. JOSÉ MA. LAFRAGUA",
+    "cct": "09DPR2921F",
+    "nivel": "PRIMARIA",
+    "domicilio": "IGNACIO ALLENDE NO. 77",
+    "colonia": "PARAJE ZACATEPEC",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "LOS CULHUACANES",
+    "escuela": "LIC. MARIANO OTERO",
+    "cct": "09DPR1244Q",
+    "nivel": "PRIMARIA",
+    "domicilio": "AV. GOBERNACION NO. 19",
+    "colonia": "SAN SIMON CULHUACAN",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACAHUALTEPEC TEOTONGO",
+    "escuela": "LUIS BRAILLE",
+    "cct": "09DPR3248Z",
+    "nivel": "PRIMARIA",
+    "domicilio": "LAS JILGUERRILLAS NUM. 13",
+    "colonia": "EMILIANO ZAPATA AMPLIACION",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACATITLA",
+    "escuela": "LUIS PASTEUR",
+    "cct": "09DPR2585U",
+    "nivel": "PRIMARIA",
+    "domicilio": "09DPR0877V",
+    "colonia": "AV. TEXCOCO S/N Y AV. SENTIMIENTO A LA NACION",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "CABEZA DE JUAREZ",
+    "escuela": "LUIS VARGAS PIÑEIRA",
+    "cct": "09DPR3289Z",
+    "nivel": "PRIMARIA",
+    "domicilio": "CORAZON DEL BARRIO SUPER MANZANA 1",
+    "colonia": "UNIDAD HABITACIONAL EJERCITO CONSTITUCIONALISTA",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "CABEZA DE JUAREZ",
+    "escuela": "MIGUEL LERDO DE TEJADA",
+    "cct": "09DPR5035L",
+    "nivel": "PRIMARIA",
+    "domicilio": "AVENIDA TELECOMUNICACIONES SIN NÚMERO",
+    "colonia": "CHINAMPAC DE JUAREZ",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "REFORMA",
+    "escuela": "MURALISMO MEXICANO",
+    "cct": "09DPR0839S",
+    "nivel": "PRIMARIA",
+    "domicilio": "SUPER MANZANA 6 S/N",
+    "colonia": "UNIDAD HABITACIONAL VICENTE GUERRERO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACAHUALTEPEC TEOTONGO",
+    "escuela": "NICOLAS BRAVO",
+    "cct": "09DPR5085T",
+    "nivel": "PRIMARIA",
+    "domicilio": "CARRIL Y CLAVEL",
+    "colonia": "SAN MIGUEL TEOTONGO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACAHUALTEPEC TEOTONGO",
+    "escuela": "NUEVA ZELANDIA",
+    "cct": "09DPR5013Z",
+    "nivel": "PRIMARIA",
+    "domicilio": "LAUREL S/N .",
+    "colonia": "CAMPESTRE EL POTRERO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACATITLA",
+    "escuela": "PROFR. BRAULIO RODRÍGUEZ",
+    "cct": "09DPR1002T",
+    "nivel": "PRIMARIA",
+    "domicilio": "BALBANERA NO. 4",
+    "colonia": "SAN LORENZO XICOTENCATL",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "SANTA CRUZ QUETZALCOATL",
+    "escuela": "PROFR. JOSÉ GONZÁLEZ VILLASEÑOR",
+    "cct": "09DPR0127U",
+    "nivel": "PRIMARIA",
+    "domicilio": "JUSTO SIERRA NO. 8",
+    "colonia": "LOMAS DE SANTA CRUZ",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACATITLA",
+    "escuela": "PROFR. JUAN B. TIJERINA",
+    "cct": "09DPR2915V",
+    "nivel": "PRIMARIA",
+    "domicilio": "ANTONIO ESTEVEZ S/N.",
+    "colonia": "UNIDAD HABITACIONAL EJERCITO DE ORIENTE ISSSTE",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "REFORMA",
+    "escuela": "PROFR. LUIS ÁLVAREZ BARRET",
+    "cct": "09DPR0860V",
+    "nivel": "PRIMARIA",
+    "domicilio": "1RA. CERRADA DE GPE. MAGAÑA Y 2DA. C. DE J. RODRÍGUEZ S-M7",
+    "colonia": "UNIDAD HABITACIONAL VICENTE GUERRERO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ATLALILCO AXOMULCO",
+    "escuela": "REPUBLICA DE GUATEMALA",
+    "cct": "09DPR2651C",
+    "nivel": "PRIMARIA",
+    "domicilio": "HOMBRES ILUSTRES S/N",
+    "colonia": "SAN LUCAS",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ANGELES AGRARISTA",
+    "escuela": "REPUBLICA DE GUINEA",
+    "cct": "09DPR2265J",
+    "nivel": "PRIMARIA",
+    "domicilio": "RAFAEL SIERRA NO. 52",
+    "colonia": "PARAJE SAN JUAN",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ATLALILCO AXOMULCO",
+    "escuela": "TEOFILO CEDILLO GRANADOS",
+    "cct": "09DPR1198V",
+    "nivel": "PRIMARIA",
+    "domicilio": "CDA. DE VICTORIA NO. 36",
+    "colonia": "SAN LUCAS",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACAHUALTEPEC TEOTONGO",
+    "escuela": "TIERRA Y LIBERTAD",
+    "cct": "09DPR5083V",
+    "nivel": "PRIMARIA",
+    "domicilio": "DIEGO RIVERA ESQ. ISIDRO FABELA",
+    "colonia": "SAN MIGUEL TEOTONGO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACULCO",
+    "escuela": "UNIDAD MODELO",
+    "cct": "09DPR1194Z",
+    "nivel": "PRIMARIA",
+    "domicilio": "RET. 105 AV. RIO CHURUBUSCO NO. 85",
+    "colonia": "UNIDAD MODELO",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "TEZONCO",
+    "escuela": "ANTONIO SEMIONOVICH MAKARENKO",
+    "cct": "09DES0255I",
+    "nivel": "SECUNDARIA",
+    "domicilio": "AVENIDA 8 S/N",
+    "colonia": "JOSE LOPEZ PORTILLO",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ATLALILCO AXOMULCO",
+    "escuela": "ENRIQUE O. ARAGON",
+    "cct": "09DES0022T",
+    "nivel": "SECUNDARIA",
+    "domicilio": "CDA. COMONFORT S/N",
+    "colonia": "SAN LUCAS",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "AZTAHUACAN",
+    "escuela": "FEDERICO FROEBEL",
+    "cct": "09DES0098I",
+    "nivel": "SECUNDARIA",
+    "domicilio": "AV. 6 Y CALLE 55",
+    "colonia": "SANTA CRUZ MEYEHUALCO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACATITLA",
+    "escuela": "FELIPE B. BERRIOZABAL",
+    "cct": "09DES0212K",
+    "nivel": "SECUNDARIA",
+    "domicilio": "RETORNO DE JOAQUIN IBARGUEN S/N",
+    "colonia": "UNIDAD HABITACIONAL EJERCITO DE ORIENTE ISSSTE",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "REFORMA",
+    "escuela": "HERMENEGILDO GALEANA",
+    "cct": "09DES0225O",
+    "nivel": "SECUNDARIA",
+    "domicilio": "HERMENEGILDO GALEANA S/N",
+    "colonia": "GUADALUPE DEL MORAL",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACAHUALTEPEC TEOTONGO",
+    "escuela": "ING. JAVIER BARROS SIERRA",
+    "cct": "09DES0291N",
+    "nivel": "SECUNDARIA",
+    "domicilio": "AV. CARLOS HANK GONZÁLEZ S/N",
+    "colonia": "LOMAS DE LA ESTANCIA",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "SANTA CRUZ QUETZALCOATL",
+    "escuela": "JAPON",
+    "cct": "09DPR1280V",
+    "nivel": "SECUNDARIA",
+    "domicilio": "SUR 103-A NO. 624",
+    "colonia": "SECTOR POPULAR",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "SANTA CATARINA",
+    "escuela": "MANUEL ACUÑA",
+    "cct": "09DES0306Z",
+    "nivel": "SECUNDARIA",
+    "domicilio": "MANUEL ACUÑA S/N",
+    "colonia": "PALMITAS",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "SANTA CRUZ QUETZALCOATL",
+    "escuela": "MEXICO TENOCHTITLAN",
+    "cct": "09DES0249Y",
+    "nivel": "SECUNDARIA",
+    "domicilio": "VILLA BRAS Y VILLA ELOISA S/N",
+    "colonia": "DESARROLLO URBANO QUETZALCOATL",
+    "region": "CEN"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "REFORMA",
+    "escuela": "PLUTARCO ELIAS CALLES",
+    "cct": "09DES0239R",
+    "nivel": "SECUNDARIA",
+    "domicilio": "COMBATE DE CELAYA Y CARLOS GRACIDAS S/N",
+    "colonia": "UNIDAD HABITACIONAL VICENTE GUERRERO",
+    "region": "JUA"
+  },
+  {
+    "alcaldia": "IZTAPALAPA",
+    "territorial": "ACULCO",
+    "escuela": "RUMANIA",
+    "cct": "09DES0164R",
+    "nivel": "SECUNDARIA",
+    "domicilio": "AV. SINATEL ESQ. ANDRÉS MOLINA ENRIQUEZ",
+    "colonia": "SINATEL AMPLIACION",
+    "region": "CEN"
+  }
+]

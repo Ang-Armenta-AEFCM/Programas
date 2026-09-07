@@ -1,0 +1,1190 @@
+[
+  {
+    "codigo": "CY119",
+    "alcaldia": "COYOACÁN",
+    "colonia": "XOTEPINGO",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0517T",
+    "escuela": "JARDÍN DE NIÑOS  DAVID VILCHIS",
+    "fam_potenciado_2025": "66"
+  },
+  {
+    "codigo": "TP126",
+    "alcaldia": "TLALPAN",
+    "colonia": "SAN PEDRO MARTIR",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0054D",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  54",
+    "fam_potenciado_2025": "130"
+  },
+  {
+    "codigo": "BJ069",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "ALAMOS",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0721D",
+    "escuela": "JARDÍN DE NIÑOS  MANUEL MARIA PONCE",
+    "fam_potenciado_2025": "32"
+  },
+  {
+    "codigo": "GM347",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN BARTOLO ATEPEHUACAN",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0048A",
+    "escuela": "ESCUELA SECUNDARIA JUAN RUIZ DE ALARCÓN Y MENDOZA",
+    "fam_potenciado_2025": "13"
+  },
+  {
+    "codigo": "CT191",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1319Q",
+    "escuela": "ESCUELA PRIMARIA REVOLUCIÓN",
+    "fam_potenciado_2025": "117"
+  },
+  {
+    "codigo": "MA020",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN SALVADOR CUAUHTENCO",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0334V",
+    "escuela": "ESCUELA SECUNDARIA QUAUHTZINTEPETL: LUGAR DEL ÁGUILA SAGRADA",
+    "fam_potenciado_2025": "77"
+  },
+  {
+    "codigo": "IP312",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SANTA CRUZ MEYEHUALCO",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0858G",
+    "escuela": "ESCUELA PRIMARIA PROFR. ANGEL SALAS BONILLA",
+    "fam_potenciado_2025": "90"
+  },
+  {
+    "codigo": "BJ049",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "NATIVITAS",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1284R",
+    "escuela": "ESCUELA PRIMARIA JESUS GONZÁLEZ ORTEGA",
+    "fam_potenciado_2025": "4"
+  },
+  {
+    "codigo": "AO015",
+    "alcaldia": "ÁLVARO OBREGÓN",
+    "colonia": "SAN BARTOLO AMEYALCO",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1882N",
+    "escuela": "ESCUELA PRIMARIA CARMEN SERDAN",
+    "fam_potenciado_2025": "112"
+  },
+  {
+    "codigo": "AO025",
+    "alcaldia": "ÁLVARO OBREGÓN",
+    "colonia": "SAN BARTOLO AMEYALCO",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0068G",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  68",
+    "fam_potenciado_2025": "1"
+  },
+  {
+    "codigo": "AO053",
+    "alcaldia": "ÁLVARO OBREGÓN",
+    "colonia": "LOMAS DE LA ERA",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0548M",
+    "escuela": "JARDÍN DE NIÑOS  MANUEL CERVANTES IMAZ",
+    "fam_potenciado_2025": "48"
+  },
+  {
+    "codigo": "AO064",
+    "alcaldia": "ÁLVARO OBREGÓN",
+    "colonia": "PBO. SAN BARTOLO AMEYALCO",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1922Y",
+    "escuela": "ESCUELA PRIMARIA PROFR. ONOFRE MELENDEZ B.",
+    "fam_potenciado_2025": "49"
+  },
+  {
+    "codigo": "AO067",
+    "alcaldia": "ÁLVARO OBREGÓN",
+    "colonia": "SAN BARTOLO AMEYALCO",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0319T",
+    "escuela": "JARDÍN DE NIÑOS  REPÚBLICA DE KENIA",
+    "fam_potenciado_2025": "83"
+  },
+  {
+    "codigo": "AO087",
+    "alcaldia": "ÁLVARO OBREGÓN",
+    "colonia": "SANTA ROSA XOCHIAC",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0616T",
+    "escuela": "JARDÍN DE NIÑOS  XOCHIAC",
+    "fam_potenciado_2025": "84"
+  },
+  {
+    "codigo": "AO107",
+    "alcaldia": "ÁLVARO OBREGÓN",
+    "colonia": "SANTA ROSA XOCHIAC",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1903J",
+    "escuela": "ESCUELA PRIMARIA CENOBIA GARCÍA NAVA",
+    "fam_potenciado_2025": "113"
+  },
+  {
+    "codigo": "AO135",
+    "alcaldia": "ÁLVARO OBREGÓN",
+    "colonia": "SANTA ROSA XOCHIAC",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0105B",
+    "escuela": "ESCUELA SECUNDARIA JOSÉ GUADALUPE POSADA",
+    "fam_potenciado_2025": "50"
+  },
+  {
+    "codigo": "AO145",
+    "alcaldia": "ÁLVARO OBREGÓN",
+    "colonia": "SANTA ROSA XOCHIAC",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0864R",
+    "escuela": "ESCUELA PRIMARIA MADRE MEXICANA",
+    "fam_potenciado_2025": "21"
+  },
+  {
+    "codigo": "BJ015",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "ALAMOS",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0113Z",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 2",
+    "fam_potenciado_2025": "2"
+  },
+  {
+    "codigo": "BJ027",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "NARVARTE ORIENTE",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1145Q",
+    "escuela": "ESCUELA PRIMARIA DR. MARIANO AZUELA",
+    "fam_potenciado_2025": "3"
+  },
+  {
+    "codigo": "BJ056",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "NARVARTE",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1118T",
+    "escuela": "ESCUELA PRIMARIA LAOS",
+    "fam_potenciado_2025": "64"
+  },
+  {
+    "codigo": "BJ057",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "ALAMOS",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1314V",
+    "escuela": "ESCUELA PRIMARIA LEONISMO INTERNACIONAL",
+    "fam_potenciado_2025": "63"
+  },
+  {
+    "codigo": "BJ077",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "NARVARTE ORIENTE",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1019T",
+    "escuela": "ESCUELA PRIMARIA MONTES AZULES",
+    "fam_potenciado_2025": "33"
+  },
+  {
+    "codigo": "BJ109",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "SAN PEDRO DE LOS PINOS (TACUBAYA)",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0075N",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 76",
+    "fam_potenciado_2025": "15"
+  },
+  {
+    "codigo": "CT040",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0125E",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 14",
+    "fam_potenciado_2025": "101"
+  },
+  {
+    "codigo": "CT063",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "PRIMARIA",
+    "cct": "09DIX0030J",
+    "escuela": "ESCUELA PRIMARIA ESCUELA DE PARTICIPACIÓN SOCIAL NUMERO 1",
+    "fam_potenciado_2025": "10"
+  },
+  {
+    "codigo": "CT067",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0010G",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  10",
+    "fam_potenciado_2025": "11"
+  },
+  {
+    "codigo": "CT114",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0719P",
+    "escuela": "JARDÍN DE NIÑOS  INES VILLARREAL",
+    "fam_potenciado_2025": "8"
+  },
+  {
+    "codigo": "CT122",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0014K",
+    "escuela": "ESCUELA SECUNDARIA JORGE QUIJANO",
+    "fam_potenciado_2025": "68"
+  },
+  {
+    "codigo": "CT134",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "BUENOS AIRES",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0867O",
+    "escuela": "ESCUELA PRIMARIA LIC. FELIPE RIVERA",
+    "fam_potenciado_2025": "70"
+  },
+  {
+    "codigo": "CT135",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "BUENOS AIRES",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2527D",
+    "escuela": "ESCUELA PRIMARIA LIC. FELIPE RIVERA",
+    "fam_potenciado_2025": "102"
+  },
+  {
+    "codigo": "CT154",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0799R",
+    "escuela": "JARDÍN DE NIÑOS  MARGARITA ISAS PEREA",
+    "fam_potenciado_2025": "116"
+  },
+  {
+    "codigo": "CT167",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1200T",
+    "escuela": "ESCUELA PRIMARIA PEDRO SAINZ DE BARANDA",
+    "fam_potenciado_2025": "9"
+  },
+  {
+    "codigo": "CT178",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1202R",
+    "escuela": "ESCUELA PRIMARIA RAFAEL RAMOS PEDRUEZA",
+    "fam_potenciado_2025": "71"
+  },
+  {
+    "codigo": "CT190",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2535M",
+    "escuela": "ESCUELA PRIMARIA REPÚBLICA POPULAR CHINA",
+    "fam_potenciado_2025": "51"
+  },
+  {
+    "codigo": "CT192",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1174L",
+    "escuela": "ESCUELA PRIMARIA REVOLUCION",
+    "fam_potenciado_2025": "12"
+  },
+  {
+    "codigo": "CT196",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2513A",
+    "escuela": "ESCUELA PRIMARIA SECRETARIA DEL TRABAJO Y PREVISION SOCIAL",
+    "fam_potenciado_2025": "69"
+  },
+  {
+    "codigo": "CT199",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1166C",
+    "escuela": "ESCUELA PRIMARIA SUIZA",
+    "fam_potenciado_2025": "39"
+  },
+  {
+    "codigo": "CT226",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0102E",
+    "escuela": "ESCUELA SECUNDARIA GENERAL FRANCISCO L. URQUIZO",
+    "fam_potenciado_2025": "40"
+  },
+  {
+    "codigo": "CT227",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "DOCTORES",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1190M",
+    "escuela": "JARDÍN DE NIÑOS  MTRA. YOLANDA BENITEZ GUTIERREZ",
+    "fam_potenciado_2025": "38"
+  },
+  {
+    "codigo": "CY012",
+    "alcaldia": "COYOACÁN",
+    "colonia": "PEDREGAL DE SANTA URSULA",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0847K",
+    "escuela": "JARDÍN DE NIÑOS  CARLOS A. CARRILLO",
+    "fam_potenciado_2025": "85"
+  },
+  {
+    "codigo": "CY021",
+    "alcaldia": "COYOACÁN",
+    "colonia": "CTM CULHUACAN VIII",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0033O",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 31",
+    "fam_potenciado_2025": "7"
+  },
+  {
+    "codigo": "CY026",
+    "alcaldia": "COYOACÁN",
+    "colonia": "CTM CULHUACAN INFONAVIT, SECCION OCHO",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0299F",
+    "escuela": "ESCUELA SECUNDARIA CIRO E. GONZÁLEZ BLACKALLER",
+    "fam_potenciado_2025": "5"
+  },
+  {
+    "codigo": "CY037",
+    "alcaldia": "COYOACÁN",
+    "colonia": "PEDREGAL DE SANTA URSULA",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0067H",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  67",
+    "fam_potenciado_2025": "114"
+  },
+  {
+    "codigo": "CY057",
+    "alcaldia": "COYOACÁN",
+    "colonia": "PEDREGAL DE SANTA URSULA",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR3250O",
+    "escuela": "ESCUELA PRIMARIA LIC. ANTONIO MARTÍNEZ  DE CASTRO",
+    "fam_potenciado_2025": "35"
+  },
+  {
+    "codigo": "CY071",
+    "alcaldia": "COYOACÁN",
+    "colonia": "PEDREGAL DE SANTA URSULA",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2834K",
+    "escuela": "ESCUELA PRIMARIA PROFR. ALFREDO BASURTO GARCÍA",
+    "fam_potenciado_2025": "86"
+  },
+  {
+    "codigo": "CY078",
+    "alcaldia": "COYOACÁN",
+    "colonia": "CTM SAN FRANCISCO CULHUACAN",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR4220A",
+    "escuela": "ESCUELA PRIMARIA PROFR. JOSÉ DE JESUS DE LA ROSA PÉREZ",
+    "fam_potenciado_2025": "6"
+  },
+  {
+    "codigo": "CY079",
+    "alcaldia": "COYOACÁN",
+    "colonia": "PEDREGAL DE SANTA URSULA",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2970O",
+    "escuela": "ESCUELA PRIMARIA PROFR. LIBRADO RIVERA",
+    "fam_potenciado_2025": "100"
+  },
+  {
+    "codigo": "CY083",
+    "alcaldia": "COYOACÁN",
+    "colonia": "CTM SECCION NUEVE",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0142M",
+    "escuela": "ESCUELA PRIMARIA PROFRA. MARIA EPIGMENIA ARRIAGA SALGADO",
+    "fam_potenciado_2025": "99"
+  },
+  {
+    "codigo": "CY096",
+    "alcaldia": "COYOACÁN",
+    "colonia": "CTM CULHUACAN",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR4199O",
+    "escuela": "ESCUELA PRIMARIA XAVIER VILLAURRUTIA",
+    "fam_potenciado_2025": "34"
+  },
+  {
+    "codigo": "BJ094",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "NATIVITAS",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0147R",
+    "escuela": "JARDÍN DE NIÑOS  REPÚBLICA DE ECUADOR",
+    "fam_potenciado_2025": "98"
+  },
+  {
+    "codigo": "CY148",
+    "alcaldia": "COYOACÁN",
+    "colonia": "CTM OCHO",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0863B",
+    "escuela": "JARDÍN DE NIÑOS  LUZ GARCÍA DE CAMPILLO",
+    "fam_potenciado_2025": "67"
+  },
+  {
+    "codigo": "CY151",
+    "alcaldia": "COYOACÁN",
+    "colonia": "CTM SECCION NUEVE",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0048H",
+    "escuela": "ESCUELA PRIMARIA MAESTRO RICARDO SALGADO CORRAL",
+    "fam_potenciado_2025": "65"
+  },
+  {
+    "codigo": "CY152",
+    "alcaldia": "COYOACÁN",
+    "colonia": "CTM SECCION NUEVE",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0905K",
+    "escuela": "JARDÍN DE NIÑOS  MAHATMA GANDHI",
+    "fam_potenciado_2025": "36"
+  },
+  {
+    "codigo": "CY161",
+    "alcaldia": "COYOACÁN",
+    "colonia": "CTM SAN FRANCISCO CULHUACAN",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0101M",
+    "escuela": "ESCUELA PRIMARIA PROFR. FRANCISCO JAVIER LILLY HUERTA",
+    "fam_potenciado_2025": "115"
+  },
+  {
+    "codigo": "GM087",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN FELIPE DE JESUS",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0030U",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  30",
+    "fam_potenciado_2025": "22"
+  },
+  {
+    "codigo": "GM094",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN FELIPE DE JESUS",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1032X",
+    "escuela": "JARDÍN DE NIÑOS  ESTADO DE OAXACA",
+    "fam_potenciado_2025": "73"
+  },
+  {
+    "codigo": "GM106",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN FELIPE DE JESUS",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1443P",
+    "escuela": "ESCUELA PRIMARIA GERTRUDIS BOCANEGRA DE LAZO DE LA VEGA",
+    "fam_potenciado_2025": "87"
+  },
+  {
+    "codigo": "GM137",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN FELIPE DE JESUS",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2167I",
+    "escuela": "ESCUELA PRIMARIA KOWEIT",
+    "fam_potenciado_2025": "119"
+  },
+  {
+    "codigo": "GM224",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "CAMPESTRE ARAGON",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2735K",
+    "escuela": "ESCUELA PRIMARIA RAMÓN LÓPEZ VELARDE",
+    "fam_potenciado_2025": "118"
+  },
+  {
+    "codigo": "GM268",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN FELIPE DE JESUS",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0267D",
+    "escuela": "JARDÍN DE NIÑOS  VICENTE RIVA PALACIO",
+    "fam_potenciado_2025": "52"
+  },
+  {
+    "codigo": "GM392",
+    "alcaldia": "GUSTAVO A. MADERO",
+    "colonia": "SAN FELIPE DE JESUS",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2825C",
+    "escuela": "ESCUELA PRIMARIA PROFR. PABLO DAMIAN GONZÁLEZ",
+    "fam_potenciado_2025": "53"
+  },
+  {
+    "codigo": "IP084",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "DESARROLLO URBANO QUETZALCOATL",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0741R",
+    "escuela": "JARDÍN DE NIÑOS  CUICUICANI",
+    "fam_potenciado_2025": "55"
+  },
+  {
+    "codigo": "IP116",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "DESARROLLO URBANO QUETZALCOATL",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0113C",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  113",
+    "fam_potenciado_2025": "24"
+  },
+  {
+    "codigo": "IP156",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "DESARROLLO URBANO QUETZALCOATL",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2865D",
+    "escuela": "ESCUELA PRIMARIA GENOVEVA CORTES",
+    "fam_potenciado_2025": "88"
+  },
+  {
+    "codigo": "IP186",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LOMAS DE LA ESTANCIA",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0291N",
+    "escuela": "ESCUELA SECUNDARIA ING. JAVIER BARROS SIERRA",
+    "fam_potenciado_2025": "91"
+  },
+  {
+    "codigo": "IP191",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LOMAS DE LA ESTANCIA",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1181E",
+    "escuela": "JARDÍN DE NIÑOS  ITZAMATUL",
+    "fam_potenciado_2025": "26"
+  },
+  {
+    "codigo": "IP211",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "DESARROLLO URBANO QUETZALCOATL",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0006I",
+    "escuela": "ESCUELA PRIMARIA JOSÉ MA. RODRÍGUEZ COS",
+    "fam_potenciado_2025": "56"
+  },
+  {
+    "codigo": "IP248",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "DESARROLLO URBANO QUETZALCOATL",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5114Y",
+    "escuela": "ESCUELA PRIMARIA LUCIO CABAÑAS BARRIENTOS",
+    "fam_potenciado_2025": "122"
+  },
+  {
+    "codigo": "IP259",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LOMAS DE LA ESTANCIA",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5123F",
+    "escuela": "ESCUELA PRIMARIA MANUEL GONZÁLEZ FLORES",
+    "fam_potenciado_2025": "74"
+  },
+  {
+    "codigo": "IP267",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "DESARROLLO URBANO QUETZALCOATL",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0249Y",
+    "escuela": "ESCUELA SECUNDARIA MÉXICO TENOCHTITLAN",
+    "fam_potenciado_2025": "23"
+  },
+  {
+    "codigo": "IP294",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LOMAS DE LA ESTANCIA",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0317E",
+    "escuela": "ESCUELA SECUNDARIA OCTAVIO PAZ",
+    "fam_potenciado_2025": "103"
+  },
+  {
+    "codigo": "IP298",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SANTA CRUZ MEYEHUALCO",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0120A",
+    "escuela": "ESCUELA PRIMARIA PABLO PICASSO",
+    "fam_potenciado_2025": "123"
+  },
+  {
+    "codigo": "IP329",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LOMAS DE SANTA CRUZ",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0127U",
+    "escuela": "ESCUELA PRIMARIA PROFR. JOSÉ GONZÁLEZ VILLASEÑOR",
+    "fam_potenciado_2025": "121"
+  },
+  {
+    "codigo": "IP357",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "SANTIAGO ACAHUALTEPEC",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR4160C",
+    "escuela": "ESCUELA PRIMARIA RAFAEL DELGADO",
+    "fam_potenciado_2025": "120"
+  },
+  {
+    "codigo": "IP362",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LOMAS DE LA ESTANCIA",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2842T",
+    "escuela": "ESCUELA PRIMARIA RAFAELA SUAREZ SOLORZANO",
+    "fam_potenciado_2025": "54"
+  },
+  {
+    "codigo": "IP371",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "DESARROLLO URBANO QUETZALCOATL",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0857R",
+    "escuela": "JARDÍN DE NIÑOS  REPÚBLICA DE CHECOSLOVAQUIA",
+    "fam_potenciado_2025": "25"
+  },
+  {
+    "codigo": "IP436",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "LOMAS DE LA ESTANCIA",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1283B",
+    "escuela": "JARDÍN DE NIÑOS  ZOFAI",
+    "fam_potenciado_2025": "41"
+  },
+  {
+    "codigo": "MA001",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN SALVADOR CUAUHTENCO",
+    "nivel": "SECUNDARIA",
+    "cct": "09DTV0140N",
+    "escuela": "ESCUELA TELESECUNDARIA  PABLO GONZÁLEZ CASANOVA",
+    "fam_potenciado_2025": "106"
+  },
+  {
+    "codigo": "MA003",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN ANTONIO TECOMITL",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2035R",
+    "escuela": "ESCUELA PRIMARIA AGUSTIN LEGORRETA",
+    "fam_potenciado_2025": "58"
+  },
+  {
+    "codigo": "MA006",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN ANTONIO TECOMITL",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0689L",
+    "escuela": "JARDÍN DE NIÑOS  AMELIA FIERRO BANDALA",
+    "fam_potenciado_2025": "27"
+  },
+  {
+    "codigo": "MA013",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN SALVADOR CUAUHTENCO",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0655V",
+    "escuela": "JARDÍN DE NIÑOS  CUAUHTZIN",
+    "fam_potenciado_2025": "59"
+  },
+  {
+    "codigo": "MA022",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN ANTONIO TECOMITL",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1313F",
+    "escuela": "JARDÍN DE NIÑOS  MA. CRISTINA TOVAR MENA",
+    "fam_potenciado_2025": "93"
+  },
+  {
+    "codigo": "MA026",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN SALVADOR CUAUHTENCO",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2042A",
+    "escuela": "ESCUELA PRIMARIA PINTOR DIEGO RIVERA",
+    "fam_potenciado_2025": "127"
+  },
+  {
+    "codigo": "MA044",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN ANTONIO TECOMITL",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5126C",
+    "escuela": "ESCUELA PRIMARIA RAMON G. BONFIL",
+    "fam_potenciado_2025": "28"
+  },
+  {
+    "codigo": "MA046",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN SALVADOR CUAUHTENCO",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2062O",
+    "escuela": "ESCUELA PRIMARIA LIC. MIGUEL ALEMAN",
+    "fam_potenciado_2025": "94"
+  },
+  {
+    "codigo": "MA048",
+    "alcaldia": "MILPA ALTA",
+    "colonia": "SAN ANTONIO TECOMITL",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0052U",
+    "escuela": "ESCUELA PRIMARIA ROSA VILLANUEVA RAMOS",
+    "fam_potenciado_2025": "126"
+  },
+  {
+    "codigo": "MG003",
+    "alcaldia": "LA MAGDALENA CONTRERAS",
+    "colonia": "LAS PALMAS",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0262S",
+    "escuela": "ESCUELA SECUNDARIA ITZJAK RABIN",
+    "fam_potenciado_2025": "124"
+  },
+  {
+    "codigo": "MG027",
+    "alcaldia": "LA MAGDALENA CONTRERAS",
+    "colonia": "SAN BERNABE (LAS PALMAS)",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2934J",
+    "escuela": "ESCUELA PRIMARIA DR. NABOR CARRILLO FLORES",
+    "fam_potenciado_2025": "125"
+  },
+  {
+    "codigo": "MG032",
+    "alcaldia": "LA MAGDALENA CONTRERAS",
+    "colonia": "ATACAXCO (LA MAGDALENA CONTRERAS)",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2225I",
+    "escuela": "ESCUELA PRIMARIA GAMBIA",
+    "fam_potenciado_2025": "14"
+  },
+  {
+    "codigo": "MG061",
+    "alcaldia": "LA MAGDALENA CONTRERAS",
+    "colonia": "BARROS SIERRA",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0874Y",
+    "escuela": "ESCUELA PRIMARIA PROFRA. CARMEN DOMÍNGUEZ AGUIRRE",
+    "fam_potenciado_2025": "57"
+  },
+  {
+    "codigo": "MG063",
+    "alcaldia": "LA MAGDALENA CONTRERAS",
+    "colonia": "CERRO DEL JUDIO (LOS PADRES)",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2635L",
+    "escuela": "ESCUELA PRIMARIA PROFRA. MA. ADELINA FLORES MORALES",
+    "fam_potenciado_2025": "92"
+  },
+  {
+    "codigo": "MH001",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "TACUBAYA",
+    "nivel": "SECUNDARIA",
+    "cct": "09DTV0004J",
+    "escuela": "ESCUELA TELESECUNDARIA  MARGARITA CHJORNE Y SALAZAR",
+    "fam_potenciado_2025": "104"
+  },
+  {
+    "codigo": "MH040",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "TLAXPANA",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0117W",
+    "escuela": "CENTRO DE ATENCIÓN MÚLTIPLE No. 97",
+    "fam_potenciado_2025": "105"
+  },
+  {
+    "codigo": "MH053",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "TLAXPANA",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0305Q",
+    "escuela": "JARDÍN DE NIÑOS  ERNESTO P. URUCHURTU",
+    "fam_potenciado_2025": "43"
+  },
+  {
+    "codigo": "MH083",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "TACUBAYA",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1767W",
+    "escuela": "ESCUELA PRIMARIA GUILLERMO PRIETO",
+    "fam_potenciado_2025": "16"
+  },
+  {
+    "codigo": "MH095",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "TACUBAYA",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1818M",
+    "escuela": "ESCUELA PRIMARIA JUSTO SIERRA",
+    "fam_potenciado_2025": "75"
+  },
+  {
+    "codigo": "MH115",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "TACUBAYA",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1800N",
+    "escuela": "ESCUELA PRIMARIA NACIONES UNIDAS",
+    "fam_potenciado_2025": "42"
+  },
+  {
+    "codigo": "MH122",
+    "alcaldia": "MIGUEL HIDALGO",
+    "colonia": "TLAXPANA",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1740P",
+    "escuela": "ESCUELA PRIMARIA PROFR. ADELAIDO RIOS Y MONTES DE OCA",
+    "fam_potenciado_2025": "76"
+  },
+  {
+    "codigo": "TH005",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SAN JOSE",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2023M",
+    "escuela": "ESCUELA PRIMARIA ANTONIO CASO",
+    "fam_potenciado_2025": "17"
+  },
+  {
+    "codigo": "TH009",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "LA HABANA (LA MAGDALENA)",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0025F",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 66",
+    "fam_potenciado_2025": "45"
+  },
+  {
+    "codigo": "TH014",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "DE GUADALUPE",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0401T",
+    "escuela": "JARDÍN DE NIÑOS  CUETLAXOCHITL",
+    "fam_potenciado_2025": "18"
+  },
+  {
+    "codigo": "TH015",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SAN JOSE",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0487P",
+    "escuela": "JARDÍN DE NIÑOS  CUITLAHUAC",
+    "fam_potenciado_2025": "108"
+  },
+  {
+    "codigo": "TH020",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SELENE",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0116Z",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  116",
+    "fam_potenciado_2025": "128"
+  },
+  {
+    "codigo": "TH027",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SAN MATEO",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2077Q",
+    "escuela": "ESCUELA PRIMARIA GREGORIO TORRES QUINTERO",
+    "fam_potenciado_2025": "129"
+  },
+  {
+    "codigo": "TH047",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "MIGUEL HIDALGO",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR5134L",
+    "escuela": "ESCUELA PRIMARIA NUEVO MILENIO",
+    "fam_potenciado_2025": "29"
+  },
+  {
+    "codigo": "TH058",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SAN JOSE",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR3123S",
+    "escuela": "ESCUELA PRIMARIA PROFR. OTILIO MONTAÑO",
+    "fam_potenciado_2025": "95"
+  },
+  {
+    "codigo": "TH062",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SAN MATEO (LA HABANA)",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0402S",
+    "escuela": "JARDÍN DE NIÑOS  PROFRA.MA.LUISA ARAMBURO VDA.DE ALVARADO",
+    "fam_potenciado_2025": "44"
+  },
+  {
+    "codigo": "TH064",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "EJIDAL SAN JOSE",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0047B",
+    "escuela": "ESCUELA SECUNDARIA QUETZALCÓATL",
+    "fam_potenciado_2025": "60"
+  },
+  {
+    "codigo": "TH079",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SAN JOSE",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1020S",
+    "escuela": "JARDÍN DE NIÑOS  TIERRA Y LIBERTAD",
+    "fam_potenciado_2025": "78"
+  },
+  {
+    "codigo": "TH082",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SAN MATEO",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0293B",
+    "escuela": "JARDÍN DE NIÑOS  TLAHUAC",
+    "fam_potenciado_2025": "79"
+  },
+  {
+    "codigo": "TH092",
+    "alcaldia": "TLÁHUAC",
+    "colonia": "SELENE",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0063I",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 80",
+    "fam_potenciado_2025": "107"
+  },
+  {
+    "codigo": "TP001",
+    "alcaldia": "TLALPAN",
+    "colonia": "SANTO TOMAS AJUSCO",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0502R",
+    "escuela": "JARDÍN DE NIÑOS  AJUCHITAN",
+    "fam_potenciado_2025": "111"
+  },
+  {
+    "codigo": "TP023",
+    "alcaldia": "TLALPAN",
+    "colonia": "SANTO TOMAS AJUSCO",
+    "nivel": "ESPECIAL",
+    "cct": "09DML0013A",
+    "escuela": "ESCUELA DE EDUCACION ESPECIAL - CAM CENTRO DE ATENCIÓN MÚLTIPLE NO. 40",
+    "fam_potenciado_2025": "110"
+  },
+  {
+    "codigo": "TP064",
+    "alcaldia": "TLALPAN",
+    "colonia": "SAN PEDRO MARTIR",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0565C",
+    "escuela": "JARDÍN DE NIÑOS  MAGDALENA CONTRERAS MILLAN",
+    "fam_potenciado_2025": "46"
+  },
+  {
+    "codigo": "TP067",
+    "alcaldia": "TLALPAN",
+    "colonia": "SAN PEDRO MARTIR",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2006W",
+    "escuela": "ESCUELA PRIMARIA MARTINA ISLAS",
+    "fam_potenciado_2025": "96"
+  },
+  {
+    "codigo": "TP009",
+    "alcaldia": "TLALPAN",
+    "colonia": "TEPETONGO",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0114Z",
+    "escuela": "JARDÍN DE NIÑOS  ATENEA",
+    "fam_potenciado_2025": "109"
+  },
+  {
+    "codigo": "TP084",
+    "alcaldia": "TLALPAN",
+    "colonia": "SAN PEDRO MARTIR",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2713Z",
+    "escuela": "ESCUELA PRIMARIA PROFR. RAFAEL CRUZ MANJARREZ",
+    "fam_potenciado_2025": "61"
+  },
+  {
+    "codigo": "TP107",
+    "alcaldia": "TLALPAN",
+    "colonia": "PEDREGAL DE SAN PEDRO MARTIR",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0239H",
+    "escuela": "JARDÍN DE NIÑOS  XOCHIPILCO",
+    "fam_potenciado_2025": "20"
+  },
+  {
+    "codigo": "TP128",
+    "alcaldia": "TLALPAN",
+    "colonia": "SANTO TOMAS AJUSCO",
+    "nivel": "SECUNDARIA",
+    "cct": "09DST0096C",
+    "escuela": "ESCUELA SECUNDARIA TÉCNICA  NO.  96",
+    "fam_potenciado_2025": "47"
+  },
+  {
+    "codigo": "TP131",
+    "alcaldia": "TLALPAN",
+    "colonia": "SANTO TOMAS AJUSCO",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1987H",
+    "escuela": "ESCUELA PRIMARIA FRANCISCO I. MADERO",
+    "fam_potenciado_2025": "82"
+  },
+  {
+    "codigo": "TP144",
+    "alcaldia": "TLALPAN",
+    "colonia": "SAN PEDRO MARTIR",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR3145D",
+    "escuela": "ESCUELA PRIMARIA PROFR. ABEL ORTEGA FLORES",
+    "fam_potenciado_2025": "81"
+  },
+  {
+    "codigo": "TP079",
+    "alcaldia": "TLALPAN",
+    "colonia": "PRIMAVERA",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1362O",
+    "escuela": "JARDÍN DE NIÑOS  PRIMAVERA",
+    "fam_potenciado_2025": "80"
+  },
+  {
+    "codigo": "TP112",
+    "alcaldia": "TLALPAN",
+    "colonia": "SAN ANDRES TOTOLTEPEC",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0284D",
+    "escuela": "ESCUELA SECUNDARIA GUSTAVO CABRERA ACEVEDO",
+    "fam_potenciado_2025": "30"
+  },
+  {
+    "codigo": "TP158",
+    "alcaldia": "TLALPAN",
+    "colonia": "EX EJIDOS DE HUIPULCO",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2295D",
+    "escuela": "ESCUELA PRIMARIA TEOFILO ÁLVAREZ BORBOA",
+    "fam_potenciado_2025": "19"
+  },
+  {
+    "codigo": "XC004",
+    "alcaldia": "XOCHIMILCO",
+    "colonia": "TULYEHUALCO",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR2983S",
+    "escuela": "ESCUELA PRIMARIA ACATONALLI",
+    "fam_potenciado_2025": "62"
+  },
+  {
+    "codigo": "XC042",
+    "alcaldia": "XOCHIMILCO",
+    "colonia": "18",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN1332U",
+    "escuela": "JARDÍN DE NIÑOS  JANGASKANI",
+    "fam_potenciado_2025": "31"
+  },
+  {
+    "codigo": "BJ002",
+    "alcaldia": "BENITO JUÁREZ",
+    "colonia": "ALAMOS",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR1159T",
+    "escuela": "ESCUELA PRIMARIA ANGEL ALBINO CORZO",
+    "fam_potenciado_2025": "97"
+  },
+  {
+    "codigo": "CT030",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "CENTRO",
+    "nivel": "SECUNDARIA",
+    "cct": "09DES0001G",
+    "escuela": "ESCUELA SECUNDARIA CÉSAR A. RUIZ",
+    "fam_potenciado_2025": "37"
+  },
+  {
+    "codigo": "CT080",
+    "alcaldia": "CUAUHTÉMOC",
+    "colonia": "EX HIPODROMO DE PERALVILLO",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR0903C",
+    "escuela": "ESCUELA PRIMARIA LEOPOLDO RÍO DE LA LOZA (ESCUELA PRIMARIA ESTADO DE SONORA)",
+    "fam_potenciado_2025": "72"
+  },
+  {
+    "codigo": "IP369",
+    "alcaldia": "IZTAPALAPA",
+    "colonia": "DESARROLLO URBANO QUETZALCOATL",
+    "nivel": "PRIMARIA",
+    "cct": "09DPR4511Q",
+    "escuela": "ESCUELA PRIMARIA REPÚBLICA ARABE DE EGIPTO",
+    "fam_potenciado_2025": "89"
+  },
+  {
+    "codigo": "",
+    "alcaldia": "ÁLVARO OBREGÓN",
+    "colonia": "PUEBLO TETELPAN",
+    "nivel": "PREESCOLAR",
+    "cct": "09DPR1936A",
+    "escuela": "JUAN ESCUTIA",
+    "fam_potenciado_2025": ""
+  },
+  {
+    "codigo": "",
+    "alcaldia": "ÁLVARO OBREGÓN",
+    "colonia": "COLONIA PUENTE COLORADO",
+    "nivel": "PREESCOLAR",
+    "cct": "09DJN0115Z",
+    "escuela": "LUIS MORQUIO",
+    "fam_potenciado_2025": ""
+  }
+]
