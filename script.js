@@ -3,11 +3,14 @@ const DATA = {
   programs: 'data/programas_integradores.json',
   improvements: 'data/mejoras_infraestructura.json',
   indicators: 'data/indicadores_educativos.json',
-  imv: 'data/indice_marginalidad_violencia.geojson',
   alcaldia: 'data/alcaldias.json',
   ageb: 'data/ageb.geojson',
   cp: 'data/codigos_postales.geojson',
   colonia: 'data/colonias_asentamientos.geojson'
+};
+const OPTIONAL_DATA = {
+  imv: 'data/indice_marginalidad_violencia.geojson',
+  socio: 'data/imc2020_coloniasCDMX.geojson'
 };
 
 const CCT_FIELDS = ['cct1', 'cct2', 'cct3', 'cct4'];
@@ -40,6 +43,27 @@ const IMV_COLORS = {
   'Alta': '#fc8d59',
   'Muy alta': '#d73027'
 };
+const SOCIO_FIELDS = {
+  GM_2020: {label: 'Grado de marginación', kind: 'grade'},
+  P6A14NAE: {label: 'Población de 6 a 14 años que no asiste a la escuela', kind: 'pct'},
+  SBASC: {label: 'Sin educación básica', kind: 'pct'},
+  PSDSS: {label: 'Sin derechohabiencia a servicios de salud', kind: 'pct'},
+  OVHAC: {label: 'Viviendas con hacinamiento', kind: 'pct'},
+  OVSDE: {label: 'Viviendas sin drenaje', kind: 'pct'},
+  OVSEE: {label: 'Viviendas sin electricidad', kind: 'pct'},
+  OVSAE: {label: 'Viviendas sin agua entubada', kind: 'pct'},
+  OVPT: {label: 'Viviendas con piso de tierra', kind: 'pct'},
+  OVSREF: {label: 'Viviendas sin refrigerador', kind: 'pct'},
+  OVSINT: {label: 'Viviendas sin internet', kind: 'pct'},
+  OVSCEL: {label: 'Viviendas sin celular', kind: 'pct'},
+  IMN_2020: {label: 'Índice de marginación normalizado', kind: 'num'},
+  POBTOT: {label: 'Población estimada', kind: 'population'}
+};
+const SOCIO_GRADE_COLORS = {
+  'Muy bajo': '#1a9850', Bajo: '#91cf60', Medio: '#fee08b', Alto: '#fc8d59', 'Muy alto': '#d73027'
+};
+const SOCIO_RAMP = ['#1a9850', '#91cf60', '#fee08b', '#fc8d59', '#d73027'];
+const SOCIO_POPULATION_RAMP = ['#e0f2fe', '#7dd3fc', '#38bdf8', '#0284c7', '#075985'];
 
 let allSchools = [];
 let filteredSchools = [];
@@ -49,6 +73,12 @@ let improvementsRows = [];
 let indicatorsByCCT = {};
 let imvGeo = null;
 let imvLayer = null;
+let imvLoadPromise = null;
+let socioGeo = null;
+let socioLayer = null;
+let socioLoadPromise = null;
+let socioBreaks = [];
+let selectedSocioFeature = null;
 let territoryGeo = {};
 let territoryFeatureMaps = {};
 let territorySelectionLayers = {};
@@ -60,9 +90,9 @@ const schoolLayer = L.layerGroup();
 const summaryLayer = L.layerGroup();
 const map = L.map('map', {zoomControl: false, preferCanvas: true}).setView([19.35, -99.13], 10);
 L.control.zoom({position: 'topleft'}).addTo(map);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
   maxZoom: 19,
-  attribution: '&copy; OpenStreetMap contributors'
+  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, HERE, Garmin, USGS, Intermap, INCREMENT P, NRCan, Esri Japan, METI, Esri China (Hong Kong), NOSTRA, &copy; OpenStreetMap contributors, and the GIS User Community'
 }).addTo(map);
 schoolLayer.addTo(map);
 
@@ -70,6 +100,8 @@ document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
   bindUI();
+  q('socioVariable').innerHTML = Object.entries(SOCIO_FIELDS).map(([key, item]) =>
+    `<option value="${escapeAttr(key)}">${escapeHtml(item.label)}</option>`).join('');
   restoreDarkMode();
   try {
     const keys = Object.keys(DATA);
@@ -78,7 +110,6 @@ async function init() {
     programRows = loaded.programs;
     improvementsRows = loaded.improvements;
     indicatorsByCCT = loaded.indicators;
-    imvGeo = loaded.imv;
     territoryGeo = {alcaldia: loaded.alcaldia, ageb: loaded.ageb, cp: loaded.cp, colonia: loaded.colonia};
 
     allSchools = (loaded.schools.features || []).map(normalizeFeature).filter(Boolean);
@@ -91,14 +122,13 @@ async function init() {
     buildProgramMenu();
     buildImprovementMenu();
     prepareTerritories();
-    prepareImvLayer();
     buildTerritoryMenus();
     populateGeneralFilters();
     drawBaseAlcaldias();
     restoreState();
-    syncImvLayer();
     initialized = true;
     applyFilters(false);
+    if (q('toggleIMV').checked) syncImvLayer();
     setStatus('');
   } catch (error) {
     console.error(error);
@@ -115,7 +145,7 @@ async function fetchJson(path) {
 function normalizeFeature(feature, index) {
   const props = feature.properties || {};
   const coords = feature.geometry?.coordinates || [];
-  return normalizeSchool(props, Number(coords[1]), Number(coords[0]), index, false);
+  return normalizeSchool(props, Number(coords[1]), Number(coords[0]), index, props.es_solo_programa === 'SI');
 }
 
 function normalizeSchool(props, lat, lon, index, programOnly) {
@@ -403,6 +433,8 @@ function bindUI() {
     syncImvLayer();
     saveState();
   };
+  q('toggleSocio').onchange = syncSocioLayer;
+  q('socioVariable').onchange = setSocioVariable;
   q('programSearch').addEventListener('input', filterProgramMenu);
   q('toggleTerritorios').onclick = () => toggleMenu('territoriosBody', 'territoriosArrow', 'toggleTerritorios');
   q('toggleProgramas').onclick = () => toggleMenu('programasBody', 'programasArrow', 'toggleProgramas');
@@ -543,11 +575,122 @@ function prepareImvLayer() {
   });
 }
 
-function syncImvLayer() {
-  if (!imvLayer) return;
-  const visible = Boolean(q('toggleIMV')?.checked);
-  if (visible && !map.hasLayer(imvLayer)) imvLayer.addTo(map);
-  if (!visible && map.hasLayer(imvLayer)) map.removeLayer(imvLayer);
+async function syncImvLayer() {
+  if (q('toggleIMV')?.checked && !imvLayer) {
+    try {
+      if (!imvLoadPromise) imvLoadPromise = fetchJson(OPTIONAL_DATA.imv).then(geo => {
+        imvGeo = geo;
+        prepareImvLayer();
+      });
+      await imvLoadPromise;
+    } catch (error) {
+      console.error(error);
+      imvLoadPromise = null;
+      q('toggleIMV').checked = false;
+      setStatus('No se pudo cargar la capa de Marginalidad y Violencia.', true);
+      saveState();
+      return;
+    }
+  }
+  if (q('toggleIMV')?.checked && imvLayer && !map.hasLayer(imvLayer)) imvLayer.addTo(map);
+  if (!q('toggleIMV')?.checked && imvLayer && map.hasLayer(imvLayer)) map.removeLayer(imvLayer);
+  renderLegend();
+}
+
+function socioFormat(value, kind) {
+  const number = Number(value);
+  if (value === null || value === undefined || value === '' || !Number.isFinite(number)) return 'Sin dato';
+  if (kind === 'pct') return `${number.toLocaleString('es-MX', {maximumFractionDigits: 1})} %`;
+  if (kind === 'population') return `${Math.round(number).toLocaleString('es-MX')} aprox.`;
+  return number.toLocaleString('es-MX', {maximumFractionDigits: 3});
+}
+
+function socioBreaksFor(variable) {
+  if (!socioGeo) return [];
+  const values = socioGeo.features.map(feature => Number(feature.properties?.[variable]))
+    .filter(Number.isFinite).sort((a, b) => a - b);
+  if (!values.length) return [];
+  return [0.2, 0.4, 0.6, 0.8].map(q => values[Math.floor((values.length - 1) * q)]);
+}
+
+function socioStyle(feature) {
+  const variable = q('socioVariable').value;
+  const field = SOCIO_FIELDS[variable];
+  let color = '#94a3b8';
+  if (field.kind === 'grade') {
+    color = SOCIO_GRADE_COLORS[clean(feature.properties?.GM_2020)] || color;
+  } else {
+    const raw = feature.properties?.[variable];
+    const number = Number(raw);
+    if (raw !== null && raw !== undefined && raw !== '' && Number.isFinite(number)) {
+      const palette = field.kind === 'population' ? SOCIO_POPULATION_RAMP : SOCIO_RAMP;
+      const category = socioBreaks.findIndex(breakpoint => number <= breakpoint);
+      color = palette[category === -1 ? 4 : category];
+    }
+  }
+  return {color: '#475569', weight: 0.75, opacity: 0.8, fillColor: color, fillOpacity: 0.57};
+}
+
+function prepareSocioLayer() {
+  map.createPane('socioPane');
+  map.getPane('socioPane').style.zIndex = 345;
+  socioLayer = L.geoJSON(socioGeo, {
+    pane: 'socioPane',
+    style: socioStyle,
+    onEachFeature: (feature, layer) => {
+      layer.on('click', () => showSocioColony(feature));
+      layer.on('mouseover', () => layer.setStyle({weight: 2.1, fillOpacity: 0.72}));
+      layer.on('mouseout', () => socioLayer.resetStyle(layer));
+    }
+  });
+  socioBreaks = socioBreaksFor(q('socioVariable').value);
+  socioLayer.setStyle(socioStyle);
+}
+
+function showSocioColony(feature) {
+  selectedSocioFeature = feature;
+  const p = feature.properties || {};
+  const selected = q('socioVariable').value;
+  const rows = Object.entries(SOCIO_FIELDS).filter(([key]) => key !== 'GM_2020' && key !== selected)
+    .map(([key, item]) => `<div><span>${escapeHtml(item.label)}</span><strong>${socioFormat(p[key], item.kind)}</strong></div>`).join('');
+  const selectedField = SOCIO_FIELDS[selected];
+  const selectedValue = selectedField.kind === 'grade' ? escapeHtml(p[selected] || 'Sin dato') : socioFormat(p[selected], selectedField.kind);
+  q('socioContent').innerHTML = `<h3>${escapeHtml(p.COLONIA || 'Colonia sin nombre')}</h3>
+    <p>${escapeHtml(p.NOM_MUN || 'Alcaldía sin dato')} · CP ${escapeHtml(p.CP || 'Sin dato')}</p>
+    <div class="socio-highlight"><span>${escapeHtml(selectedField.label)}</span><strong>${selectedValue}</strong></div>
+    <div class="socio-grid">${selected === 'GM_2020' ? '' : `<div><span>Grado de marginación</span><strong>${escapeHtml(p.GM_2020 || 'Sin dato')}</strong></div>`}${rows}</div>
+    <p class="hint">Indicadores territoriales de 2020 por colonia; no describen directamente a una escuela.</p>`;
+  q('socioContent').scrollIntoView({behavior: 'smooth', block: 'nearest'});
+}
+
+async function syncSocioLayer() {
+  if (q('toggleSocio').checked && !socioLayer) {
+    q('socioContent').innerHTML = '<p class="hint">Cargando colonias e indicadores…</p>';
+    try {
+      if (!socioLoadPromise) socioLoadPromise = fetchJson(OPTIONAL_DATA.socio).then(geo => {
+        socioGeo = geo;
+        prepareSocioLayer();
+      });
+      await socioLoadPromise;
+      if (q('toggleSocio').checked) q('socioContent').innerHTML = '<p class="hint">Selecciona una colonia en el mapa.</p>';
+    } catch (error) {
+      console.error(error);
+      socioLoadPromise = null;
+      q('toggleSocio').checked = false;
+      q('socioContent').innerHTML = '<p class="hint">No se pudo cargar el contexto. Comprueba que el archivo de IMC está en la carpeta data.</p>';
+      renderLegend();
+      return;
+    }
+  }
+  if (q('toggleSocio').checked && socioLayer && !map.hasLayer(socioLayer)) socioLayer.addTo(map);
+  if (!q('toggleSocio').checked && socioLayer && map.hasLayer(socioLayer)) map.removeLayer(socioLayer);
+  renderLegend();
+}
+
+function setSocioVariable() {
+  socioBreaks = socioBreaksFor(q('socioVariable').value);
+  if (socioLayer) socioLayer.setStyle(socioStyle);
+  if (selectedSocioFeature) showSocioColony(selectedSocioFeature);
   renderLegend();
 }
 
@@ -728,6 +871,11 @@ function renderImprovements(school) {
         ${detailRow('Colonia', row.colonia)}
         ${detailRow('Dirección', row.direccion)}
         ${detailRow('Fuente', category.fuente)}
+        ${category.id === 'dgcop_obra_2025_232' && row.avance_aula_digital_mixtli_pct !== undefined
+          ? `${detailRow('Avance de aula digital Mixtli', `${row.avance_aula_digital_mixtli_pct.toLocaleString('es-MX', {maximumFractionDigits: 2})} %`)}
+             ${detailRow('Reporte', '19 de agosto de 2026')}
+             ${detailRow('Medición', row.avance_aula_digital_mixtli_periodo)}`
+          : ''}
       </dl>
     </div>`);
   }));
@@ -783,7 +931,20 @@ function renderLegend() {
   const imvLegend = q('toggleIMV')?.checked ? `
     <div class="legend-subtitle">Índice de Marginalidad y Violencia</div>
     ${Object.entries(IMV_COLORS).map(([label, color]) => `<div><span class="swatch" style="background:${color}"></span>${escapeHtml(label)}</div>`).join('')}` : '';
-  q('legendBody').innerHTML = schoolLegend + imvLegend;
+  const socioVariable = q('socioVariable')?.value;
+  const socioField = SOCIO_FIELDS[socioVariable];
+  const socioLegend = q('toggleSocio')?.checked && socioField ? `<div class="legend-subtitle">${escapeHtml(socioField.label)} · colonias 2020</div>
+    ${socioField.kind === 'grade'
+      ? Object.entries(SOCIO_GRADE_COLORS).map(([label, color]) => `<div><span class="swatch" style="background:${color}"></span>${escapeHtml(label)}</div>`).join('')
+      : (socioField.kind === 'population' ? SOCIO_POPULATION_RAMP : SOCIO_RAMP).map((color, index) => {
+        const lower = index ? socioBreaks[index - 1] : null;
+        const upper = index < 4 ? socioBreaks[index] : null;
+        const label = index === 0 ? `≤ ${socioFormat(upper, socioField.kind)}`
+          : index === 4 ? `> ${socioFormat(lower, socioField.kind)}`
+          : `${socioFormat(lower, socioField.kind)} – ${socioFormat(upper, socioField.kind)}`;
+        return `<div><span class="swatch" style="background:${color}"></span>${label}</div>`;
+      }).join('')}` : '';
+  q('legendBody').innerHTML = schoolLegend + imvLegend + socioLegend;
 }
 
 function filterProgramMenu() {

@@ -24,7 +24,10 @@ async function init() {
     const keys = Object.keys(PATHS);
     const values = await Promise.all(keys.map(key => fetchJson(PATHS[key])));
     const data = Object.fromEntries(keys.map((key, index) => [key, values[index]]));
-    schools = (data.schools.features || []).map((feature, index) => normalizeSchool(feature.properties || {}, feature.geometry?.coordinates || [], index, false)).filter(Boolean);
+    schools = (data.schools.features || []).map((feature, index) => {
+      const props = feature.properties || {};
+      return normalizeSchool(props, feature.geometry?.coordinates || [], index, props.es_solo_programa === 'SI');
+    }).filter(Boolean);
     mergeProgramOnly(schools, data.programs);
     joinPrograms(schools, data.programs);
     joinImprovements(schools, data.improvements);

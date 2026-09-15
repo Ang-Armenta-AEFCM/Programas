@@ -6,7 +6,7 @@
   <meta name="description" content="Consulta territorial de programas y mejoras en planteles educativos de la Ciudad de México.">
   <title>Visor de programas de la Ciudad de México</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="style.css?v=20260907-2">
+  <link rel="stylesheet" href="style.css?v=20260915-imc">
 </head>
 <body>
 <header class="topbar">
@@ -29,7 +29,7 @@
       <h2>Visualización</h2>
       <label class="inline-check"><input type="checkbox" id="toggleSchools" checked><span>Mostrar planteles</span></label>
       <label class="inline-check"><input type="checkbox" id="toggleIMV"><span>Índice de Marginalidad y Violencia <em>Activa la capa y haz clic en una zona para consultar su nivel</em></span></label>
-      <p class="hint">El mapa base utiliza exclusivamente OpenStreetMap.</p>
+      <p class="hint">El mapa base utiliza Esri World Street Map.</p>
     </section>
 
     <section class="panel">
@@ -86,6 +86,15 @@
       </div>
     </section>
 
+    <section class="panel socio-panel">
+      <h2>Contexto Socioeconómico</h2>
+      <label class="inline-check"><input type="checkbox" id="toggleSocio"><span>Mostrar marginación por colonia (2020)</span></label>
+      <label for="socioVariable">Variable representada</label>
+      <select id="socioVariable"></select>
+      <p class="hint">Activa la capa y haz clic en una colonia para ver sus indicadores aquí. Son datos de contexto territorial, no del plantel.</p>
+      <div id="socioContent" class="socio-content" aria-live="polite"><p class="hint">Selecciona una colonia en el mapa.</p></div>
+    </section>
+
     <section class="panel compact">
       <h2 id="summaryTitle">Resumen visible</h2>
       <p id="activeCrossSummary" class="cross-summary">Sin cruces temáticos activos.</p>
@@ -120,6 +129,6 @@
 </main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="script.js?v=20260907-2"></script>
+<script src="script.js?v=20260915-optimizado"></script>
 </body>
 </html>
