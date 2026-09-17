@@ -36,6 +36,33 @@ const INDICATOR_LABELS = {
   no_promovidos_primaria: 'No promovidos de primaria',
   no_promovidos_secundaria: 'No promovidos de secundaria'
 };
+const PROGRAM_TEXT_CORRECTIONS = {
+  'DoReMiFaSol': 'DO RE MI FA SOL POR MI ESCUELA',
+  'Do Re Mi Fa Sol': 'DO RE MI FA SOL POR MI ESCUELA',
+  'Estrategia de Formacion': 'Estrategia de Formación',
+  'Estrategia de Participacion Comunitaria': 'Estrategia de Participación Comunitaria',
+  'Estrategia de prevencion del consumo de sustancias': 'Estrategia de prevención del consumo de sustancias',
+  'Estrategia de prevencion del consumo de sustancias en secundarias de Iztapalapa': 'Estrategia de prevención del consumo de sustancias en secundarias de Iztapalapa',
+  'Feria Cientifica y Tecnologica 2025': 'Feria Científica y Tecnológica 2025',
+  'Formacion Continua': 'Formación Continua',
+  'Juego diáctico de Adonde voy, la escuela va conmigo': 'Juego didáctico de Adónde voy, la escuela va conmigo',
+  'Observacion de los Consejos Tecnicos Escolares': 'Observación de los Consejos Técnicos Escolares',
+  'Programa Nacional de Ingles': 'Programa Nacional de Inglés',
+  'Beca Comision': 'Beca Comisión',
+  'Atiendo a la diversidad:entendiendo la discapacidad invisible': 'Atiendo a la diversidad: entendiendo la discapacidad invisible',
+  'Comunidades de Aprendizaje en la Primera Infancia: Una mirada desde las estrructuras cerebrales y la cognición': 'Comunidades de Aprendizaje en la Primera Infancia: una mirada desde las estructuras cerebrales y la cognición',
+  'Cuidado del medio ambiente y energia sostenible': 'Cuidado del medio ambiente y energía sostenible',
+  'Docencia Creativa: Recursos Artisticos para Repensar tu Práctica': 'Docencia creativa: recursos artísticos para repensar tu práctica',
+  'Hacia una pedagogia digital de la práctica docente': 'Hacia una pedagogía digital de la práctica docente',
+  'Innovaciones en seguridad y gestion de riesgos': 'Innovaciones en seguridad y gestión de riesgos',
+  'Metodologia de Teatro Critico': 'Metodología de teatro crítico',
+  'Movilidad urbana sostenible y espacios publicos': 'Movilidad urbana sostenible y espacios públicos',
+  'Pedagogía y fundamentos de la Nueva Escuela Mexicana: Metodologías sociocrítcas': 'Pedagogía y fundamentos de la Nueva Escuela Mexicana: metodologías sociocríticas',
+  'Ruta de construccion colectiva para la participacion estudiantil': 'Ruta de construcción colectiva para la participación estudiantil',
+  'Salud comunitaria y prevencion de enfermedades': 'Salud comunitaria y prevención de enfermedades',
+  'Sistema Integral de Purificacion y Gestion Comunitaria del Agua Potable': 'Sistema Integral de Purificación y Gestión Comunitaria del Agua Potable',
+  'Tecnologia para la inclusion y la educacion inclusiva': 'Tecnología para la inclusión y la educación inclusiva'
+};
 const IMV_COLORS = {
   'Muy baja': '#1a9850',
   'Baja': '#91cf60',
@@ -107,7 +134,7 @@ async function init() {
     const keys = Object.keys(DATA);
     const values = await Promise.all(keys.map(key => fetchJson(DATA[key])));
     const loaded = Object.fromEntries(keys.map((key, index) => [key, values[index]]));
-    programRows = loaded.programs;
+    programRows = prepareProgramRows(loaded.programs);
     improvementsRows = loaded.improvements;
     indicatorsByCCT = loaded.indicators;
     territoryGeo = {alcaldia: loaded.alcaldia, ageb: loaded.ageb, cp: loaded.cp, colonia: loaded.colonia};
@@ -140,6 +167,18 @@ async function fetchJson(path) {
   const response = await fetch(path, {cache: 'no-store'});
   if (!response.ok) throw new Error(`No se pudo cargar ${path}`);
   return response.json();
+}
+
+function prepareProgramRows(rows) {
+  return rows.filter(row => {
+    const program = normalize(row.programa);
+    const project = normalize(row.proyecto);
+    return !program.startsWith('1 2 3 por mi escuela') && !project.startsWith('1 2 3 por mi escuela');
+  }).map(row => ({
+    ...row,
+    programa: PROGRAM_TEXT_CORRECTIONS[row.programa] || row.programa,
+    proyecto: PROGRAM_TEXT_CORRECTIONS[row.proyecto] || row.proyecto
+  }));
 }
 
 function normalizeFeature(feature, index) {
@@ -508,7 +547,7 @@ function matchesTerritories(school, selections) {
 function updateCrossSummary(projects, improvements, territories) {
   const parts = [];
   if (projects.length) parts.push(`${projects.length} proyecto${projects.length === 1 ? '' : 's'}`);
-  if (improvements.length) parts.push(`${improvements.length} mejora${improvements.length === 1 ? '' : 's'}`);
+  if (improvements.length) parts.push(`${improvements.length} selección${improvements.length === 1 ? '' : 'es'} de mantenimiento`);
   const territoryCount = Object.values(territories).reduce((sum, values) => sum + values.length, 0);
   if (territoryCount) parts.push(`${territoryCount} límite${territoryCount === 1 ? '' : 's'} territorial${territoryCount === 1 ? '' : 'es'}`);
   q('activeCrossSummary').textContent = parts.length ? `Cruce activo: ${parts.join(' + ')}.` : 'Sin cruces temáticos activos.';
@@ -565,7 +604,7 @@ function prepareImvLayer() {
       const value = Number(feature.properties?.C_US) || 0;
       layer.bindPopup(`
         <div class="imv-popup">
-          <strong>Índice de Marginalidad y Violencia</strong>
+          <strong>Índice de marginalidad y violencia</strong>
           <dl>
             <dt>Clasificación</dt><dd>${escapeHtml(category)}</dd>
             <dt>Nivel</dt><dd>${value ? `${value} de 5` : 'Sin información'}</dd>
@@ -587,7 +626,7 @@ async function syncImvLayer() {
       console.error(error);
       imvLoadPromise = null;
       q('toggleIMV').checked = false;
-      setStatus('No se pudo cargar la capa de Marginalidad y Violencia.', true);
+      setStatus('No se pudo cargar la capa de marginalidad y violencia.', true);
       saveState();
       return;
     }
@@ -793,7 +832,9 @@ function buildPopup(school) {
 }
 
 function indicatorMiniHtml(school) {
-  return `<div class="indicator-mini"><strong>Indicadores educativos</strong>${Object.entries(INDICATOR_LABELS).map(([key, label]) => {
+  const indicators = indicatorsForLevel(school.nivel);
+  if (!indicators.length) return '';
+  return `<div class="indicator-mini"><strong>Indicadores educativos</strong>${indicators.map(([key, label]) => {
     const value = school.indicators.totals[key];
     return `<div><span>${escapeHtml(label)}</span><b>${value === null ? '—' : Number(value).toLocaleString('es-MX')}</b></div>`;
   }).join('')}</div>`;
@@ -808,7 +849,7 @@ function openDetail(school) {
     <div class="detail-tabs">
       <button class="tab-btn active" data-tab="general" type="button">General</button>
       <button class="tab-btn" data-tab="programas" type="button">Programas</button>
-      <button class="tab-btn" data-tab="mejoras" type="button">Mejoras</button>
+      <button class="tab-btn" data-tab="mejoras" type="button">Mantenimiento</button>
     </div>
     <div class="tab-pane active" data-pane="general">
       <dl>
@@ -826,14 +867,25 @@ function openDetail(school) {
 }
 
 function indicatorDetailHtml(school) {
+  const indicators = indicatorsForLevel(school.nivel);
+  if (!indicators.length) return '';
   return `<section class="indicator-card">
     <h3>Indicadores educativos</h3>
-    <p>Valores acumulados para los CCT registrados en este inmueble.</p>
-    <div class="indicator-grid">${Object.entries(INDICATOR_LABELS).map(([key, label]) => {
+    <p>Valores del nivel educativo del plantel, acumulados para los CCT registrados en este inmueble.</p>
+    <div class="indicator-grid">${indicators.map(([key, label]) => {
       const value = school.indicators.totals[key];
       return `<div><span>${escapeHtml(label)}</span><strong>${value === null ? 'Sin registro' : Number(value).toLocaleString('es-MX')}</strong></div>`;
     }).join('')}</div>
   </section>`;
+}
+
+function indicatorsForLevel(level) {
+  const normalizedLevel = normalize(level);
+  const keys = [];
+  if (normalizedLevel.includes('preescolar')) keys.push('abandono_preescolar');
+  if (normalizedLevel.includes('primaria')) keys.push('abandono_primaria', 'no_promovidos_primaria');
+  if (normalizedLevel.includes('secundaria')) keys.push('abandono_secundaria', 'no_promovidos_secundaria');
+  return keys.map(key => [key, INDICATOR_LABELS[key]]);
 }
 
 function programCard(row) {
@@ -879,7 +931,7 @@ function renderImprovements(school) {
       </dl>
     </div>`);
   }));
-  return cards.join('') || '<p class="muted-box">No tiene mejoras registradas en las bases incorporadas.</p>';
+  return cards.join('') || '<p class="muted-box">No tiene acciones de mantenimiento registradas en las bases incorporadas.</p>';
 }
 
 function activateTabs() {
@@ -899,7 +951,7 @@ function updateStats() {
   const values = [
     [filteredSchools.length, 'Planteles'],
     [withPrograms, 'Con programas'],
-    [withImprovements, 'Con mejoras'],
+    [withImprovements, 'Con mantenimiento'],
     [active, 'Selecciones activas']
   ];
   values.forEach(([value, label], index) => {
@@ -912,9 +964,9 @@ function renderLegend() {
   const projects = checkedValues('#programFilters input');
   const improvements = checkedValues('#improvementFilters input');
   let title = 'Planteles escolares';
-  let rows = [['#2563eb', 'Con programas'], ['#0f766e', 'Con mejoras'], ['#64748b', 'Sin selección temática']];
+  let rows = [['#2563eb', 'Con programas'], ['#0f766e', 'Con mantenimiento'], ['#64748b', 'Sin selección temática']];
   if (projects.length && improvements.length) {
-    title = 'Cruce de programas y mejoras';
+    title = 'Cruce de programas y mantenimiento';
     rows = [['#111827', 'Cumple ambos apartados activos']];
   } else if (projects.length) {
     title = 'Proyectos seleccionados';
@@ -923,13 +975,13 @@ function renderLegend() {
       return [PROGRAM_COLORS[Math.max(0, index) % PROGRAM_COLORS.length], programCatalog[index]?.label || id];
     });
   } else if (improvements.length) {
-    title = 'Mejoras seleccionadas';
+    title = 'Mantenimiento seleccionado';
     rows = improvements.map(id => [IMPROVEMENTS[id]?.color || '#334155', IMPROVEMENTS[id]?.label || id]);
   }
   q('legendTitle').textContent = title;
   const schoolLegend = rows.map(([color, label]) => `<div><span class="swatch" style="background:${color}"></span>${escapeHtml(label)}</div>`).join('');
   const imvLegend = q('toggleIMV')?.checked ? `
-    <div class="legend-subtitle">Índice de Marginalidad y Violencia</div>
+    <div class="legend-subtitle">Índice de marginalidad y violencia</div>
     ${Object.entries(IMV_COLORS).map(([label, color]) => `<div><span class="swatch" style="background:${color}"></span>${escapeHtml(label)}</div>`).join('')}` : '';
   const socioVariable = q('socioVariable')?.value;
   const socioField = SOCIO_FIELDS[socioVariable];

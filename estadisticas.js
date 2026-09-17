@@ -12,6 +12,27 @@ const IMPROVEMENT_LABELS = {
   sobse_2026_133: '133 SOBSE 2026',
   faltantes_151: '151 escuelas faltantes de mantenimiento'
 };
+const PROGRAM_TEXT_CORRECTIONS = {
+  'DoReMiFaSol': 'DO RE MI FA SOL POR MI ESCUELA',
+  'Do Re Mi Fa Sol': 'DO RE MI FA SOL POR MI ESCUELA',
+  'Estrategia de prevencion del consumo de sustancias en secundarias de Iztapalapa': 'Estrategia de prevención del consumo de sustancias en secundarias de Iztapalapa',
+  'Juego diáctico de Adonde voy, la escuela va conmigo': 'Juego didáctico de Adónde voy, la escuela va conmigo',
+  'Programa Nacional de Ingles': 'Programa Nacional de Inglés',
+  'Beca Comision': 'Beca Comisión',
+  'Atiendo a la diversidad:entendiendo la discapacidad invisible': 'Atiendo a la diversidad: entendiendo la discapacidad invisible',
+  'Comunidades de Aprendizaje en la Primera Infancia: Una mirada desde las estrructuras cerebrales y la cognición': 'Comunidades de Aprendizaje en la Primera Infancia: una mirada desde las estructuras cerebrales y la cognición',
+  'Cuidado del medio ambiente y energia sostenible': 'Cuidado del medio ambiente y energía sostenible',
+  'Docencia Creativa: Recursos Artisticos para Repensar tu Práctica': 'Docencia creativa: recursos artísticos para repensar tu práctica',
+  'Hacia una pedagogia digital de la práctica docente': 'Hacia una pedagogía digital de la práctica docente',
+  'Innovaciones en seguridad y gestion de riesgos': 'Innovaciones en seguridad y gestión de riesgos',
+  'Metodologia de Teatro Critico': 'Metodología de teatro crítico',
+  'Movilidad urbana sostenible y espacios publicos': 'Movilidad urbana sostenible y espacios públicos',
+  'Pedagogía y fundamentos de la Nueva Escuela Mexicana: Metodologías sociocrítcas': 'Pedagogía y fundamentos de la Nueva Escuela Mexicana: metodologías sociocríticas',
+  'Ruta de construccion colectiva para la participacion estudiantil': 'Ruta de construcción colectiva para la participación estudiantil',
+  'Salud comunitaria y prevencion de enfermedades': 'Salud comunitaria y prevención de enfermedades',
+  'Sistema Integral de Purificacion y Gestion Comunitaria del Agua Potable': 'Sistema Integral de Purificación y Gestión Comunitaria del Agua Potable',
+  'Tecnologia para la inclusion y la educacion inclusiva': 'Tecnología para la inclusión y la educación inclusiva'
+};
 
 let schools = [];
 let catalog = new Map();
@@ -28,10 +49,11 @@ async function init() {
       const props = feature.properties || {};
       return normalizeSchool(props, feature.geometry?.coordinates || [], index, props.es_solo_programa === 'SI');
     }).filter(Boolean);
-    mergeProgramOnly(schools, data.programs);
-    joinPrograms(schools, data.programs);
+    const programs = prepareProgramRows(data.programs);
+    mergeProgramOnly(schools, programs);
+    joinPrograms(schools, programs);
     joinImprovements(schools, data.improvements);
-    buildCatalog(data.programs);
+    buildCatalog(programs);
     populateFilters();
     bindUI();
     restoreState();
@@ -46,6 +68,18 @@ async function fetchJson(path) {
   const response = await fetch(path, {cache: 'no-store'});
   if (!response.ok) throw new Error(path);
   return response.json();
+}
+
+function prepareProgramRows(rows) {
+  return rows.filter(row => {
+    const program = norm(row.programa);
+    const project = norm(row.proyecto);
+    return !program.startsWith('1 2 3 por mi escuela') && !project.startsWith('1 2 3 por mi escuela');
+  }).map(row => ({
+    ...row,
+    programa: PROGRAM_TEXT_CORRECTIONS[row.programa] || row.programa,
+    proyecto: PROGRAM_TEXT_CORRECTIONS[row.proyecto] || row.proyecto
+  }));
 }
 
 function normalizeSchool(props, coords, index, programOnly) {
@@ -146,6 +180,7 @@ function bindUI() {
 
 function restoreState() {
   try { state = JSON.parse(localStorage.getItem('visorProgramasStateV4') || '{}'); } catch { state = {}; }
+  state.projects = (state.projects || []).filter(id => catalog.has(id));
   q('stNivel').value = state.nivel || '';
 }
 
@@ -201,9 +236,9 @@ function render(rows, selection) {
 function renderCoverage(rows) {
   const conditions = [
     ['Con programas', rows.filter(school => school.programs.length).length],
-    ['Con mejoras', rows.filter(school => school.improvementIds.length).length],
-    ['Con programas y mejoras', rows.filter(school => school.programs.length && school.improvementIds.length).length],
-    ['Sin programas ni mejoras', rows.filter(school => !school.programs.length && !school.improvementIds.length).length]
+    ['Con mantenimiento', rows.filter(school => school.improvementIds.length).length],
+    ['Con programas y mantenimiento', rows.filter(school => school.programs.length && school.improvementIds.length).length],
+    ['Sin programas ni mantenimiento', rows.filter(school => !school.programs.length && !school.improvementIds.length).length]
   ];
   q('tablaCobertura').innerHTML = conditions.map(([label, count]) => `
     <tr><td>${esc(label)}</td><td>${count.toLocaleString('es-MX')}</td><td>${pct(count, rows.length)}%<div class="bar"><span style="width:${pct(count, rows.length)}%"></span></div></td></tr>`).join('');

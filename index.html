@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Consulta territorial de programas y mejoras en planteles educativos de la Ciudad de México.">
+  <meta name="description" content="Consulta territorial de programas y mantenimiento en planteles educativos de la Ciudad de México.">
   <title>Visor de programas de la Ciudad de México</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="style.css?v=20260915-imc">
@@ -13,7 +13,7 @@
   <div class="brand-block">
     <span class="eyebrow">Sistema de información geográfica</span>
     <h1>Visor de programas de la Ciudad de México</h1>
-    <p>Consulta programas, proyectos y mejoras de los planteles educativos por territorio.</p>
+    <p>Consulta programas, proyectos y acciones de mantenimiento en los planteles educativos de la Ciudad de México.</p>
   </div>
   <nav><a id="statsLink" href="estadisticas.html">Estadísticas generales</a></nav>
 </header>
@@ -28,7 +28,7 @@
     <section class="panel">
       <h2>Visualización</h2>
       <label class="inline-check"><input type="checkbox" id="toggleSchools" checked><span>Mostrar planteles</span></label>
-      <label class="inline-check"><input type="checkbox" id="toggleIMV"><span>Índice de Marginalidad y Violencia <em>Activa la capa y haz clic en una zona para consultar su nivel</em></span></label>
+      <label class="inline-check"><input type="checkbox" id="toggleIMV"><span>Índice de marginalidad y violencia <em>Activa la capa y haz clic en una zona para consultar su nivel.</em></span></label>
       <p class="hint">El mapa base utiliza Esri World Street Map.</p>
     </section>
 
@@ -47,7 +47,7 @@
 
     <section class="panel collapsible-panel">
       <button id="toggleTerritorios" class="collapse-title" type="button" aria-expanded="true">
-        <span>Ver por territorio</span><span id="territoriosArrow">⌄</span>
+        <span>Capas y filtros territoriales</span><span id="territoriosArrow">⌄</span>
       </button>
       <div id="territoriosBody" class="collapsible-body">
         <p class="hint">Puedes seleccionar varias alcaldías y una AGEB. Las capas de códigos postales y colonias solo se muestran u ocultan; no filtran planteles.</p>
@@ -60,7 +60,7 @@
         <span>Programas</span><span id="programasArrow">⌄</span>
       </button>
       <div id="programasBody" class="collapsible-body">
-        <p class="hint">Selecciona uno o varios proyectos. Al combinarlo con Mejoras se aplica un cruce.</p>
+        <p class="hint">Selecciona uno o varios proyectos. Al combinarlos con Mantenimiento se aplica un cruce.</p>
         <label for="programSearch">Buscar proyecto</label>
         <input id="programSearch" type="search" placeholder="Filtrar la lista de proyectos">
         <div class="section-actions">
@@ -74,7 +74,7 @@
 
     <section class="panel collapsible-panel improvement-panel">
       <button id="toggleMejoras" class="collapse-title" type="button" aria-expanded="false">
-        <span>Mejoras</span><span id="mejorasArrow">›</span>
+        <span>Mantenimiento</span><span id="mejorasArrow">›</span>
       </button>
       <div id="mejorasBody" class="collapsible-body hidden">
         <p class="hint">Información integrada desde la primera hoja de la base de infraestructura, las hojas autorizadas y el listado actualizado de 151 escuelas faltantes.</p>
@@ -87,7 +87,7 @@
     </section>
 
     <section class="panel socio-panel">
-      <h2>Contexto Socioeconómico</h2>
+      <h2>Contexto socioeconómico</h2>
       <label class="inline-check"><input type="checkbox" id="toggleSocio"><span>Mostrar marginación por colonia (2020)</span></label>
       <label for="socioVariable">Variable representada</label>
       <select id="socioVariable"></select>
@@ -101,7 +101,7 @@
       <div class="kpis dynamic-kpis">
         <div><strong id="kpi1">0</strong><span id="kpiLabel1">Planteles</span></div>
         <div><strong id="kpi2">0</strong><span id="kpiLabel2">Con programas</span></div>
-        <div><strong id="kpi3">0</strong><span id="kpiLabel3">Con mejoras</span></div>
+        <div><strong id="kpi3">0</strong><span id="kpiLabel3">Con mantenimiento</span></div>
         <div><strong id="kpi4">0</strong><span id="kpiLabel4">Selecciones activas</span></div>
       </div>
     </section>
@@ -129,6 +129,6 @@
 </main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="script.js?v=20260915-optimizado"></script>
+<script src="script.js?v=20260917-textos"></script>
 </body>
 </html>
