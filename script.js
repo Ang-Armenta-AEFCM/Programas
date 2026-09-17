@@ -45,7 +45,7 @@ const PROGRAM_TEXT_CORRECTIONS = {
   'Estrategia de prevencion del consumo de sustancias en secundarias de Iztapalapa': 'Estrategia de prevención del consumo de sustancias en secundarias de Iztapalapa',
   'Feria Cientifica y Tecnologica 2025': 'Feria Científica y Tecnológica 2025',
   'Formacion Continua': 'Formación Continua',
-  'Juego diáctico de Adonde voy, la escuela va conmigo': 'Juego didáctico de Adónde voy, la escuela va conmigo',
+  'Juego diáctico de Adonde voy, la escuela va conmigo': 'Juego didáctico de A dónde voy, la escuela va conmigo',
   'Observacion de los Consejos Tecnicos Escolares': 'Observación de los Consejos Técnicos Escolares',
   'Programa Nacional de Ingles': 'Programa Nacional de Inglés',
   'Beca Comision': 'Beca Comisión',
