@@ -21,7 +21,7 @@ const IMPROVEMENTS = {
   ilife_obra_2025_en_2026_134: {label: '134 ILIFE Obra 2025 en 2026', color: '#7c3aed'},
   ilife_2026_180: {label: '180 ILIFE 2026', color: '#15803d'},
   sobse_2026_133: {label: '133 SOBSE 2026', color: '#c2410c'},
-  faltantes_151: {label: '151 escuelas faltantes de mantenimiento', color: '#ca8a04'}
+  faltantes_151: {label: '151 planteles faltantes de mantenimiento', color: '#ca8a04'}
 };
 const TERRITORIES = {
   alcaldia: {label: 'Alcaldía', plural: 'alcaldías', color: '#0f4c75'},
@@ -194,7 +194,7 @@ function normalizeSchool(props, lat, lon, index, programOnly) {
     lat,
     lon,
     props,
-    nombre: clean(props.inmueble || props.nombre) || 'Escuela sin nombre',
+    nombre: clean(props.inmueble || props.nombre) || 'Plantel sin nombre',
     alcaldia: normalizeAlcaldia(props.alcaldia),
     nivel: clean(props.principal || props.nivel),
     ccts: (programOnly ? [props.cct] : CCT_FIELDS.map(field => props[field])).map(normalizeCCT).filter(Boolean),
@@ -744,8 +744,18 @@ function updateMap() {
 
 function drawSchools() {
   schoolLayer.clearLayers();
+  const atCoordinate = new Map();
   filteredSchools.forEach(school => {
-    const marker = L.circleMarker([school.lat, school.lon], {
+    const key = `${school.lat.toFixed(7)}|${school.lon.toFixed(7)}`;
+    if (!atCoordinate.has(key)) atCoordinate.set(key, []);
+    atCoordinate.get(key).push(school);
+  });
+  filteredSchools.forEach(school => {
+    const group = atCoordinate.get(`${school.lat.toFixed(7)}|${school.lon.toFixed(7)}`);
+    const index = group.indexOf(school);
+    const angle = 2 * Math.PI * index / group.length;
+    const radius = group.length > 1 ? 0.000075 : 0;
+    const marker = L.circleMarker([school.lat + Math.sin(angle) * radius, school.lon + Math.cos(angle) * radius], {
       radius: 7,
       color: '#ffffff',
       weight: 2,
@@ -753,7 +763,21 @@ function drawSchools() {
       fillOpacity: 0.92
     });
     marker.bindPopup(buildPopup(school), {maxWidth: 370});
-    marker.on('click', () => openDetail(school));
+    marker.on('popupopen', () => {
+      marker.getPopup().getElement()?.querySelectorAll('[data-select-cct]').forEach(button => {
+        button.onclick = () => {
+          const key = button.dataset.selectCct;
+          const detail = school.indicators.byCct.find(row => row.cct === key) || {};
+          openDetail({
+            ...school, ccts: [key],
+            programs: school.programs.filter(row => normalizeCCT(row.cct) === key),
+            improvementDetails: school.improvementDetails.filter(row => normalizeCCT(row.cct) === key),
+            improvementIds: school.improvementDetails.filter(row => normalizeCCT(row.cct) === key).flatMap(row => (row.categorias || []).map(category => category.id)),
+            indicators: {byCct: [detail], totals: detail}
+          });
+        };
+      });
+    });
     school.marker = marker;
     schoolLayer.addLayer(marker);
   });
@@ -773,11 +797,11 @@ function drawSummary() {
     const size = Math.max(34, Math.min(64, 28 + Math.sqrt(schools.length) * 3.5));
     const icon = L.divIcon({
       className: '',
-      html: `<div class="summary-marker" style="width:${size}px;height:${size}px">${schools.length}</div>`,
+      html: `<div class="summary-marker" style="width:${size}px;height:${size}px">${new Set(schools.flatMap(s => s.ccts)).size}</div>`,
       iconSize: [size, size],
       iconAnchor: [size / 2, size / 2]
     });
-    L.marker([lat, lon], {icon, title: `${alcaldia}: ${schools.length} planteles`})
+    L.marker([lat, lon], {icon, title: `${alcaldia}: ${new Set(schools.flatMap(s => s.ccts)).size} CCT`})
       .bindTooltip(`${escapeHtml(alcaldia)}: ${schools.length.toLocaleString('es-MX')} planteles`)
       .on('click', () => fitSchools(schools, 12))
       .addTo(summaryLayer);
@@ -827,6 +851,7 @@ function buildPopup(school) {
       Alcaldía: ${escapeHtml(school.alcaldia || 'No registrada')}<br>
       Nivel: ${escapeHtml(school.nivel || 'No registrado')}
     </div>
+    <div class="cct-selector">${school.ccts.map(key => `<button type="button" data-select-cct="${escapeAttr(key)}">${escapeHtml(key)}</button>`).join('')}</div>
     ${indicatorMiniHtml(school)}
     <div class="popup-flags">${tags.slice(0, 6).join('')}${tags.length > 6 ? `<span class="mini-tag">+${tags.length - 6}</span>` : ''}</div>`;
 }
@@ -917,7 +942,7 @@ function renderImprovements(school) {
       <dl>
         ${detailRow('CCT', row.cct)}
         ${detailRow('Código', row.codigo)}
-        ${detailRow('Escuela', row.escuela)}
+        ${detailRow('Plantel', row.escuela)}
         ${detailRow('Nivel', row.nivel)}
         ${detailRow('Alcaldía', row.alcaldia)}
         ${detailRow('Colonia', row.colonia)}
@@ -943,13 +968,15 @@ function activateTabs() {
 }
 
 function updateStats() {
-  const withPrograms = filteredSchools.filter(school => school.programs.length).length;
-  const withImprovements = filteredSchools.filter(school => school.improvementIds.length).length;
+  const term = normalizeCCT(q('buscarCCT').value);
+  const cctSet = new Set(filteredSchools.flatMap(school => school.ccts.filter(key => !term || key.includes(term))));
+  const withPrograms = new Set(filteredSchools.flatMap(school => school.programs.map(row => normalizeCCT(row.cct))).filter(key => cctSet.has(key))).size;
+  const withImprovements = new Set(filteredSchools.flatMap(school => school.improvementDetails.map(row => normalizeCCT(row.cct))).filter(key => cctSet.has(key))).size;
   const active = checkedValues('#programFilters input').length + checkedValues('#improvementFilters input').length +
     Object.values(selectedTerritories()).reduce((sum, values) => sum + values.length, 0);
   q('summaryTitle').textContent = active ? 'Resultado del cruce' : 'Resumen visible';
   const values = [
-    [filteredSchools.length, 'Planteles'],
+    [cctSet.size, 'CCT'],
     [withPrograms, 'Con programas'],
     [withImprovements, 'Con mantenimiento'],
     [active, 'Selecciones activas']

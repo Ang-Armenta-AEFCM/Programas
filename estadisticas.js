@@ -10,7 +10,7 @@ const IMPROVEMENT_LABELS = {
   ilife_obra_2025_en_2026_134: '134 ILIFE Obra 2025 en 2026',
   ilife_2026_180: '180 ILIFE 2026',
   sobse_2026_133: '133 SOBSE 2026',
-  faltantes_151: '151 escuelas faltantes de mantenimiento'
+  faltantes_151: '151 planteles faltantes de mantenimiento'
 };
 const PROGRAM_TEXT_CORRECTIONS = {
   'DoReMiFaSol': 'DO RE MI FA SOL POR MI ESCUELA',
@@ -89,7 +89,7 @@ function normalizeSchool(props, coords, index, programOnly) {
   return {
     lat,
     lon,
-    nombre: clean(props.inmueble || props.nombre) || 'Escuela sin nombre',
+    nombre: clean(props.inmueble || props.nombre) || 'Plantel sin nombre',
     alcaldia: clean(props.alcaldia).toLocaleUpperCase('es-MX'),
     nivel: clean(props.principal || props.nivel),
     ccts: (programOnly ? [props.cct] : CCT_FIELDS.map(field => props[field])).map(cct).filter(Boolean),
@@ -150,8 +150,8 @@ function joinImprovements(list, rows) {
       Number.isFinite(Number(row.lat)) && Number.isFinite(Number(row.lon)) &&
       Math.abs(Number(row.lat) - school.lat) < 0.015 && Math.abs(Number(row.lon) - school.lon) < 0.015
     );
-    [...new Map([...matchedByCct, ...matchedByName].map(row => [row.cct, row])).values()]
-      .forEach(row => (row.categorias || []).forEach(category => ids.add(category.id)));
+    school.improvementDetails = [...new Map([...matchedByCct, ...matchedByName].map(row => [row.cct, row])).values()];
+    school.improvementDetails.forEach(row => (row.categorias || []).forEach(category => ids.add(category.id)));
     school.improvementIds = [...ids];
   });
 }
@@ -201,7 +201,7 @@ function applyStats() {
     if (!matchesTerritories(school, territories)) return false;
     return true;
   });
-  render(result, {projects, improvements, territories});
+  render(result.flatMap(school=>school.ccts.filter(key=>!termCct||key.includes(termCct)).map(key=>({...school,ccts:[key],programs:school.programs.filter(row=>cct(row.cct)===key),improvementIds:school.improvementDetails.filter(row=>cct(row.cct)===key).flatMap(row=>(row.categorias||[]).map(x=>x.id))}))), {projects, improvements, territories});
 }
 
 function matchesTerritories(school, territories) {
