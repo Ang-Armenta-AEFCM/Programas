@@ -1,5 +1,6 @@
 const DATA = {
   schools: 'data/infraestructura_educativa_2026.json',
+  cctDirectory: 'data/cct_turnos_bd7333.json',
   programs: 'data/programas_integradores.json',
   improvements: 'data/mejoras_infraestructura.json',
   indicators: 'data/indicadores_educativos.json',
@@ -94,6 +95,7 @@ const SOCIO_POPULATION_RAMP = ['#e0f2fe', '#7dd3fc', '#38bdf8', '#0284c7', '#075
 
 let allSchools = [];
 let filteredSchools = [];
+let cctDirectory = {};
 let programRows = [];
 let programCatalog = [];
 let improvementsRows = [];
@@ -134,6 +136,7 @@ async function init() {
     const keys = Object.keys(DATA);
     const values = await Promise.all(keys.map(key => fetchJson(DATA[key])));
     const loaded = Object.fromEntries(keys.map((key, index) => [key, values[index]]));
+    cctDirectory = loaded.cctDirectory || {};
     programRows = prepareProgramRows(loaded.programs);
     improvementsRows = loaded.improvements;
     indicatorsByCCT = loaded.indicators;
@@ -141,6 +144,8 @@ async function init() {
 
     allSchools = (loaded.schools.features || []).map(normalizeFeature).filter(Boolean);
     mergeProgramOnlySchools(allSchools, programRows);
+    mergeImprovementOnlySchools(allSchools, improvementsRows);
+    attachCctDirectory(allSchools, cctDirectory);
     joinPrograms(allSchools, programRows);
     joinImprovements(allSchools, improvementsRows);
     joinIndicators(allSchools, indicatorsByCCT);
@@ -204,8 +209,21 @@ function normalizeSchool(props, lat, lon, index, programOnly) {
     improvementIds: [],
     improvementDetails: [],
     indicators: {byCct: [], totals: {}},
+    cctRecords: [],
+    imvLevels: [],
     marker: null
   };
+}
+
+function attachCctDirectory(schools, source) {
+  schools.forEach(school => {
+    school.cctRecords = school.ccts.flatMap(cct => (source[cct] || []).map(record => ({...record, cct})));
+    school.imvLevels = unique(school.cctRecords.map(record => imvCategory(record.imv_nivel)).filter(Boolean));
+    if (!school.imvLevels.length) {
+      const fallback = imvCategory(school.props.coord_C_US ?? school.props.C_US);
+      if (fallback) school.imvLevels = [fallback];
+    }
+  });
 }
 
 function mergeProgramOnlySchools(schools, rows) {
@@ -230,6 +248,29 @@ function mergeProgramOnlySchools(schools, rows) {
     };
     const school = normalizeSchool(props, Number(row.lat), Number(row.lon), `programa-${key}`, true);
     if (school) schools.push(school);
+  });
+}
+
+function mergeImprovementOnlySchools(schools, rows) {
+  const known = new Set(schools.flatMap(school => school.ccts));
+  rows.forEach(row => {
+    const key = normalizeCCT(row.cct);
+    if (!key || known.has(key) || !Number.isFinite(Number(row.lat)) || !Number.isFinite(Number(row.lon))) return;
+    const props = {
+      cct1: key,
+      inmueble: row.escuela,
+      alcaldia: row.alcaldia,
+      principal: row.nivel,
+      bm_domicilio_principal: row.direccion,
+      bm_localidad: row.colonia,
+      territorios: row.territorios || {},
+      es_solo_mantenimiento: 'SI'
+    };
+    const school = normalizeSchool(props, Number(row.lat), Number(row.lon), `mantenimiento-${key}`, false);
+    if (school) {
+      schools.push(school);
+      known.add(key);
+    }
   });
 }
 
@@ -317,16 +358,33 @@ function buildProgramMenu() {
 }
 
 function buildImprovementMenu() {
-  const counts = Object.fromEntries(Object.keys(IMPROVEMENTS).map(key => [key, 0]));
+  const cctsByCategory = Object.fromEntries(Object.keys(IMPROVEMENTS).map(key => [key, new Set()]));
   improvementsRows.forEach(row => (row.categorias || []).forEach(category => {
-    counts[category.id] = (counts[category.id] || 0) + 1;
+    if (!cctsByCategory[category.id]) cctsByCategory[category.id] = new Set();
+    cctsByCategory[category.id].add(normalizeCCT(row.cct));
   }));
   q('improvementFilters').innerHTML = Object.entries(IMPROVEMENTS).map(([key, item]) => `
     <label class="inline-check">
       <input type="checkbox" value="${escapeAttr(key)}">
-      <span>${escapeHtml(item.label)} <em>${(counts[key] || 0).toLocaleString('es-MX')} CCT</em></span>
+      <span>${escapeHtml(item.label)} <em>${countCctTurns(cctsByCategory[key]).toLocaleString('es-MX')} CCT/turno · ${countPlantelsForCcts(cctsByCategory[key], allSchools).toLocaleString('es-MX')} planteles</em></span>
     </label>`).join('');
   q('improvementFilters').addEventListener('change', () => applyFilters(false));
+}
+
+function countCctTurns(ccts) {
+  const keys = new Set();
+  [...(ccts || [])].map(normalizeCCT).filter(Boolean).forEach(cct => {
+    const records = cctDirectory[cct] || [];
+    const turns = unique(records.map(record => normalizeTurn(record.turno)).filter(Boolean));
+    if (turns.length) turns.forEach(turn => keys.add(`${cct}|${turn}`));
+    else keys.add(`${cct}|SIN TURNO`);
+  });
+  return keys.size;
+}
+
+function countPlantelsForCcts(ccts, schools) {
+  const wanted = new Set([...(ccts || [])].map(normalizeCCT).filter(Boolean));
+  return new Set(schools.filter(school => school.ccts.some(cct => wanted.has(cct))).map(school => school.id)).size;
 }
 
 function prepareTerritories() {
@@ -447,6 +505,7 @@ function buildTerritoryMenus() {
 
 function bindUI() {
   q('filtroNivel').addEventListener('change', () => applyFilters(false));
+  q('filtroIMV').addEventListener('change', () => applyFilters(false));
   q('buscarCCT').addEventListener('input', debounce(() => applyFilters(false), 160));
   q('buscarNombre').addEventListener('input', debounce(() => applyFilters(false), 160));
   ['buscarCCT', 'buscarNombre'].forEach(id => {
@@ -498,6 +557,7 @@ function populateGeneralFilters() {
 function applyFilters(zoomTerritories) {
   if (!initialized) return;
   const nivel = q('filtroNivel').value;
+  const imvLevel = q('filtroIMV').value;
   const termCct = normalizeCCT(q('buscarCCT').value);
   const termName = normalize(q('buscarNombre').value);
   const projects = checkedValues('#programFilters input');
@@ -506,6 +566,7 @@ function applyFilters(zoomTerritories) {
 
   filteredSchools = allSchools.filter(school => {
     if (nivel && school.nivel !== nivel) return false;
+    if (imvLevel && !school.imvLevels.includes(imvLevel)) return false;
     if (termCct && !school.ccts.some(value => value.includes(termCct))) return false;
     if (termName && !normalize(school.nombre).includes(termName)) return false;
     if (school.programOnly && projects.length === 0) return false;
@@ -762,22 +823,9 @@ function drawSchools() {
       fillColor: schoolColor(school),
       fillOpacity: 0.92
     });
-    marker.bindPopup(buildPopup(school), {maxWidth: 370});
-    marker.on('popupopen', () => {
-      marker.getPopup().getElement()?.querySelectorAll('[data-select-cct]').forEach(button => {
-        button.onclick = () => {
-          const key = button.dataset.selectCct;
-          const detail = school.indicators.byCct.find(row => row.cct === key) || {};
-          openDetail({
-            ...school, ccts: [key],
-            programs: school.programs.filter(row => normalizeCCT(row.cct) === key),
-            improvementDetails: school.improvementDetails.filter(row => normalizeCCT(row.cct) === key),
-            improvementIds: school.improvementDetails.filter(row => normalizeCCT(row.cct) === key).flatMap(row => (row.categorias || []).map(category => category.id)),
-            indicators: {byCct: [detail], totals: detail}
-          });
-        };
-      });
-    });
+    school.popupState = defaultPopupState(school);
+    marker.bindPopup(buildPopup(school, school.popupState), {maxWidth: 440, minWidth: 330});
+    marker.on('popupopen', () => bindSchoolPopup(marker, school));
     school.marker = marker;
     schoolLayer.addLayer(marker);
   });
@@ -840,20 +888,140 @@ function schoolColor(school) {
   return '#64748b';
 }
 
-function buildPopup(school) {
-  const tags = [];
-  unique(school.programs.map(row => row.proyecto)).forEach(label => tags.push(`<span class="mini-tag blue">${escapeHtml(label)}</span>`));
-  school.improvementIds.forEach(key => tags.push(`<span class="mini-tag teal">${escapeHtml(IMPROVEMENTS[key]?.label || key)}</span>`));
+function defaultPopupState(school) {
+  const cct = school.ccts.length === 1 ? school.ccts[0] : '';
+  const turns = cct ? cctTurnOptions(school, cct) : [];
+  return {cct, turno: turns.length === 1 ? turns[0].turno : ''};
+}
+
+function cctTurnOptions(school, cct) {
+  const key = normalizeCCT(cct);
+  const records = school.cctRecords.filter(record => normalizeCCT(record.cct) === key);
+  return [...new Map(records.map(record => [normalizeTurn(record.turno), record])).values()];
+}
+
+function selectedCctRecord(school, state) {
+  if (!state.cct) return null;
+  const records = cctTurnOptions(school, state.cct);
+  return records.find(record => normalizeTurn(record.turno) === normalizeTurn(state.turno)) || records[0] || null;
+}
+
+function programsForPopup(school, state) {
+  return school.programs.filter(row => {
+    if (state.cct && normalizeCCT(row.cct) !== normalizeCCT(state.cct)) return false;
+    if (state.turno && !programMatchesTurn(row.turno, state.turno)) return false;
+    return true;
+  });
+}
+
+function selectedSchoolView(school, state) {
+  const cct = state.cct || (school.ccts.length === 1 ? school.ccts[0] : '');
+  const record = selectedCctRecord(school, {...state, cct});
+  const programs = programsForPopup(school, {...state, cct});
+  const improvementDetails = cct
+    ? school.improvementDetails.filter(row => normalizeCCT(row.cct) === normalizeCCT(cct))
+    : school.improvementDetails;
+  const indicator = cct ? (school.indicators.byCct.find(row => row.cct === normalizeCCT(cct)) || {}) : school.indicators.totals;
+  return {
+    ...school,
+    nombre: clean(record?.nombre) || school.nombre,
+    nivel: clean(record?.nivel) || school.nivel,
+    ccts: cct ? [cct] : school.ccts,
+    selectedTurn: clean(state.turno),
+    selectedRecord: record,
+    programs,
+    improvementDetails,
+    improvementIds: unique(improvementDetails.flatMap(row => (row.categorias || []).map(category => category.id))),
+    indicators: cct ? {byCct: [{cct, ...indicator}], totals: indicator} : school.indicators
+  };
+}
+
+function buildPopup(school, state) {
+  const record = selectedCctRecord(school, state);
+  const turns = state.cct ? cctTurnOptions(school, state.cct) : [];
+  const programs = programsForPopup(school, state);
+  const locality = unique([record?.localidad, record?.colonia].map(clean).filter(Boolean)).join(' / ') ||
+    clean(school.props.bm_localidad || school.props.localidad || school.props.colonia);
+  const maintenanceTags = school.improvementIds.map(key =>
+    `<span class="mini-tag teal">${escapeHtml(IMPROVEMENTS[key]?.label || key)}</span>`).join('');
+  const cctControl = school.ccts.length > 1 ? `
+    <div class="popup-control">
+      <strong>Selecciona un CCT</strong>
+      <div class="popup-choice-list">${school.ccts.map(key => `<button class="popup-choice${state.cct === key ? ' active' : ''}" type="button" data-select-cct="${escapeAttr(key)}">${escapeHtml(key)}</button>`).join('')}</div>
+    </div>` : '';
+  const turnControl = turns.length > 1 ? `
+    <div class="popup-control">
+      <strong>Selecciona un turno</strong>
+      <div class="popup-choice-list">${turns.map(item => `<button class="popup-choice${normalizeTurn(state.turno) === normalizeTurn(item.turno) ? ' active' : ''}" type="button" data-select-turn="${escapeAttr(item.turno)}">${escapeHtml(item.turno)}</button>`).join('')}</div>
+    </div>` : '';
   return `
-    <div class="popup-title">${escapeHtml(school.nombre)}</div>
-    <div class="popup-meta">
-      CCT: ${escapeHtml(school.ccts.join(', ') || 'No registrado')}<br>
-      Alcaldía: ${escapeHtml(school.alcaldia || 'No registrada')}<br>
-      Nivel: ${escapeHtml(school.nivel || 'No registrado')}
-    </div>
-    <div class="cct-selector">${school.ccts.map(key => `<button type="button" data-select-cct="${escapeAttr(key)}">${escapeHtml(key)}</button>`).join('')}</div>
-    ${indicatorMiniHtml(school)}
-    <div class="popup-flags">${tags.slice(0, 6).join('')}${tags.length > 6 ? `<span class="mini-tag">+${tags.length - 6}</span>` : ''}</div>`;
+    <div class="school-popup">
+      <div class="popup-title">${escapeHtml(clean(record?.nombre) || school.nombre)}</div>
+      ${cctControl}
+      ${turnControl}
+      <dl class="popup-meta-grid">
+        ${detailRow('CCT', state.cct || (school.ccts.length === 1 ? school.ccts[0] : 'Selecciona un CCT'))}
+        ${detailRow('Turno', state.cct ? (state.turno || (turns.length === 1 ? turns[0].turno : (turns.length > 1 ? 'Selecciona un turno' : 'No registrado'))) : 'Selecciona un CCT')}
+        ${detailRow('Alcaldía', record?.alcaldia || school.alcaldia)}
+        ${detailRow('Nivel', record?.nivel || school.nivel)}
+        ${detailRow('Domicilio', record?.domicilio || school.props.bm_domicilio_principal || school.props.domicilio)}
+        ${detailRow('Localidad / colonia', locality)}
+      </dl>
+      <div class="popup-program-section">
+        <strong>Programas</strong>
+        <div class="popup-program-list">${programs.length ? programs.map(row => `
+          <button type="button" class="popup-program" data-program-key="${escapeAttr(programRowKey(row))}">
+            <span>${escapeHtml(row.proyecto)}</span>
+            ${!state.cct || !state.turno ? `<small>${escapeHtml([row.cct, row.turno].filter(Boolean).join(' · '))}</small>` : ''}
+          </button>`).join('') : '<p>No hay programas para la selección actual.</p>'}</div>
+      </div>
+      ${maintenanceTags ? `<div class="popup-flags"><strong>Mantenimiento</strong><div>${maintenanceTags}</div></div>` : ''}
+      <button type="button" class="popup-open-detail" data-open-detail>Abrir ficha</button>
+    </div>`;
+}
+
+function bindSchoolPopup(marker, school) {
+  const root = marker.getPopup().getElement();
+  if (!root) return;
+  const popupContent = root.querySelector('.school-popup');
+  if (popupContent) {
+    L.DomEvent.disableClickPropagation(popupContent);
+    L.DomEvent.disableScrollPropagation(popupContent);
+  }
+  root.querySelectorAll('[data-select-cct]').forEach(button => {
+    button.onclick = event => {
+      L.DomEvent.stop(event);
+      school.popupState.cct = normalizeCCT(button.dataset.selectCct);
+      const turns = cctTurnOptions(school, school.popupState.cct);
+      school.popupState.turno = turns.length === 1 ? turns[0].turno : '';
+      refreshSchoolPopup(marker, school);
+    };
+  });
+  root.querySelectorAll('[data-select-turn]').forEach(button => {
+    button.onclick = event => {
+      L.DomEvent.stop(event);
+      school.popupState.turno = button.dataset.selectTurn;
+      refreshSchoolPopup(marker, school);
+    };
+  });
+  root.querySelectorAll('[data-program-key]').forEach(button => {
+    button.onclick = event => {
+      L.DomEvent.stop(event);
+      const view = selectedSchoolView(school, school.popupState);
+      openDetail(view, {activeTab: 'programas', selectedProgramKey: button.dataset.programKey});
+    };
+  });
+  root.querySelector('[data-open-detail]')?.addEventListener('click', event => {
+    L.DomEvent.stop(event);
+    openDetail(selectedSchoolView(school, school.popupState));
+  });
+}
+
+function refreshSchoolPopup(marker, school) {
+  const popup = marker.getPopup();
+  popup.setContent(buildPopup(school, school.popupState));
+  if (!marker.isPopupOpen()) marker.openPopup();
+  setTimeout(() => bindSchoolPopup(marker, school), 0);
 }
 
 function indicatorMiniHtml(school) {
@@ -865,29 +1033,24 @@ function indicatorMiniHtml(school) {
   }).join('')}</div>`;
 }
 
-function openDetail(school) {
+function openDetail(school, options = {}) {
   q('detailPanel').classList.add('open');
-  q('detailTitle').textContent = school.nombre;
-  const programs = school.programs.map(programCard).join('') || '<p class="muted-box">No tiene programas registrados.</p>';
+  q('detailTitle').textContent = options.selectedProgramKey ? 'Información del programa' : 'Ficha de información';
+  const selectedProgram = options.selectedProgramKey
+    ? school.programs.filter(row => programRowKey(row) === options.selectedProgramKey)
+    : school.programs;
+  const programs = selectedProgram.map(programCard).join('') || '<p class="muted-box">No tiene programas registrados para la selección actual.</p>';
   const improvements = renderImprovements(school);
+  const activeTab = options.activeTab || 'programas';
   q('detailContent').innerHTML = `
     <div class="detail-tabs">
-      <button class="tab-btn active" data-tab="general" type="button">General</button>
-      <button class="tab-btn" data-tab="programas" type="button">Programas</button>
-      <button class="tab-btn" data-tab="mejoras" type="button">Mantenimiento</button>
+      <button class="tab-btn${activeTab === 'programas' ? ' active' : ''}" data-tab="programas" type="button">Programas</button>
+      <button class="tab-btn${activeTab === 'mejoras' ? ' active' : ''}" data-tab="mejoras" type="button">Mantenimiento</button>
+      <button class="tab-btn${activeTab === 'indicadores' ? ' active' : ''}" data-tab="indicadores" type="button">Indicadores educativos</button>
     </div>
-    <div class="tab-pane active" data-pane="general">
-      <dl>
-        ${detailRow('CCT', school.ccts.join(', '))}
-        ${detailRow('Alcaldía', school.alcaldia)}
-        ${detailRow('Nivel', school.nivel)}
-        ${detailRow('Domicilio', school.props.bm_domicilio_principal || school.props.domicilio)}
-        ${detailRow('Localidad / colonia', school.props.bm_localidad || school.props.localidad || school.props.colonia)}
-      </dl>
-      ${indicatorDetailHtml(school)}
-    </div>
-    <div class="tab-pane" data-pane="programas">${programs}</div>
-    <div class="tab-pane" data-pane="mejoras">${improvements}</div>`;
+    <div class="tab-pane${activeTab === 'programas' ? ' active' : ''}" data-pane="programas">${programs}</div>
+    <div class="tab-pane${activeTab === 'mejoras' ? ' active' : ''}" data-pane="mejoras">${improvements}</div>
+    <div class="tab-pane${activeTab === 'indicadores' ? ' active' : ''}" data-pane="indicadores">${indicatorDetailHtml(school)}</div>`;
   activateTabs();
 }
 
@@ -914,20 +1077,59 @@ function indicatorsForLevel(level) {
 }
 
 function programCard(row) {
-  const mapsUrl = safeUrl(row.google_maps);
   return `<div class="info-card blue-card">
     <div class="program-parent">${escapeHtml(row.programa)}</div>
     <h3>${escapeHtml(row.proyecto)}</h3>
-    <dl>
-      ${detailRow('CCT', row.cct)}
-      ${detailRow('Nivel', row.nivel)}
-      ${detailRow('Turno(s)', row.turno)}
-      ${detailRow('Domicilio', row.domicilio)}
-      ${detailRow('Localidad', row.localidad)}
-      ${detailRow('Detalle', row.detalle)}
-    </dl>
-    ${mapsUrl ? `<a class="map-link" href="${escapeAttr(mapsUrl)}" target="_blank" rel="noopener noreferrer">Abrir ubicación de referencia</a>` : ''}
+    ${programDetailHtml(row.detalle)}
   </div>`;
+}
+
+function programDetailHtml(detail) {
+  const text = clean(detail);
+  if (!text) return '<p class="muted-box">La base del programa no contiene información adicional.</p>';
+  const prepared = text.replace(/\.\s+(?=(?:Factibilidad de infraestructura|Puntos de muestreo|Parámetros con alguna excedencia):)/g, ' ; ');
+  const groups = prepared.split(/\s+\|\s+(?=[^|]{1,100}:)/).map(group => group.trim()).filter(Boolean);
+  return `<div class="program-detail-records">${groups.map((group, groupIndex) => {
+    const fields = group.split(/\s+(?:;|·)\s+/).map(part => part.trim()).filter(Boolean).map(part => {
+      const match = part.match(/^([^:]{1,100}):\s*(.*)$/s);
+      return match ? [cleanProgramLabel(match[1]), match[2]] : ['Información del programa', part];
+    });
+    return `<section class="program-detail-record">
+      ${groups.length > 1 ? `<h4>Registro ${groupIndex + 1}</h4>` : ''}
+      <dl>${fields.map(([label, value]) => detailRow(label, formatProgramValue(value))).join('')}</dl>
+    </section>`;
+  }).join('')}</div>`;
+}
+
+function cleanProgramLabel(label) {
+  const corrections = {
+    'Tipo de formacion': 'Tipo de formación',
+    'Fecha termino': 'Fecha de término',
+    'Fecha inicio': 'Fecha de inicio',
+    'Direccion general': 'Dirección general',
+    'Matricula total': 'Matrícula total',
+    'Problematicas': 'Problemáticas'
+  };
+  const text = clean(label);
+  return corrections[text] || text;
+}
+
+function formatProgramValue(value) {
+  return clean(value).replace(/(\d{4}-\d{2}-\d{2}) 00:00:00/g, '$1');
+}
+
+function programRowKey(row) {
+  return `${normalizeCCT(row.cct)}|${clean(row.proyecto_id)}`;
+}
+
+function normalizeTurn(value) {
+  return normalize(value).replace(/turno completo/g, 'tiempo completo');
+}
+
+function programMatchesTurn(programTurn, selectedTurn) {
+  const program = normalizeTurn(programTurn);
+  const selected = normalizeTurn(selectedTurn);
+  return !program || !selected || program.includes(selected);
 }
 
 function renderImprovements(school) {
@@ -940,13 +1142,7 @@ function renderImprovements(school) {
     cards.push(`<div class="info-card improvement-card" style="border-left-color:${IMPROVEMENTS[category.id]?.color || '#0f766e'}">
       <h3>${escapeHtml(category.label)}</h3>
       <dl>
-        ${detailRow('CCT', row.cct)}
         ${detailRow('Código', row.codigo)}
-        ${detailRow('Plantel', row.escuela)}
-        ${detailRow('Nivel', row.nivel)}
-        ${detailRow('Alcaldía', row.alcaldia)}
-        ${detailRow('Colonia', row.colonia)}
-        ${detailRow('Dirección', row.direccion)}
         ${detailRow('Fuente', category.fuente)}
         ${category.id === 'dgcop_obra_2025_232' && row.avance_aula_digital_mixtli_pct !== undefined
           ? `${detailRow('Avance de aula digital Mixtli', `${row.avance_aula_digital_mixtli_pct.toLocaleString('es-MX', {maximumFractionDigits: 2})} %`)}
@@ -970,15 +1166,26 @@ function activateTabs() {
 function updateStats() {
   const term = normalizeCCT(q('buscarCCT').value);
   const cctSet = new Set(filteredSchools.flatMap(school => school.ccts.filter(key => !term || key.includes(term))));
-  const withPrograms = new Set(filteredSchools.flatMap(school => school.programs.map(row => normalizeCCT(row.cct))).filter(key => cctSet.has(key))).size;
-  const withImprovements = new Set(filteredSchools.flatMap(school => school.improvementDetails.map(row => normalizeCCT(row.cct))).filter(key => cctSet.has(key))).size;
-  const active = checkedValues('#programFilters input').length + checkedValues('#improvementFilters input').length +
+  const selectedProjects = checkedValues('#programFilters input');
+  const selectedImprovements = checkedValues('#improvementFilters input');
+  let scopeCcts = cctSet;
+  if (selectedImprovements.length) {
+    const maintenanceCcts = new Set(improvementsRows.filter(row =>
+      (row.categorias || []).some(category => selectedImprovements.includes(category.id))
+    ).map(row => normalizeCCT(row.cct)));
+    scopeCcts = new Set([...cctSet].filter(cct => maintenanceCcts.has(cct)));
+  }
+  const scopeSchools = filteredSchools.filter(school => school.ccts.some(cct => scopeCcts.has(cct)));
+  const withPrograms = new Set(scopeSchools.filter(school => school.programs.some(row =>
+    (!selectedProjects.length || selectedProjects.includes(row.proyecto_id))
+  )).map(school => school.id)).size;
+  const active = selectedProjects.length + selectedImprovements.length +
     Object.values(selectedTerritories()).reduce((sum, values) => sum + values.length, 0);
   q('summaryTitle').textContent = active ? 'Resultado del cruce' : 'Resumen visible';
   const values = [
-    [cctSet.size, 'CCT'],
-    [withPrograms, 'Con programas'],
-    [withImprovements, 'Con mantenimiento'],
+    [countCctTurns(scopeCcts), 'CCT/turno'],
+    [countPlantelsForCcts(scopeCcts, filteredSchools), 'Planteles'],
+    [withPrograms, 'Planteles con programas'],
     [active, 'Selecciones activas']
   ];
   values.forEach(([value, label], index) => {
@@ -1070,12 +1277,12 @@ function zoomToMatch(type) {
   setTimeout(() => {
     updateVisibility();
     school.marker?.openPopup();
-    openDetail(school);
   }, 80);
 }
 
 function clearAllFilters() {
   q('filtroNivel').value = '';
+  q('filtroIMV').value = '';
   q('buscarCCT').value = '';
   q('buscarNombre').value = '';
   q('programSearch').value = '';
@@ -1094,6 +1301,7 @@ function saveState() {
   if (!initialized) return;
   localStorage.setItem('visorProgramasStateV4', JSON.stringify({
     nivel: q('filtroNivel').value,
+    imvLevel: q('filtroIMV').value,
     projects: checkedValues('#programFilters input'),
     improvements: checkedValues('#improvementFilters input'),
     territories: selectedTerritories(),
@@ -1110,6 +1318,7 @@ function restoreState() {
   let state = {};
   try { state = JSON.parse(localStorage.getItem('visorProgramasStateV4') || '{}'); } catch {}
   q('filtroNivel').value = state.nivel || '';
+  q('filtroIMV').value = state.imvLevel || '';
   restoreChecks('#programFilters input', state.projects || []);
   restoreChecks('#improvementFilters input', state.improvements || []);
   restoreChecks('.territory-check[data-type="alcaldia"]', state.territories?.alcaldia || []);
@@ -1235,6 +1444,11 @@ function safeUrl(value) {
 
 function normalizeCCT(value) {
   return clean(value).replace(/\s+/g, '').toUpperCase();
+}
+
+function imvCategory(value) {
+  const number = Number(value);
+  return ({1: 'Muy baja', 2: 'Baja', 3: 'Media', 4: 'Alta', 5: 'Muy alta'})[number] || '';
 }
 
 function clean(value) {

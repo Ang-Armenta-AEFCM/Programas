@@ -36,10 +36,19 @@
       <h2>Filtros generales</h2>
       <label for="filtroNivel">Nivel educativo</label>
       <select id="filtroNivel"><option value="">Todos</option></select>
+      <label for="filtroIMV">Nivel de índice de marginalidad y violencia</label>
+      <select id="filtroIMV">
+        <option value="">Todos</option>
+        <option value="Muy baja">Muy baja</option>
+        <option value="Baja">Baja</option>
+        <option value="Media">Media</option>
+        <option value="Alta">Alta</option>
+        <option value="Muy alta">Muy alta</option>
+      </select>
       <label for="buscarCCT">Buscar por CCT</label>
       <input id="buscarCCT" list="listaCCT" type="search" placeholder="Escribe o selecciona un CCT">
       <datalist id="listaCCT"></datalist>
-      <label for="buscarNombre">Buscar por plantel</label>
+      <label for="buscarNombre">Buscar por nombre</label>
       <input id="buscarNombre" list="listaNombres" type="search" placeholder="Nombre del inmueble">
       <datalist id="listaNombres"></datalist>
       <div class="buttons single-action"><button id="btnLimpiar" class="secondary" type="button">Limpiar todos los filtros</button></div>
