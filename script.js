@@ -1242,21 +1242,31 @@ function updateStats() {
   const selectedProjects = checkedValues('#programFilters input');
   const selectedImprovements = checkedValues('#improvementFilters input');
   let scopeCcts = cctSet;
+  if (selectedProjects.length) {
+    const programCcts = new Set(programRows.filter(row =>
+      selectedProjects.includes(row.proyecto_id)
+    ).map(row => normalizeCCT(row.cct)).filter(Boolean));
+    scopeCcts = new Set([...scopeCcts].filter(cct => programCcts.has(cct)));
+  }
   if (selectedImprovements.length) {
     const maintenanceCcts = new Set(improvementsRows.filter(row =>
       (row.categorias || []).some(category => selectedImprovements.includes(category.id))
     ).map(row => normalizeCCT(row.cct)));
-    scopeCcts = new Set([...cctSet].filter(cct => maintenanceCcts.has(cct)));
+    scopeCcts = new Set([...scopeCcts].filter(cct => maintenanceCcts.has(cct)));
   }
   const scopeSchools = filteredSchools.filter(school => school.ccts.some(cct => scopeCcts.has(cct)));
   const withPrograms = new Set(scopeSchools.filter(school => school.programs.some(row =>
     (!selectedProjects.length || selectedProjects.includes(row.proyecto_id))
   )).map(school => school.id)).size;
+  const onlyDoremi = selectedProjects.length === 1 && selectedProjects[0] === 'doremifasol-8c4ff82';
+  const programCoverage = onlyDoremi ? new Set(programRows.filter(row =>
+    row.proyecto_id === 'doremifasol-8c4ff82' && scopeCcts.has(normalizeCCT(row.cct))
+  ).map(row => `${normalizeCCT(row.cct)}|${normalizeTurn(row.turno)}`)).size : scopeCcts.size;
   const active = selectedProjects.length + selectedImprovements.length +
     Object.values(selectedTerritories()).reduce((sum, values) => sum + values.length, 0);
   q('summaryTitle').textContent = active ? 'Resultado del cruce' : 'Resumen visible';
   const values = [
-    [countCctTurns(scopeCcts), 'CCT/turno'],
+    [selectedProjects.length ? programCoverage : countCctTurns(scopeCcts), onlyDoremi ? 'CCT/turno' : (selectedProjects.length ? 'CCT' : 'CCT/turno')],
     [countPlantelsForCcts(scopeCcts, filteredSchools), 'Planteles'],
     [withPrograms, 'Planteles con programas'],
     [active, 'Selecciones activas']
