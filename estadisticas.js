@@ -130,7 +130,11 @@ function joinPrograms(list, rows) {
   });
   list.forEach(school => {
     const uniqueRows = new Map();
-    school.ccts.flatMap(key => index.get(key) || []).forEach(row => uniqueRows.set(`${cct(row.cct)}|${row.proyecto_id}`, row));
+    school.ccts.flatMap(key => index.get(key) || []).forEach(row => {
+      const base = `${cct(row.cct)}|${row.proyecto_id}`;
+      const key = row.proyecto_id === 'doremifasol-8c4ff82' ? `${base}|${norm(row.turno)}` : base;
+      uniqueRows.set(key, row);
+    });
     school.programs = [...uniqueRows.values()];
   });
 }

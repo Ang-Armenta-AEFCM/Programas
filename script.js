@@ -285,7 +285,7 @@ function joinPrograms(schools, rows) {
   schools.forEach(school => {
     const uniqueRows = new Map();
     school.ccts.flatMap(key => index.get(key) || []).forEach(row => {
-      uniqueRows.set(`${normalizeCCT(row.cct)}|${row.proyecto_id}`, row);
+      uniqueRows.set(programRowKey(row), row);
     });
     school.programs = [...uniqueRows.values()];
   });
@@ -329,9 +329,18 @@ function buildProgramCatalog() {
   const catalog = new Map();
   programRows.forEach(row => {
     if (!catalog.has(row.proyecto_id)) {
-      catalog.set(row.proyecto_id, {id: row.proyecto_id, label: row.proyecto, program: row.programa, ccts: new Set()});
+      catalog.set(row.proyecto_id, {
+        id: row.proyecto_id,
+        label: row.proyecto,
+        program: row.programa,
+        ccts: new Set(),
+        countUnit: row.proyecto_id === 'doremifasol-8c4ff82' ? 'CCT/turno' : 'CCT'
+      });
     }
-    catalog.get(row.proyecto_id).ccts.add(normalizeCCT(row.cct));
+    const coverageKey = row.proyecto_id === 'doremifasol-8c4ff82'
+      ? `${normalizeCCT(row.cct)}|${normalizeTurn(row.turno)}`
+      : normalizeCCT(row.cct);
+    catalog.get(row.proyecto_id).ccts.add(coverageKey);
   });
   programCatalog = [...catalog.values()].map(item => ({...item, count: item.ccts.size})).sort((a, b) =>
     a.program.localeCompare(b.program, 'es') || a.label.localeCompare(b.label, 'es')
@@ -350,7 +359,7 @@ function buildProgramMenu() {
       <div>${projects.map(project => `
         <label class="inline-check program-option" data-search="${escapeAttr(normalize(`${program} ${project.label}`))}">
           <input type="checkbox" value="${escapeAttr(project.id)}">
-          <span>${escapeHtml(project.label)} <em>${project.count.toLocaleString('es-MX')} CCT</em></span>
+          <span>${escapeHtml(project.label)} <em>${project.count.toLocaleString('es-MX')} ${escapeHtml(project.countUnit)}</em></span>
         </label>`).join('')}
       </div>
     </details>`).join('');
@@ -817,14 +826,26 @@ function drawSchools() {
     const angle = 2 * Math.PI * index / group.length;
     const radius = group.length > 1 ? 0.000075 : 0;
     const marker = L.circleMarker([school.lat + Math.sin(angle) * radius, school.lon + Math.cos(angle) * radius], {
-      radius: 7,
+      radius: 8,
       color: '#ffffff',
       weight: 2,
       fillColor: schoolColor(school),
-      fillOpacity: 0.92
+      fillOpacity: 0.92,
+      bubblingMouseEvents: false
     });
     school.popupState = defaultPopupState(school);
-    marker.bindPopup(buildPopup(school, school.popupState), {maxWidth: 440, minWidth: 330});
+    marker.bindPopup(buildPopup(school, school.popupState), {
+      maxWidth: 440,
+      minWidth: 330,
+      maxHeight: 520,
+      autoPan: false,
+      keepInView: false
+    });
+    marker.on('click', event => {
+      if (event.originalEvent) L.DomEvent.stopPropagation(event.originalEvent);
+      marker.openPopup();
+    });
+    marker.on('mouseover', () => marker.bringToFront());
     marker.on('popupopen', () => bindSchoolPopup(marker, school));
     school.marker = marker;
     schoolLayer.addLayer(marker);
@@ -857,15 +878,19 @@ function drawSummary() {
 }
 
 function updateVisibility() {
-  map.removeLayer(schoolLayer);
-  map.removeLayer(summaryLayer);
-  if (!schoolsVisible) return;
+  if (!schoolsVisible) {
+    if (map.hasLayer(schoolLayer)) map.removeLayer(schoolLayer);
+    if (map.hasLayer(summaryLayer)) map.removeLayer(summaryLayer);
+    return;
+  }
   const hasSearch = Boolean(q('buscarCCT').value || q('buscarNombre').value);
   if (map.getZoom() <= 10.5 && !hasSearch) {
-    summaryLayer.addTo(map);
+    if (map.hasLayer(schoolLayer)) map.removeLayer(schoolLayer);
+    if (!map.hasLayer(summaryLayer)) summaryLayer.addTo(map);
   } else {
     if (!schoolLayer.getLayers().length && filteredSchools.length) drawSchools();
-    schoolLayer.addTo(map);
+    if (map.hasLayer(summaryLayer)) map.removeLayer(summaryLayer);
+    if (!map.hasLayer(schoolLayer)) schoolLayer.addTo(map);
   }
 }
 
@@ -1080,25 +1105,60 @@ function programCard(row) {
   return `<div class="info-card blue-card">
     <div class="program-parent">${escapeHtml(row.programa)}</div>
     <h3>${escapeHtml(row.proyecto)}</h3>
-    ${programDetailHtml(row.detalle)}
+    ${programDetailHtml(row.detalle, row)}
   </div>`;
 }
 
-function programDetailHtml(detail) {
+function programDetailHtml(detail, row = {}) {
   const text = clean(detail);
   if (!text) return '<p class="muted-box">La base del programa no contiene información adicional.</p>';
+  const hiddenFields = hiddenProgramFields(row);
   const prepared = text.replace(/\.\s+(?=(?:Factibilidad de infraestructura|Puntos de muestreo|Parámetros con alguna excedencia):)/g, ' ; ');
   const groups = prepared.split(/\s+\|\s+(?=[^|]{1,100}:)/).map(group => group.trim()).filter(Boolean);
-  return `<div class="program-detail-records">${groups.map((group, groupIndex) => {
+  const sections = groups.map((group, groupIndex) => {
     const fields = group.split(/\s+(?:;|·)\s+/).map(part => part.trim()).filter(Boolean).map(part => {
       const match = part.match(/^([^:]{1,100}):\s*(.*)$/s);
       return match ? [cleanProgramLabel(match[1]), match[2]] : ['Información del programa', part];
-    });
+    }).filter(([label, value]) => !hiddenFields.has(normalize(label)) && clean(value));
+    if (!fields.length) return '';
     return `<section class="program-detail-record">
       ${groups.length > 1 ? `<h4>Registro ${groupIndex + 1}</h4>` : ''}
       <dl>${fields.map(([label, value]) => detailRow(label, formatProgramValue(value))).join('')}</dl>
     </section>`;
-  }).join('')}</div>`;
+  }).filter(Boolean).join('');
+  return sections
+    ? `<div class="program-detail-records">${sections}</div>`
+    : '<p class="muted-box">La base del programa no contiene información adicional.</p>';
+}
+
+function hiddenProgramFields(row) {
+  const project = normalize(row.proyecto);
+  const program = normalize(row.programa);
+  const fields = new Set();
+  const hide = (...labels) => labels.forEach(label => fields.add(normalize(label)));
+
+  if (row.proyecto_id === 'doremifasol-8c4ff82' || program === 'do re mi fa sol por mi escuela') {
+    hide('Enlace', 'Enlace de vinculación');
+  }
+  if (project === 'metodologia de teatro critico' || [
+    'cuidado del medio ambiente y energia sostenible',
+    'innovaciones en seguridad y gestion de riesgos',
+    'movilidad urbana sostenible y espacios publicos',
+    'patrimonio cultural y agroindustria mexicana',
+    'salud comunitaria y prevencion de enfermedades',
+    'tecnologia para la inclusion y la educacion inclusiva'
+  ].includes(project)) hide('Modalidad');
+  if (project === 'ruta de construccion colectiva para la participacion estudiantil') {
+    hide('Sostenimiento', 'Sostenimiento fuente');
+  }
+  if (['at', 'atp', 'tutoria'].includes(project)) {
+    hide('Dirección general', 'Direccion general', 'CCT zona', 'Centro de maestros', 'Modalidad', 'Ciclo escolar');
+  }
+  if (project === 'beca comision') hide('Ciclo escolar');
+  if (project === 'practicas educativas') {
+    hide('Dirección general', 'Direccion general', 'CCT zona', 'Centro de maestros');
+  }
+  return fields;
 }
 
 function cleanProgramLabel(label) {
@@ -1119,7 +1179,8 @@ function formatProgramValue(value) {
 }
 
 function programRowKey(row) {
-  return `${normalizeCCT(row.cct)}|${clean(row.proyecto_id)}`;
+  const base = `${normalizeCCT(row.cct)}|${clean(row.proyecto_id)}`;
+  return row.proyecto_id === 'doremifasol-8c4ff82' ? `${base}|${normalizeTurn(row.turno)}` : base;
 }
 
 function normalizeTurn(value) {
@@ -1136,20 +1197,11 @@ function renderImprovements(school) {
   const cards = [];
   const seen = new Set();
   school.improvementDetails.forEach(row => (row.categorias || []).forEach(category => {
-    const key = `${row.cct}|${category.id}`;
+    const key = category.id;
     if (seen.has(key)) return;
     seen.add(key);
     cards.push(`<div class="info-card improvement-card" style="border-left-color:${IMPROVEMENTS[category.id]?.color || '#0f766e'}">
       <h3>${escapeHtml(category.label)}</h3>
-      <dl>
-        ${detailRow('Código', row.codigo)}
-        ${detailRow('Fuente', category.fuente)}
-        ${category.id === 'dgcop_obra_2025_232' && row.avance_aula_digital_mixtli_pct !== undefined
-          ? `${detailRow('Avance de aula digital Mixtli', `${row.avance_aula_digital_mixtli_pct.toLocaleString('es-MX', {maximumFractionDigits: 2})} %`)}
-             ${detailRow('Reporte', '19 de agosto de 2026')}
-             ${detailRow('Medición', row.avance_aula_digital_mixtli_periodo)}`
-          : ''}
-      </dl>
     </div>`);
   }));
   return cards.join('') || '<p class="muted-box">No tiene acciones de mantenimiento registradas en las bases incorporadas.</p>';
