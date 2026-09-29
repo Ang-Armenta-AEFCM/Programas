@@ -204,7 +204,7 @@ function normalizeSchool(props, lat, lon, index, programOnly) {
     props,
     nombre: clean(props.inmueble || props.nombre) || 'Plantel sin nombre',
     alcaldia: normalizeAlcaldia(props.alcaldia),
-    nivel: clean(props.principal || props.nivel),
+    nivel: normalizeEducationLevel(props.principal || props.nivel),
     ccts: (programOnly ? [props.cct] : CCT_FIELDS.map(field => props[field])).map(normalizeCCT).filter(Boolean),
     territories: props.territorios || {},
     programOnly,
@@ -220,7 +220,11 @@ function normalizeSchool(props, lat, lon, index, programOnly) {
 
 function attachCctDirectory(schools, source) {
   schools.forEach(school => {
-    school.cctRecords = school.ccts.flatMap(cct => (source[cct] || []).map(record => ({...record, cct})));
+    school.cctRecords = school.ccts.flatMap(cct => (source[cct] || []).map(record => ({
+      ...record,
+      cct,
+      nivel: normalizeEducationLevel(record.nivel)
+    })));
     school.imvLevels = unique(school.cctRecords.map(record => imvCategory(record.imv_nivel)).filter(Boolean));
     if (!school.imvLevels.length) {
       const fallback = imvCategory(school.props.coord_C_US ?? school.props.C_US);
@@ -1386,7 +1390,7 @@ function saveState() {
 function restoreState() {
   let state = {};
   try { state = JSON.parse(localStorage.getItem('visorProgramasStateV4') || '{}'); } catch {}
-  q('filtroNivel').value = state.nivel || '';
+  q('filtroNivel').value = normalizeEducationLevel(state.nivel || '');
   q('filtroIMV').value = state.imvLevel || '';
   restoreChecks('#programFilters input', state.projects || []);
   restoreChecks('#improvementFilters input', state.improvements || []);
@@ -1526,6 +1530,14 @@ function clean(value) {
 
 function normalize(value) {
   return clean(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+function normalizeEducationLevel(value) {
+  const original = clean(value);
+  const key = normalize(original);
+  if (key === 'secundaria') return 'Secundaria';
+  if (key === 'especial' || key === 'especial cam') return 'Especial - CAM';
+  return original;
 }
 
 function normalizeAlcaldia(value) {
