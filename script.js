@@ -325,8 +325,8 @@ function joinIndicators(schools, source) {
     const byCct = school.ccts.map(key => ({cct: key, ...(source[key] || {})}));
     const totals = {};
     Object.keys(INDICATOR_LABELS).forEach(metric => {
-      const values = byCct.map(row => row[metric]).filter(value => value !== null && value !== undefined && value !== '');
-      totals[metric] = values.length ? values.reduce((sum, value) => sum + Number(value || 0), 0) : null;
+      const values = byCct.map(row => numericIndicatorValue(row[metric])).filter(value => value !== null);
+      totals[metric] = values.length ? values.reduce((sum, value) => sum + value, 0) : null;
     });
     school.indicators = {byCct, totals};
   });
@@ -1072,7 +1072,7 @@ function indicatorMiniHtml(school) {
   if (!indicators.length) return '';
   return `<div class="indicator-mini"><strong>Indicadores educativos</strong>${indicators.map(([key, label]) => {
     const value = school.indicators.totals[key];
-    return `<div><span>${escapeHtml(label)}</span><b>${value === null ? '—' : Number(value).toLocaleString('es-MX')}</b></div>`;
+    return `<div><span>${escapeHtml(label)}</span><b>${formatIndicatorValue(value)}</b></div>`;
   }).join('')}</div>`;
 }
 
@@ -1108,9 +1108,20 @@ function indicatorDetailHtml(school) {
     <p>Valores del nivel educativo del plantel, acumulados para los CCT registrados en este inmueble.</p>
     <div class="indicator-grid">${indicators.map(([key, label]) => {
       const value = school.indicators.totals[key];
-      return `<div><span>${escapeHtml(label)}</span><strong>${value === null ? 'Sin registro' : Number(value).toLocaleString('es-MX')}</strong></div>`;
+      return `<div><span>${escapeHtml(label)}</span><strong>${formatIndicatorValue(value)}</strong></div>`;
     }).join('')}</div>
   </section>`;
+}
+
+function numericIndicatorValue(value) {
+  if (value === null || value === undefined || value === '') return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function formatIndicatorValue(value) {
+  const number = numericIndicatorValue(value);
+  return number === null ? 'Sin registro' : number.toLocaleString('es-MX');
 }
 
 function indicatorsForLevel(level) {
