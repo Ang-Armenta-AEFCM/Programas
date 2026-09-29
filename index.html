@@ -6,7 +6,7 @@
   <meta name="description" content="Consulta territorial de programas y mantenimiento en planteles educativos de la Ciudad de México.">
   <title>Visor de programas de la Ciudad de México</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="style.css?v=20260915-imc">
+  <link rel="stylesheet" href="style.css?v=20260929-ficha">
 </head>
 <body>
 <header class="topbar">
@@ -129,7 +129,7 @@
       <div class="legend-head"><strong id="legendTitle">Planteles escolares</strong><button id="toggleLegend" type="button">−</button></div>
       <div id="legendBody"></div>
     </div>
-    <aside id="detailPanel" class="detail-panel" aria-live="polite">
+    <aside id="detailPanel" class="detail-panel" aria-live="polite" aria-hidden="true">
       <button id="closeDetail" class="close" type="button" aria-label="Cerrar ficha">×</button>
       <h2 id="detailTitle">Seleccione un plantel</h2>
       <div id="detailContent" class="detail-content"><p>Haga clic en un punto del mapa para consultar la información.</p></div>
@@ -138,6 +138,6 @@
 </main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="script.js?v=20260917-textos"></script>
+<script src="script.js?v=20260929-ficha"></script>
 </body>
 </html>

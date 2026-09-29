@@ -118,6 +118,9 @@ let initialized = false;
 const schoolLayer = L.layerGroup();
 const summaryLayer = L.layerGroup();
 const map = L.map('map', {zoomControl: false, preferCanvas: true}).setView([19.35, -99.13], 10);
+map.createPane('schoolPane');
+map.getPane('schoolPane').style.zIndex = '650';
+const schoolRenderer = L.canvas({pane: 'schoolPane', padding: 0.5});
 L.control.zoom({position: 'topleft'}).addTo(map);
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
   maxZoom: 19,
@@ -548,7 +551,10 @@ function bindUI() {
   q('toggleMejoras').onclick = () => toggleMenu('mejorasBody', 'mejorasArrow', 'toggleMejoras');
   q('toggleSidebar').onclick = collapseSidebar;
   q('showSidebar').onclick = expandSidebar;
-  q('closeDetail').onclick = () => q('detailPanel').classList.remove('open');
+  q('closeDetail').onclick = () => {
+    q('detailPanel').classList.remove('open');
+    q('detailPanel').setAttribute('aria-hidden', 'true');
+  };
   q('toggleLegend').onclick = () => toggleBox('legendBody', 'toggleLegend');
   q('statsLink').onclick = saveState;
   q('toggleDark').onclick = toggleDarkMode;
@@ -826,6 +832,8 @@ function drawSchools() {
     const angle = 2 * Math.PI * index / group.length;
     const radius = group.length > 1 ? 0.000075 : 0;
     const marker = L.circleMarker([school.lat + Math.sin(angle) * radius, school.lon + Math.cos(angle) * radius], {
+      pane: 'schoolPane',
+      renderer: schoolRenderer,
       radius: 8,
       color: '#ffffff',
       weight: 2,
@@ -843,7 +851,6 @@ function drawSchools() {
     });
     marker.on('click', event => {
       if (event.originalEvent) L.DomEvent.stopPropagation(event.originalEvent);
-      marker.openPopup();
     });
     marker.on('mouseover', () => marker.bringToFront());
     marker.on('popupopen', () => bindSchoolPopup(marker, school));
@@ -1007,7 +1014,10 @@ function buildPopup(school, state) {
 
 function bindSchoolPopup(marker, school) {
   const root = marker.getPopup().getElement();
-  if (!root) return;
+  if (!root) {
+    requestAnimationFrame(() => bindSchoolPopup(marker, school));
+    return;
+  }
   const popupContent = root.querySelector('.school-popup');
   if (popupContent) {
     L.DomEvent.disableClickPropagation(popupContent);
@@ -1036,10 +1046,14 @@ function bindSchoolPopup(marker, school) {
       openDetail(view, {activeTab: 'programas', selectedProgramKey: button.dataset.programKey});
     };
   });
-  root.querySelector('[data-open-detail]')?.addEventListener('click', event => {
-    L.DomEvent.stop(event);
-    openDetail(selectedSchoolView(school, school.popupState));
-  });
+  const detailButton = root.querySelector('[data-open-detail]');
+  if (detailButton) {
+    detailButton.onclick = event => {
+      event.preventDefault();
+      event.stopPropagation();
+      openDetail(selectedSchoolView(school, school.popupState));
+    };
+  }
 }
 
 function refreshSchoolPopup(marker, school) {
@@ -1059,7 +1073,7 @@ function indicatorMiniHtml(school) {
 }
 
 function openDetail(school, options = {}) {
-  q('detailPanel').classList.add('open');
+  const panel = q('detailPanel');
   q('detailTitle').textContent = options.selectedProgramKey ? 'Información del programa' : 'Ficha de información';
   const selectedProgram = options.selectedProgramKey
     ? school.programs.filter(row => programRowKey(row) === options.selectedProgramKey)
@@ -1077,6 +1091,9 @@ function openDetail(school, options = {}) {
     <div class="tab-pane${activeTab === 'mejoras' ? ' active' : ''}" data-pane="mejoras">${improvements}</div>
     <div class="tab-pane${activeTab === 'indicadores' ? ' active' : ''}" data-pane="indicadores">${indicatorDetailHtml(school)}</div>`;
   activateTabs();
+  panel.classList.add('open');
+  panel.setAttribute('aria-hidden', 'false');
+  panel.scrollTop = 0;
 }
 
 function indicatorDetailHtml(school) {
@@ -1149,7 +1166,7 @@ function hiddenProgramFields(row) {
     'tecnologia para la inclusion y la educacion inclusiva'
   ].includes(project)) hide('Modalidad');
   if (project === 'ruta de construccion colectiva para la participacion estudiantil') {
-    hide('Sostenimiento', 'Sostenimiento fuente');
+    hide('Sostenimiento');
   }
   if (['at', 'atp', 'tutoria'].includes(project)) {
     hide('Dirección general', 'Direccion general', 'CCT zona', 'Centro de maestros', 'Modalidad', 'Ciclo escolar');
@@ -1329,7 +1346,7 @@ function zoomToMatch(type) {
   setTimeout(() => {
     updateVisibility();
     school.marker?.openPopup();
-  }, 80);
+  }, 240);
 }
 
 function clearAllFilters() {
