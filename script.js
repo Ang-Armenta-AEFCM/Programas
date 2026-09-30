@@ -988,7 +988,9 @@ function selectedCctRecord(school, state) {
 function programsForPopup(school, state) {
   return school.programs.filter(row => {
     if (state.cct && normalizeCCT(row.cct) !== normalizeCCT(state.cct)) return false;
-    if (state.turno && !programMatchesTurn(row.turno, state.turno)) return false;
+    // Los programas se cruzan por CCT. Solo DO RE MI FA SOL conserva el
+    // desglose por turno porque su cobertura y recuento usan CCT/turno.
+    if (row.proyecto_id === 'doremifasol-8c4ff82' && state.turno && !programMatchesTurn(row.turno, state.turno)) return false;
     return true;
   });
 }
