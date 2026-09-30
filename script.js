@@ -4,6 +4,7 @@ const DATA = {
   programs: 'data/programas_integradores.json',
   improvements: 'data/mejoras_infraestructura.json',
   indicators: 'data/indicadores_educativos.json',
+  students: 'data/estudiantes_siieweb.json',
   alcaldia: 'data/alcaldias.json',
   ageb: 'data/ageb.geojson',
   cp: 'data/codigos_postales.geojson',
@@ -100,6 +101,7 @@ let programRows = [];
 let programCatalog = [];
 let improvementsRows = [];
 let indicatorsByCCT = {};
+let studentEnrollmentRows = [];
 let imvGeo = null;
 let imvLayer = null;
 let imvLoadPromise = null;
@@ -143,6 +145,7 @@ async function init() {
     programRows = prepareProgramRows(loaded.programs);
     improvementsRows = loaded.improvements;
     indicatorsByCCT = loaded.indicators;
+    studentEnrollmentRows = loaded.students?.registros || [];
     territoryGeo = {alcaldia: loaded.alcaldia, ageb: loaded.ageb, cp: loaded.cp, colonia: loaded.colonia};
 
     allSchools = (loaded.schools.features || []).map(normalizeFeature).filter(Boolean);
@@ -152,6 +155,7 @@ async function init() {
     joinPrograms(allSchools, programRows);
     joinImprovements(allSchools, improvementsRows);
     joinIndicators(allSchools, indicatorsByCCT);
+    joinStudentEnrollment(allSchools, studentEnrollmentRows);
 
     buildProgramCatalog();
     buildProgramMenu();
@@ -212,6 +216,7 @@ function normalizeSchool(props, lat, lon, index, programOnly) {
     improvementIds: [],
     improvementDetails: [],
     indicators: {byCct: [], totals: {}},
+    studentEnrollment: {rows: [], totalInmueble: null},
     cctRecords: [],
     imvLevels: [],
     marker: null
@@ -329,6 +334,44 @@ function joinIndicators(schools, source) {
       totals[metric] = values.length ? values.reduce((sum, value) => sum + value, 0) : null;
     });
     school.indicators = {byCct, totals};
+  });
+}
+
+function joinStudentEnrollment(schools, source) {
+  const byId = new Map();
+  const byCct = new Map();
+  source.forEach(record => {
+    const id = clean(record.idinmueble);
+    if (id) byId.set(id, record);
+    (record.ccts || []).forEach(entry => {
+      const cct = normalizeCCT(entry.cct);
+      if (!cct) return;
+      if (!byCct.has(cct)) byCct.set(cct, []);
+      byCct.get(cct).push(record);
+    });
+  });
+  schools.forEach(school => {
+    const schoolCcts = new Set(school.ccts.map(normalizeCCT).filter(Boolean));
+    const direct = byId.get(clean(school.id));
+    const candidates = direct
+      ? [direct]
+      : [...new Map(school.ccts.flatMap(cct => byCct.get(normalizeCCT(cct)) || []).map(record => [clean(record.idinmueble), record])).values()];
+    const rows = new Map();
+    candidates.forEach(record => (record.ccts || []).forEach(entry => {
+      const cct = normalizeCCT(entry.cct);
+      if (!schoolCcts.has(cct)) return;
+      const normalized = {
+        cct,
+        turno: clean(entry.turno),
+        estudiantes: numericIndicatorValue(entry.estudiantes)
+      };
+      rows.set(`${cct}|${normalizeTurn(normalized.turno)}`, normalized);
+    }));
+    const totals = [...new Set(candidates.map(record => numericIndicatorValue(record.estudiantes_inmueble)).filter(value => value !== null))];
+    school.studentEnrollment = {
+      rows: [...rows.values()],
+      totalInmueble: totals.length === 1 ? Number(totals[0]) : null
+    };
   });
 }
 
@@ -958,6 +1001,9 @@ function selectedSchoolView(school, state) {
     ? school.improvementDetails.filter(row => normalizeCCT(row.cct) === normalizeCCT(cct))
     : school.improvementDetails;
   const indicator = cct ? (school.indicators.byCct.find(row => row.cct === normalizeCCT(cct)) || {}) : school.indicators.totals;
+  const studentRows = cct ? school.studentEnrollment.rows.filter(row =>
+    normalizeCCT(row.cct) === normalizeCCT(cct) && (!state.turno || normalizeTurn(row.turno) === normalizeTurn(state.turno))
+  ) : school.studentEnrollment.rows;
   return {
     ...school,
     nombre: clean(record?.nombre) || school.nombre,
@@ -968,7 +1014,8 @@ function selectedSchoolView(school, state) {
     programs,
     improvementDetails,
     improvementIds: unique(improvementDetails.flatMap(row => (row.categorias || []).map(category => category.id))),
-    indicators: cct ? {byCct: [{cct, ...indicator}], totals: indicator} : school.indicators
+    indicators: cct ? {byCct: [{cct, ...indicator}], totals: indicator} : school.indicators,
+    studentEnrollment: {...school.studentEnrollment, rows: studentRows}
   };
 }
 
@@ -1102,15 +1149,48 @@ function openDetail(school, options = {}) {
 
 function indicatorDetailHtml(school) {
   const indicators = indicatorsForLevel(school.nivel);
-  if (!indicators.length) return '';
+  const studentRows = studentRowsForDisplay(school);
   return `<section class="indicator-card">
     <h3>Indicadores educativos</h3>
-    <p>Valores del nivel educativo del plantel, acumulados para los CCT registrados en este inmueble.</p>
+    <p><strong>Estudiantes SIIEWEB</strong></p>
+    <div class="indicator-grid">
+      ${studentRows.map(row => `<div><span>${escapeHtml(['CCT ' + row.cct, row.turno].filter(Boolean).join(' · '))}</span><strong>${formatIndicatorValue(row.estudiantes)}</strong></div>`).join('')}
+      <div><span>Total de estudiantes del inmueble</span><strong>${formatIndicatorValue(school.studentEnrollment.totalInmueble)}</strong></div>
+    </div>
+    ${indicators.length ? `<p><strong>Trayectoria educativa</strong></p>
     <div class="indicator-grid">${indicators.map(([key, label]) => {
       const value = school.indicators.totals[key];
       return `<div><span>${escapeHtml(label)}</span><strong>${formatIndicatorValue(value)}</strong></div>`;
-    }).join('')}</div>
+    }).join('')}</div>` : ''}
   </section>`;
+}
+
+function studentRowsForDisplay(school) {
+  const allowedCcts = new Set(school.ccts.map(normalizeCCT).filter(Boolean));
+  const candidates = new Map();
+  school.cctRecords.forEach(record => {
+    const cct = normalizeCCT(record.cct);
+    if (!allowedCcts.has(cct)) return;
+    const turno = clean(record.turno);
+    if (school.selectedTurn && normalizeTurn(turno) !== normalizeTurn(school.selectedTurn)) return;
+    candidates.set(`${cct}|${normalizeTurn(turno)}`, {cct, turno});
+  });
+  school.ccts.map(normalizeCCT).filter(Boolean).forEach(cct => {
+    if (![...candidates.values()].some(row => row.cct === cct)) candidates.set(`${cct}|`, {cct, turno: ''});
+  });
+  school.studentEnrollment.rows.forEach(row => {
+    const cct = normalizeCCT(row.cct);
+    if (!allowedCcts.has(cct)) return;
+    candidates.set(`${cct}|${normalizeTurn(row.turno)}`, {cct, turno: clean(row.turno)});
+  });
+  return [...candidates.values()].map(candidate => {
+    const exact = school.studentEnrollment.rows.find(row =>
+      normalizeCCT(row.cct) === candidate.cct && normalizeTurn(row.turno) === normalizeTurn(candidate.turno)
+    );
+    const sameCct = school.studentEnrollment.rows.filter(row => normalizeCCT(row.cct) === candidate.cct);
+    const match = exact || (!candidate.turno && sameCct.length === 1 ? sameCct[0] : null);
+    return {...candidate, estudiantes: match?.estudiantes ?? null};
+  }).sort((a, b) => a.cct.localeCompare(b.cct, 'es') || a.turno.localeCompare(b.turno, 'es'));
 }
 
 function numericIndicatorValue(value) {
