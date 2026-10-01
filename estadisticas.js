@@ -85,14 +85,17 @@ function prepareProgramRows(rows) {
 function normalizeSchool(props, coords, index, programOnly) {
   const lon = Number(coords[0] ?? props.lon);
   const lat = Number(coords[1] ?? props.lat);
-  if (!Number.isFinite(lon) || !Number.isFinite(lat)) return null;
+  const hasCoordinates = Number.isFinite(lon) && Number.isFinite(lat);
+  if (!(programOnly && props.cct ? [props.cct] : CCT_FIELDS.map(field => props[field])).some(cct)) return null;
   return {
-    lat,
-    lon,
+    lat: hasCoordinates ? lat : null,
+    lon: hasCoordinates ? lon : null,
+    props,
+    hasCoordinates,
     nombre: clean(props.inmueble || props.nombre) || 'Plantel sin nombre',
     alcaldia: clean(props.alcaldia).toLocaleUpperCase('es-MX'),
     nivel: clean(props.principal || props.nivel),
-    ccts: (programOnly ? [props.cct] : CCT_FIELDS.map(field => props[field])).map(cct).filter(Boolean),
+    ccts: (programOnly && props.cct ? [props.cct] : CCT_FIELDS.map(field => props[field])).map(cct).filter(Boolean),
     territories: props.territorios || {},
     programOnly,
     programs: [],
@@ -150,7 +153,9 @@ function joinImprovements(list, rows) {
   list.forEach(school => {
     const ids = new Set();
     const matchedByCct = school.ccts.map(key => index.get(key)).filter(Boolean);
-    const matchedByName = (byName.get(norm(school.nombre)) || []).filter(row =>
+    const matchedByName = Array.isArray(school.props.vinculos_mantenimiento_cct)
+      ? school.props.vinculos_mantenimiento_cct.map(key => index.get(cct(key))).filter(Boolean)
+      : (byName.get(norm(school.nombre)) || []).filter(row =>
       Number.isFinite(Number(row.lat)) && Number.isFinite(Number(row.lon)) &&
       Math.abs(Number(row.lat) - school.lat) < 0.015 && Math.abs(Number(row.lon) - school.lon) < 0.015
     );

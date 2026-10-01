@@ -200,16 +200,18 @@ function normalizeFeature(feature, index) {
 }
 
 function normalizeSchool(props, lat, lon, index, programOnly) {
-  if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+  const hasCoordinates = Number.isFinite(lat) && Number.isFinite(lon);
+  if (!(programOnly && props.cct ? [props.cct] : CCT_FIELDS.map(field => props[field])).some(normalizeCCT)) return null;
   return {
     id: clean(props.idinmueble) || `plantel-${index}`,
-    lat,
-    lon,
+    lat: hasCoordinates ? lat : null,
+    lon: hasCoordinates ? lon : null,
+    hasCoordinates,
     props,
     nombre: clean(props.inmueble || props.nombre) || 'Plantel sin nombre',
     alcaldia: normalizeAlcaldia(props.alcaldia),
     nivel: normalizeEducationLevel(props.principal || props.nivel),
-    ccts: (programOnly ? [props.cct] : CCT_FIELDS.map(field => props[field])).map(normalizeCCT).filter(Boolean),
+    ccts: (programOnly && props.cct ? [props.cct] : CCT_FIELDS.map(field => props[field])).map(normalizeCCT).filter(Boolean),
     territories: props.territorios || {},
     programOnly,
     programs: [],
@@ -313,7 +315,9 @@ function joinImprovements(schools, rows) {
   });
   schools.forEach(school => {
     const matchedByCct = school.ccts.map(key => index.get(key)).filter(Boolean);
-    const matchedByName = (byName.get(normalize(school.nombre)) || []).filter(row =>
+    const matchedByName = Array.isArray(school.props.vinculos_mantenimiento_cct)
+      ? school.props.vinculos_mantenimiento_cct.map(key => index.get(normalizeCCT(key))).filter(Boolean)
+      : (byName.get(normalize(school.nombre)) || []).filter(row =>
       Number.isFinite(Number(row.lat)) && Number.isFinite(Number(row.lon)) &&
       Math.abs(Number(row.lat) - school.lat) < 0.015 && Math.abs(Number(row.lon) - school.lon) < 0.015
     );
@@ -384,12 +388,10 @@ function buildProgramCatalog() {
         label: row.proyecto,
         program: row.programa,
         ccts: new Set(),
-        countUnit: row.proyecto_id === 'doremifasol-8c4ff82' ? 'CCT/turno' : 'CCT'
+        countUnit: 'CCT'
       });
     }
-    const coverageKey = row.proyecto_id === 'doremifasol-8c4ff82'
-      ? `${normalizeCCT(row.cct)}|${normalizeTurn(row.turno)}`
-      : normalizeCCT(row.cct);
+    const coverageKey = normalizeCCT(row.cct);
     catalog.get(row.proyecto_id).ccts.add(coverageKey);
   });
   programCatalog = [...catalog.values()].map(item => ({...item, count: item.ccts.size})).sort((a, b) =>
@@ -868,12 +870,13 @@ function updateMap() {
 function drawSchools() {
   schoolLayer.clearLayers();
   const atCoordinate = new Map();
-  filteredSchools.forEach(school => {
+  const mappedSchools = filteredSchools.filter(school => school.hasCoordinates);
+  mappedSchools.forEach(school => {
     const key = `${school.lat.toFixed(7)}|${school.lon.toFixed(7)}`;
     if (!atCoordinate.has(key)) atCoordinate.set(key, []);
     atCoordinate.get(key).push(school);
   });
-  filteredSchools.forEach(school => {
+  mappedSchools.forEach(school => {
     const group = atCoordinate.get(`${school.lat.toFixed(7)}|${school.lon.toFixed(7)}`);
     const index = group.indexOf(school);
     const angle = 2 * Math.PI * index / group.length;
@@ -909,7 +912,7 @@ function drawSchools() {
 function drawSummary() {
   summaryLayer.clearLayers();
   const groups = new Map();
-  filteredSchools.forEach(school => {
+  filteredSchools.filter(school => school.hasCoordinates).forEach(school => {
     const key = school.alcaldia || 'SIN ALCALDÍA';
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(school);
@@ -988,9 +991,6 @@ function selectedCctRecord(school, state) {
 function programsForPopup(school, state) {
   return school.programs.filter(row => {
     if (state.cct && normalizeCCT(row.cct) !== normalizeCCT(state.cct)) return false;
-    // Los programas se cruzan por CCT. Solo DO RE MI FA SOL conserva el
-    // desglose por turno porque su cobertura y recuento usan CCT/turno.
-    if (row.proyecto_id === 'doremifasol-8c4ff82' && state.turno && !programMatchesTurn(row.turno, state.turno)) return false;
     return true;
   });
 }
@@ -1351,15 +1351,12 @@ function updateStats() {
   const withPrograms = new Set(scopeSchools.filter(school => school.programs.some(row =>
     (!selectedProjects.length || selectedProjects.includes(row.proyecto_id))
   )).map(school => school.id)).size;
-  const onlyDoremi = selectedProjects.length === 1 && selectedProjects[0] === 'doremifasol-8c4ff82';
-  const programCoverage = onlyDoremi ? new Set(programRows.filter(row =>
-    row.proyecto_id === 'doremifasol-8c4ff82' && scopeCcts.has(normalizeCCT(row.cct))
-  ).map(row => `${normalizeCCT(row.cct)}|${normalizeTurn(row.turno)}`)).size : scopeCcts.size;
+  const programCoverage = scopeCcts.size;
   const active = selectedProjects.length + selectedImprovements.length +
     Object.values(selectedTerritories()).reduce((sum, values) => sum + values.length, 0);
   q('summaryTitle').textContent = active ? 'Resultado del cruce' : 'Resumen visible';
   const values = [
-    [selectedProjects.length ? programCoverage : countCctTurns(scopeCcts), onlyDoremi ? 'CCT/turno' : (selectedProjects.length ? 'CCT' : 'CCT/turno')],
+    [selectedProjects.length ? programCoverage : countCctTurns(scopeCcts), selectedProjects.length ? 'CCT' : 'CCT/turno'],
     [countPlantelsForCcts(scopeCcts, filteredSchools), 'Planteles'],
     [withPrograms, 'Planteles con programas'],
     [active, 'Selecciones activas']
@@ -1448,7 +1445,7 @@ function zoomToMatch(type) {
   const school = allSchools.find(item => type === 'cct'
     ? item.ccts.some(key => key === value || key.includes(value))
     : normalize(item.nombre) === value || normalize(item.nombre).includes(value));
-  if (!school) return;
+  if (!school || !school.hasCoordinates) return;
   map.setView([school.lat, school.lon], 16);
   setTimeout(() => {
     updateVisibility();
@@ -1604,6 +1601,7 @@ function setStatus(message, error = false) {
 }
 
 function fitSchools(schools, maxZoom = 14) {
+  schools = schools.filter(school => school.hasCoordinates);
   if (!schools.length) return;
   map.fitBounds(L.latLngBounds(schools.map(school => [school.lat, school.lon])), {padding: [40, 40], maxZoom});
 }
