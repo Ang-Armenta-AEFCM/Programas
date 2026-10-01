@@ -427,7 +427,7 @@ function buildImprovementMenu() {
   q('improvementFilters').innerHTML = Object.entries(IMPROVEMENTS).map(([key, item]) => `
     <label class="inline-check">
       <input type="checkbox" value="${escapeAttr(key)}">
-      <span>${escapeHtml(item.label)} <em>${countCctTurns(cctsByCategory[key]).toLocaleString('es-MX')} CCT/turno · ${countPlantelsForCcts(cctsByCategory[key], allSchools).toLocaleString('es-MX')} planteles</em></span>
+      <span>${escapeHtml(item.label)} <em>${cctsByCategory[key].size.toLocaleString('es-MX')} CCT · ${countPlantelsForCcts(cctsByCategory[key], allSchools).toLocaleString('es-MX')} planteles</em></span>
     </label>`).join('');
   q('improvementFilters').addEventListener('change', () => applyFilters(false));
 }
@@ -1356,7 +1356,7 @@ function updateStats() {
     Object.values(selectedTerritories()).reduce((sum, values) => sum + values.length, 0);
   q('summaryTitle').textContent = active ? 'Resultado del cruce' : 'Resumen visible';
   const values = [
-    [selectedProjects.length ? programCoverage : countCctTurns(scopeCcts), selectedProjects.length ? 'CCT' : 'CCT/turno'],
+    [scopeCcts.size, 'CCT'],
     [countPlantelsForCcts(scopeCcts, filteredSchools), 'Planteles'],
     [withPrograms, 'Planteles con programas'],
     [active, 'Selecciones activas']
