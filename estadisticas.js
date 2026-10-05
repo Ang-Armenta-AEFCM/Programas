@@ -1,7 +1,8 @@
 const PATHS = {
   schools: 'data/infraestructura_educativa_2026.json',
   programs: 'data/programas_integradores.json',
-  improvements: 'data/mejoras_infraestructura.json'
+  improvements: 'data/mejoras_infraestructura.json',
+  inmuebles: 'data/inmuebles_oficiales.json'
 };
 const CCT_FIELDS = ['cct1', 'cct2', 'cct3', 'cct4'];
 const IMPROVEMENT_LABELS = {
@@ -37,6 +38,7 @@ const PROGRAM_TEXT_CORRECTIONS = {
 let schools = [];
 let catalog = new Map();
 let state = {};
+let sharedInmuebles = [];
 
 document.addEventListener('DOMContentLoaded', init);
 
@@ -45,6 +47,7 @@ async function init() {
     const keys = Object.keys(PATHS);
     const values = await Promise.all(keys.map(key => fetchJson(PATHS[key])));
     const data = Object.fromEntries(keys.map((key, index) => [key, values[index]]));
+    sharedInmuebles = data.inmuebles || [];
     schools = (data.schools.features || []).map((feature, index) => {
       const props = feature.properties || {};
       return normalizeSchool(props, feature.geometry?.coordinates || [], index, props.es_solo_programa === 'SI');
@@ -94,7 +97,7 @@ function normalizeSchool(props, coords, index, programOnly) {
     hasCoordinates,
     nombre: clean(props.inmueble || props.nombre) || 'Plantel sin nombre',
     alcaldia: clean(props.alcaldia).toLocaleUpperCase('es-MX'),
-    nivel: clean(props.principal || props.nivel),
+    nivel: normalizeEducationLevel(props.principal || props.nivel),
     ccts: (programOnly && props.cct ? [props.cct] : CCT_FIELDS.map(field => props[field])).map(cct).filter(Boolean),
     territories: props.territorios || {},
     programOnly,
@@ -303,6 +306,13 @@ function clean(value) {
 
 function norm(value) {
   return clean(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+function normalizeEducationLevel(value) {
+  const original = clean(value);
+  const key = norm(original);
+  if (key === 'inicial' || key === 'educacion inicial') return 'Educación inicial';
+  return original;
 }
 
 function unique(values) {

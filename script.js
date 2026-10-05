@@ -8,7 +8,8 @@ const DATA = {
   alcaldia: 'data/alcaldias.json',
   ageb: 'data/ageb.geojson',
   cp: 'data/codigos_postales.geojson',
-  colonia: 'data/colonias_asentamientos.geojson'
+  colonia: 'data/colonias_asentamientos.geojson',
+  inmuebles: 'data/inmuebles_oficiales.json'
 };
 const OPTIONAL_DATA = {
   imv: 'data/indice_marginalidad_violencia.geojson',
@@ -116,6 +117,7 @@ let territorySelectionLayers = {};
 let baseAlcaldiaLayer = null;
 let schoolsVisible = true;
 let initialized = false;
+let sharedInmuebles = [];
 
 const schoolLayer = L.layerGroup();
 const summaryLayer = L.layerGroup();
@@ -141,6 +143,7 @@ async function init() {
     const keys = Object.keys(DATA);
     const values = await Promise.all(keys.map(key => fetchJson(DATA[key])));
     const loaded = Object.fromEntries(keys.map((key, index) => [key, values[index]]));
+    sharedInmuebles = loaded.inmuebles || [];
     cctDirectory = loaded.cctDirectory || {};
     programRows = prepareProgramRows(loaded.programs);
     improvementsRows = loaded.improvements;
@@ -445,6 +448,11 @@ function countCctTurns(ccts) {
 
 function countPlantelsForCcts(ccts, schools) {
   const wanted = new Set([...(ccts || [])].map(normalizeCCT).filter(Boolean));
+  if (sharedInmuebles.length) {
+    return sharedInmuebles.filter(inmueble =>
+      (inmueble.ccts || []).some(value => wanted.has(normalizeCCT(value)))
+    ).length;
+  }
   return new Set(schools.filter(school => school.ccts.some(cct => wanted.has(cct))).map(school => school.id)).size;
 }
 
@@ -1636,6 +1644,7 @@ function normalize(value) {
 function normalizeEducationLevel(value) {
   const original = clean(value);
   const key = normalize(original);
+  if (key === 'inicial' || key === 'educacion inicial') return 'Educación inicial';
   if (key === 'secundaria') return 'Secundaria';
   if (key === 'especial' || key === 'especial cam') return 'Especial - CAM';
   return original;
