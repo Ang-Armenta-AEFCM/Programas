@@ -450,6 +450,7 @@ function countPlantelsForCcts(ccts, schools) {
   const wanted = new Set([...(ccts || [])].map(normalizeCCT).filter(Boolean));
   if (sharedInmuebles.length) {
     return sharedInmuebles.filter(inmueble =>
+      !/^(COORD-|PROGRAMA-|base-cct-)/i.test(String(inmueble.id || '')) &&
       (inmueble.ccts || []).some(value => wanted.has(normalizeCCT(value)))
     ).length;
   }
@@ -1365,7 +1366,7 @@ function updateStats() {
   q('summaryTitle').textContent = active ? 'Resultado del cruce' : 'Resumen visible';
   const values = [
     [scopeCcts.size, 'CCT'],
-    [countPlantelsForCcts(scopeCcts, filteredSchools), 'Planteles'],
+    [countPlantelsForCcts(scopeCcts, filteredSchools), 'Inmuebles'],
     [withPrograms, 'Planteles con programas'],
     [active, 'Selecciones activas']
   ];
