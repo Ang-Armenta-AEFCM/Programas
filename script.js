@@ -214,6 +214,7 @@ function normalizeSchool(props, lat, lon, index, programOnly) {
     nombre: clean(props.inmueble || props.nombre) || 'Plantel sin nombre',
     alcaldia: normalizeAlcaldia(props.alcaldia),
     nivel: normalizeEducationLevel(props.principal || props.nivel),
+    niveles: unique((Array.isArray(props.niveles) ? props.niveles : [props.principal || props.nivel]).map(normalizeEducationLevel).filter(Boolean)),
     ccts: (programOnly && props.cct ? [props.cct] : CCT_FIELDS.map(field => props[field])).map(normalizeCCT).filter(Boolean),
     territories: props.territorios || {},
     programOnly,
@@ -235,6 +236,8 @@ function attachCctDirectory(schools, source) {
       cct,
       nivel: normalizeEducationLevel(record.nivel)
     })));
+    school.niveles = unique(school.cctRecords.map(record => normalizeEducationLevel(record.nivel)).filter(Boolean).concat(school.niveles || [school.nivel]));
+    school.nivel = school.niveles[0] || school.nivel;
     school.imvLevels = unique(school.cctRecords.map(record => imvCategory(record.imv_nivel)).filter(Boolean));
     if (!school.imvLevels.length) {
       const fallback = imvCategory(school.props.coord_C_US ?? school.props.C_US);
@@ -622,7 +625,7 @@ function bindUI() {
 }
 
 function populateGeneralFilters() {
-  fillSelect('filtroNivel', unique(allSchools.map(school => school.nivel)));
+  fillSelect('filtroNivel', unique(allSchools.flatMap(school => school.niveles || [school.nivel])));
   q('listaCCT').innerHTML = unique(allSchools.flatMap(school => school.ccts)).map(value => `<option value="${escapeAttr(value)}"></option>`).join('');
   q('listaNombres').innerHTML = unique(allSchools.map(school => school.nombre)).map(value => `<option value="${escapeAttr(value)}"></option>`).join('');
 }
@@ -638,7 +641,7 @@ function applyFilters(zoomTerritories) {
   const territories = selectedTerritories();
 
   filteredSchools = allSchools.filter(school => {
-    if (nivel && school.nivel !== nivel) return false;
+    if (nivel && !(school.niveles || [school.nivel]).includes(nivel)) return false;
     if (imvLevel && !school.imvLevels.includes(imvLevel)) return false;
     if (termCct && !school.ccts.some(value => value.includes(termCct))) return false;
     if (termName && !normalize(school.nombre).includes(termName)) return false;
@@ -1036,7 +1039,8 @@ function buildPopup(school, state) {
   const programs = programsForPopup(school, state);
   const locality = unique([record?.localidad, record?.colonia].map(clean).filter(Boolean)).join(' / ') ||
     clean(school.props.bm_localidad || school.props.localidad || school.props.colonia);
-  const maintenanceTags = school.improvementIds.map(key =>
+  const popupView = state.cct ? selectedSchoolView(school, state) : school;
+  const maintenanceTags = popupView.improvementIds.map(key =>
     `<span class="mini-tag teal">${escapeHtml(IMPROVEMENTS[key]?.label || key)}</span>`).join('');
   const cctControl = school.ccts.length > 1 ? `
     <div class="popup-control">
@@ -1340,7 +1344,13 @@ function activateTabs() {
 
 function updateStats() {
   const term = normalizeCCT(q('buscarCCT').value);
-  const cctSet = new Set(filteredSchools.flatMap(school => school.ccts.filter(key => !term || key.includes(term))));
+  const selectedLevel = q('filtroNivel').value;
+  const cctSet = new Set(filteredSchools.flatMap(school => school.ccts.filter(key => {
+    if (term && !key.includes(term)) return false;
+    if (!selectedLevel) return true;
+    const rows = cctDirectory[key] || [];
+    return rows.some(row => normalizeEducationLevel(row.nivel) === selectedLevel);
+  })));
   const selectedProjects = checkedValues('#programFilters input');
   const selectedImprovements = checkedValues('#improvementFilters input');
   let scopeCcts = cctSet;
